@@ -110,13 +110,30 @@ function KeywordStore(keywords){
    *search function that returns a modified version of the text passed into with the keywords highlighted.
    */
   this.findKeywords=function(text){
-	var secondaryRe = /\b(ALL|IMMUNEBANE|IMMUNEHEX|IMMUNEFIRE|IMMUNEKNOCKDOWN|IMMUNEICE|IMMUNEIMMOBILE|IMMUNEPOISON|IMMUNESLOW|IMMUNEALL)\b/g;
+	var secondaryRe;
+	var en = /\b(ALL|IMMUNEBANE|IMMUNEHEX|IMMUNEFIRE|IMMUNEKNOCKDOWN|IMMUNEICE|IMMUNEIMMOBILE|IMMUNEPOISON|IMMUNESLOW|IMMUNEALL)\b/g;
+    var de = /\b(ALL|IMMUNEBANE|IMMUNEHEX|IMMUNEFIRE|IMMUNEKNOCKDOWN|IMMUNEICE|IMMUNEIMMOBILE|IMMUNEPOISON|IMMUNESLOW|IMMUNEALL)\b/g;
+    var es = /\b(TODO|INMUNEAESTRAGO|INMUNEAMALEFICIO|INMUNEAFUEGO|INMUNEADERRIBO|INMUNEAHIELO|INMUNEAINMOVIL|INMUNEAVENENO|INMUNEARALENTIZAR|INMUNEATODO)\b/g;
+    var fr = /\b(ALL|IMMUNEBANE|IMMUNEHEX|IMMUNEFIRE|IMMUNEKNOCKDOWN|IMMUNEICE|IMMUNEIMMOBILE|IMMUNEPOISON|IMMUNESLOW|IMMUNEALL)\b/g;
     
-    text = text.replace(secondaryRe,function(match){
-		var result = '<span class="keyword '+match+'" data-key="'+match+'">'+match+'</span>';
-		
-		return result;
-    }.bind(this));
+	if(languageChoice == "en") {
+		secondaryRe = en;
+		text = replaceEnglishImmunities(secondaryRe, text);
+	} else if(languageChoice == "de") {
+		secondaryRe = de;
+		text = replaceDeutchImmunities(secondaryRe, text);
+	} else if(languageChoice == "es") {
+		secondaryRe = es;
+		text = replaceEspanolImmunities(secondaryRe, text);
+	} else if(languageChoice == "fr") {
+		secondaryRe = fr;
+		text = replaceFrancaisImmunities(secondaryRe, text);
+	} else {
+		secondaryRe = en;
+		text = replaceEnglishImmunities(secondaryRe, text);
+	}	
+	
+    
 	
 	//console.log(this.re);
 	//console.log(secondaryRe);
@@ -135,7 +152,104 @@ function KeywordStore(keywords){
 	
 	return text;
   };
+  
+function replaceEnglishImmunities(secondaryRe, text) {
+	return text.replace(secondaryRe,function(match){
+		var result = '<span class="keyword '+match+'" data-key="'+match+'">'+match+'</span>';
+		
+		return result;
+    }.bind(this));
+}
 
+function replaceDeutchImmunities(secondaryRe, text) {
+	return text.replace(secondaryRe,function(match){
+		if(match == 'ALL') {
+			match = 'ALL';
+		} else if(match == 'IMMUNEBANE') {
+			match = 'IMMUNEBANE';
+		} else if(match == 'IMMUNEHEX') {
+			match = 'IMMUNEHEX';
+		} else if(match == 'IMMUNEFIRE') {
+			match = 'IMMUNEFIRE';
+		} else if(match == 'IMMUNEKNOCKDOWN') {
+			match = 'IMMUNEKNOCKDOWN';
+		} else if(match == 'IMMUNEICE') {
+			match = 'IMMUNEICE';
+		} else if(match == 'IMMUNEIMMOBILE') {
+			match = 'IMMUNEIMMOBILE';
+		} else if(match == 'IMMUNEPOISON') {
+			match = 'IMMUNEPOISON';
+		} else if(match == 'IMMUNESLOW') {
+			match = 'IMMUNESLOW';
+		} else if(match == 'IMMUNEALL') {
+			match = 'IMMUNEALL';
+		}
+		
+		var result = '<span class="keyword '+match+'" data-key="'+match+'">'+match+'</span>';
+		
+		return result;
+    }.bind(this));
+}
+
+function replaceEspanolImmunities(secondaryRe, text) {
+	return text.replace(secondaryRe,function(match){
+		if(match == 'TODO') {
+			match = 'ALL';
+		} else if(match == 'INMUNEAESTRAGO') {
+			match = 'IMMUNEBANE';
+		} else if(match == 'INMUNEAMALEFICIO') {
+			match = 'IMMUNEHEX';
+		} else if(match == 'INMUNEAFUEGO') {
+			match = 'IMMUNEFIRE';
+		} else if(match == 'INMUNEADERRIBO') {
+			match = 'IMMUNEKNOCKDOWN';
+		} else if(match == 'INMUNEAHIELO') {
+			match = 'IMMUNEICE';
+		} else if(match == 'INMUNEAINMOVIL') {
+			match = 'IMMUNEIMMOBILE';
+		} else if(match == 'INMUNEAVENENO') {
+			match = 'IMMUNEPOISON';
+		} else if(match == 'INMUNEARALENTIZAR') {
+			match = 'IMMUNESLOW';
+		} else if(match == 'INMUNEATODO') {
+			match = 'IMMUNEALL';
+		}
+		
+		var result = '<span class="keyword '+match+'" data-key="'+match+'">'+match+'</span>';
+		
+		return result;
+    }.bind(this));
+}
+
+function replaceFrancaisImmunities(secondaryRe, text) {
+	return text.replace(secondaryRe,function(match){
+		if(match == 'ALL') {
+			match = 'ALL';
+		} else if(match == 'IMMUNEBANE') {
+			match = 'IMMUNEBANE';
+		} else if(match == 'IMMUNEHEX') {
+			match = 'IMMUNEHEX';
+		} else if(match == 'IMMUNEFIRE') {
+			match = 'IMMUNEFIRE';
+		} else if(match == 'IMMUNEKNOCKDOWN') {
+			match = 'IMMUNEKNOCKDOWN';
+		} else if(match == 'IMMUNEICE') {
+			match = 'IMMUNEICE';
+		} else if(match == 'IMMUNEIMMOBILE') {
+			match = 'IMMUNEIMMOBILE';
+		} else if(match == 'IMMUNEPOISON') {
+			match = 'IMMUNEPOISON';
+		} else if(match == 'IMMUNESLOW') {
+			match = 'IMMUNESLOW';
+		} else if(match == 'IMMUNEALL') {
+			match = 'IMMUNEALL';
+		}
+		
+		var result = '<span class="keyword '+match+'" data-key="'+match+'">'+match+'</span>';
+		
+		return result;
+    }.bind(this));
+}
 
   /**
    * Find keywords that can contain other keywords.
@@ -268,9 +382,34 @@ function KeywordStore(keywords){
    */
   this.findDice=function(text){
     //regular expression - https://regex101.com/#javascript
-    var re = /(([+-]?[0-9]+)(RG|[RBGOP]|ST|SW|MI|MA|AC|MO|HE|SH|PO))\b/g;
+    var re;	
+	var en = /(([+-]?[0-9]+)(RG|[RBGOP]|ST|SW|MI|MA|AC|MO|HE|SH|PO))\b/g;
+	var de = /(([+-]?[0-9]+)(RG|[RBGOP]|ST|SW|MI|MA|AC|MO|HE|SH|PO))\b/g;
+	var es = /(([+-]?[0-9]+)(AL|[RAVNM]|ES|CC|DI|MA|AC|MO|HE|EC|PO))\b/g;
+	var fr = /(([+-]?[0-9]+)(RG|[RBGOP]|ST|SW|MI|MA|AC|MO|HE|SH|PO))\b/g;
 
-    text = text.replace(re,function(match,p1,p2,p3,p4){
+	if(languageChoice == "en") {
+		re = en;
+		text = replaceEnglishStats(re, text);
+	} else if(languageChoice == "de") {
+		re = de;
+		text = replaceDeutchStats(re, text);
+	} else if(languageChoice == "es") {
+		re = es;
+		text = replaceEspanolStats(re, text);
+	} else if(languageChoice == "fr") {
+		re = fr;
+		text = replaceFrancaisStats(re, text);
+	} else {
+		re = en;
+		text = replaceEnglishStats(re, text);
+	}
+	    
+    return text;
+  };
+  
+function replaceEnglishStats(re, text) {
+	return text.replace(re,function(match,p1,p2,p3,p4){
       var c="";
       //var v = p3.toLowerCase();
 
@@ -307,21 +446,343 @@ function KeywordStore(keywords){
       }
       return '<span class="'+c+'">'+(p2==='0'?'&nbsp;':p2)+'</span>';
     });
-    return text;
-  };
+}
 
+function replaceDeutchStats(re, text) {
+	return text.replace(re,function(match,p1,p2,p3,p4){
+      var c="";
+      //var v = p3.toLowerCase();
+
+      if(p3==='R'){
+        c+="dice red";
+      }else if(p3==='B'){
+        c+="dice blue";
+      }else if(p3==='G'){
+        c+="dice green";
+      }else if(p3==='O'){
+        c+="dice orange";
+      }else if(p3==='P'){
+        c+="dice purple";
+      }else if(p3==='ST'){
+        c+="dice star";
+      }else if(p3==='MA'){
+        c+="offense magic";
+      }else if(p3==='MI'){
+        c+="offense missile";
+      }else if(p3==='SW'){
+        c+="offense melee";
+      }else if(p3==='RG'){
+        c+="offense range";
+      }else if(p3==='AC'){
+        c+="actionMod";
+      }else if(p3==='MO'){
+        c+="moveMod";
+      }else if(p3==='HE'){
+        c+="heartMod";
+      }else if(p3==='SH'){
+        c+="shieldMod";
+      }else if(p3==='PO'){
+        c+="potionMod";
+      }
+      return '<span class="'+c+'">'+(p2==='0'?'&nbsp;':p2)+'</span>';
+    });
+}
+
+function replaceEspanolStats(re, text) {
+	return text.replace(re,function(match,p1,p2,p3,p4){
+      var c="";
+      //var v = p3.toLowerCase();
+
+      if(p3==='R'){
+        c+="dice red";
+      }else if(p3==='A'){
+        c+="dice blue";
+      }else if(p3==='V'){
+        c+="dice green";
+      }else if(p3==='N'){
+        c+="dice orange";
+      }else if(p3==='M'){
+        c+="dice purple";
+      }else if(p3==='ES'){
+        c+="dice star";
+      }else if(p3==='MA'){
+        c+="offense magic";
+      }else if(p3==='DI'){
+        c+="offense missile";
+      }else if(p3==='CC'){
+        c+="offense melee";
+      }else if(p3==='AL'){
+        c+="offense range";
+      }else if(p3==='AC'){
+        c+="actionMod";
+      }else if(p3==='MO'){
+        c+="moveMod";
+      }else if(p3==='HE'){
+        c+="heartMod";
+      }else if(p3==='EC'){
+        c+="shieldMod";
+      }else if(p3==='PO'){
+        c+="potionMod";
+      }
+      return '<span class="'+c+'">'+(p2==='0'?'&nbsp;':p2)+'</span>';
+    });
+}
+
+function replaceFrancaisStats(re, text) {
+	return text.replace(re,function(match,p1,p2,p3,p4){
+      var c="";
+      //var v = p3.toLowerCase();
+
+      if(p3==='R'){
+        c+="dice red";
+      }else if(p3==='B'){
+        c+="dice blue";
+      }else if(p3==='G'){
+        c+="dice green";
+      }else if(p3==='O'){
+        c+="dice orange";
+      }else if(p3==='P'){
+        c+="dice purple";
+      }else if(p3==='ST'){
+        c+="dice star";
+      }else if(p3==='MA'){
+        c+="offense magic";
+      }else if(p3==='MI'){
+        c+="offense missile";
+      }else if(p3==='SW'){
+        c+="offense melee";
+      }else if(p3==='RG'){
+        c+="offense range";
+      }else if(p3==='AC'){
+        c+="actionMod";
+      }else if(p3==='MO'){
+        c+="moveMod";
+      }else if(p3==='HE'){
+        c+="heartMod";
+      }else if(p3==='SH'){
+        c+="shieldMod";
+      }else if(p3==='PO'){
+        c+="potionMod";
+      }
+      return '<span class="'+c+'">'+(p2==='0'?'&nbsp;':p2)+'</span>';
+    });
+}
 
   /**
    *
    */
   this.findAffinity=function(description){
-    var re = /\b(ALLAFFINITY|AMETHYST|AMETHYSTCITRINE|AMETHYSTEMERALD|AMETHYSTRUBY|AMETHYSTSAPPHIRE|CITRINE|CITRINEAMETHYST|CITRINEEMERALD|CITRINERUBY|CITRINESAPPHIRE|EMERALD|EMERALDAMETHYST|EMERALDCITRINE|EMERALDRUBY|EMERALDSAPPHIRE|RUBY|RUBYAMETHYST|RUBYCITRINE|RUBYEMERALD|RUBYSAPPHIRE|SAPPHIRE|SAPPHIREAMETHYST|SAPPHIRECITRINE|SAPPHIREEMERALD|SAPPHIRERUBY)\b/g;
+    var re;
+	var en = /\b(ALLAFFINITY|AMETHYST|AMETHYSTCITRINE|AMETHYSTEMERALD|AMETHYSTRUBY|AMETHYSTSAPPHIRE|CITRINE|CITRINEAMETHYST|CITRINEEMERALD|CITRINERUBY|CITRINESAPPHIRE|EMERALD|EMERALDAMETHYST|EMERALDCITRINE|EMERALDRUBY|EMERALDSAPPHIRE|RUBY|RUBYAMETHYST|RUBYCITRINE|RUBYEMERALD|RUBYSAPPHIRE|SAPPHIRE|SAPPHIREAMETHYST|SAPPHIRECITRINE|SAPPHIREEMERALD|SAPPHIRERUBY)\b/g;
+	var de = /\b(ALLAFFINITY|AMETHYST|AMETHYSTCITRINE|AMETHYSTEMERALD|AMETHYSTRUBY|AMETHYSTSAPPHIRE|CITRINE|CITRINEAMETHYST|CITRINEEMERALD|CITRINERUBY|CITRINESAPPHIRE|EMERALD|EMERALDAMETHYST|EMERALDCITRINE|EMERALDRUBY|EMERALDSAPPHIRE|RUBY|RUBYAMETHYST|RUBYCITRINE|RUBYEMERALD|RUBYSAPPHIRE|SAPPHIRE|SAPPHIREAMETHYST|SAPPHIRECITRINE|SAPPHIREEMERALD|SAPPHIRERUBY)\b/g;
+	var es = /\b(AFINIDADATODO|AMATISTA|AMATISTACITRINO|AMATISTAESMERALDA|AMATISTARUBI|AMATISTAZAFIRO|CITRINO|CITRINOAMATISTA|CITRINOESMERALDA|CITRINORUBI|CITRINOZAFIRO|ESMERALDA|ESMERALDAAMATISTA|ESMERALDACITRINO|ESMERALDARUBI|ESMERALDAZAFIRO|RUBI|RUBIAMATISTA|RUBICITRINO|RUBIESMERALDA|RUBIZAFIRO|ZAFIRO|ZAFIROAMATISTA|ZAFIROCITRINO|ZAFIROESMERALDA|ZAFIRORUBI)\b/g;
+	var fr = /\b(ALLAFFINITY|AMETHYST|AMETHYSTCITRINE|AMETHYSTEMERALD|AMETHYSTRUBY|AMETHYSTSAPPHIRE|CITRINE|CITRINEAMETHYST|CITRINEEMERALD|CITRINERUBY|CITRINESAPPHIRE|EMERALD|EMERALDAMETHYST|EMERALDCITRINE|EMERALDRUBY|EMERALDSAPPHIRE|RUBY|RUBYAMETHYST|RUBYCITRINE|RUBYEMERALD|RUBYSAPPHIRE|SAPPHIRE|SAPPHIREAMETHYST|SAPPHIRECITRINE|SAPPHIREEMERALD|SAPPHIRERUBY)\b/g;
 
-    description = description.replace(re,function(match){
-    return '<div class="affinity '+match+'" title="'+match+'"></div>';
-    });
+	if(languageChoice == "en") {
+		re = en;
+		description = replaceEnglishAffinities(re, description);
+	} else if(languageChoice == "de") {
+		re = de;
+		description = replaceDeutchAffinities(re, description);
+	} else if(languageChoice == "es") {
+		re = es;
+		description = replaceEspanolAffinities(re, description);
+	} else if(languageChoice == "fr") {
+		re = fr;
+		description = replaceFrancaisAffinities(re, description);
+	} else {
+		re = en;
+		description = replaceEnglishAffinities(re, description);
+	}
+    
     return description;
   };
+  
+function replaceEnglishAffinities(re, description) {
+	return description.replace(re,function(match){
+		return '<div class="affinity '+match+'" title="'+match+'"></div>';
+    });
+}
+  
+function replaceDeutchAffinities(re, description) {
+	return description.replace(re,function(match){
+		if(match == 'ALLAFFINITY') {
+			match = 'ALLAFFINITY';
+		} else if(match == 'AMETHYST') {
+			match = 'AMETHYST';
+		} else if(match == 'AMETHYSTCITRINE') {
+			match = 'AMETHYSTCITRINE';
+		} else if(match == 'AMETHYSTEMERALD') {
+			match = 'AMETHYSTEMERALD';
+		} else if(match == 'AMETHYSTRUBY') {
+			match = 'AMETHYSTRUBY';
+		} else if(match == 'AMETHYSTSAPPHIRE') {
+			match = 'AMETHYSTSAPPHIRE';
+		} else if(match == 'CITRINE') {
+			match = 'CITRINE';
+		} else if(match == 'CITRINEAMETHYST') {
+			match = 'CITRINEAMETHYST';
+		} else if(match == 'CITRINEEMERALD') {
+			match = 'CITRINEEMERALD';
+		} else if(match == 'CITRINERUBY') {
+			match = 'CITRINERUBY';
+		} else if(match == 'CITRINESAPPHIRE') {
+			match = 'CITRINESAPPHIRE';
+		} else if(match == 'EMERALD') {
+			match = 'EMERALD';
+		} else if(match == 'EMERALDAMETHYST') {
+			match = 'EMERALDAMETHYST';
+		} else if(match == 'EMERALDCITRINE') {
+			match = 'EMERALDCITRINE';
+		} else if(match == 'EMERALDRUBY') {
+			match = 'EMERALDRUBY';
+		} else if(match == 'EMERALDSAPPHIRE') {
+			match = 'EMERALDSAPPHIRE';
+		} else if(match == 'RUBY') {
+			match = 'RUBY';
+		} else if(match == 'RUBYAMETHYST') {
+			match = 'RUBYAMETHYST';
+		} else if(match == 'RUBYCITRINE') {
+			match = 'RUBYCITRINE';
+		} else if(match == 'RUBYEMERALD') {
+			match = 'RUBYEMERALD';
+		} else if(match == 'RUBYSAPPHIRE') {
+			match = 'RUBYSAPPHIRE';
+		} else if(match == 'SAPPHIRE') {
+			match = 'SAPPHIRE';
+		} else if(match == 'SAPPHIREAMETHYST') {
+			match = 'SAPPHIREAMETHYST';
+		} else if(match == 'SAPPHIRECITRINE') {
+			match = 'SAPPHIRECITRINE';
+		} else if(match == 'SAPPHIREEMERALD') {
+			match = 'SAPPHIREEMERALD';
+		} else if(match == 'SAPPHIRERUBY') {
+			match = 'SAPPHIRERUBY';
+		}
+		
+		return '<div class="affinity '+match+'" title="'+match+'"></div>';
+    });
+}
+
+function replaceEspanolAffinities(re, description) {
+	return description.replace(re,function(match){
+		if(match == 'AFINIDADATODO') {
+			match = 'ALLAFFINITY';
+		} else if(match == 'AMATISTA') {
+			match = 'AMETHYST';
+		} else if(match == 'AMATISTACITRINO') {
+			match = 'AMETHYSTCITRINE';
+		} else if(match == 'AMATISTAESMERALDA') {
+			match = 'AMETHYSTEMERALD';
+		} else if(match == 'AMATISTARUBI') {
+			match = 'AMETHYSTRUBY';
+		} else if(match == 'AMATISTAZAFIRO') {
+			match = 'AMETHYSTSAPPHIRE';
+		} else if(match == 'CITRINO') {
+			match = 'CITRINE';
+		} else if(match == 'CITRINOAMATISTA') {
+			match = 'CITRINEAMETHYST';
+		} else if(match == 'CITRINOESMERALDA') {
+			match = 'CITRINEEMERALD';
+		} else if(match == 'CITRINORUBI') {
+			match = 'CITRINERUBY';
+		} else if(match == 'CITRINOZAFIRO') {
+			match = 'CITRINESAPPHIRE';
+		} else if(match == 'ESMERALDA') {
+			match = 'EMERALD';
+		} else if(match == 'ESMERALDAAMATISTA') {
+			match = 'EMERALDAMETHYST';
+		} else if(match == 'ESMERALDACITRINO') {
+			match = 'EMERALDCITRINE';
+		} else if(match == 'ESMERALDARUBI') {
+			match = 'EMERALDRUBY';
+		} else if(match == 'ESMERALDAZAFIRO') {
+			match = 'EMERALDSAPPHIRE';
+		} else if(match == 'RUBI') {
+			match = 'RUBY';
+		} else if(match == 'RUBIAMATISTA') {
+			match = 'RUBYAMETHYST';
+		} else if(match == 'RUBICITRINO') {
+			match = 'RUBYCITRINE';
+		} else if(match == 'RUBIESMERALDA') {
+			match = 'RUBYEMERALD';
+		} else if(match == 'RUBIZAFIRO') {
+			match = 'RUBYSAPPHIRE';
+		} else if(match == 'ZAFIRO') {
+			match = 'SAPPHIRE';
+		} else if(match == 'ZAFIROAMATISTA') {
+			match = 'SAPPHIREAMETHYST';
+		} else if(match == 'ZAFIROCITRINO') {
+			match = 'SAPPHIRECITRINE';
+		} else if(match == 'ZAFIROESMERALDA') {
+			match = 'SAPPHIREEMERALD';
+		} else if(match == 'ZAFIRORUBI') {
+			match = 'SAPPHIRERUBY';
+		}
+		
+		return '<div class="affinity '+match+'" title="'+match+'"></div>';
+    });
+}
+  
+function replaceFrancaisAffinities(re, description) {
+	return description.replace(re,function(match){
+		if(match == 'ALLAFFINITY') {
+			match = 'ALLAFFINITY';
+		} else if(match == 'AMETHYST') {
+			match = 'AMETHYST';
+		} else if(match == 'AMETHYSTCITRINE') {
+			match = 'AMETHYSTCITRINE';
+		} else if(match == 'AMETHYSTEMERALD') {
+			match = 'AMETHYSTEMERALD';
+		} else if(match == 'AMETHYSTRUBY') {
+			match = 'AMETHYSTRUBY';
+		} else if(match == 'AMETHYSTSAPPHIRE') {
+			match = 'AMETHYSTSAPPHIRE';
+		} else if(match == 'CITRINE') {
+			match = 'CITRINE';
+		} else if(match == 'CITRINEAMETHYST') {
+			match = 'CITRINEAMETHYST';
+		} else if(match == 'CITRINEEMERALD') {
+			match = 'CITRINEEMERALD';
+		} else if(match == 'CITRINERUBY') {
+			match = 'CITRINERUBY';
+		} else if(match == 'CITRINESAPPHIRE') {
+			match = 'CITRINESAPPHIRE';
+		} else if(match == 'EMERALD') {
+			match = 'EMERALD';
+		} else if(match == 'EMERALDAMETHYST') {
+			match = 'EMERALDAMETHYST';
+		} else if(match == 'EMERALDCITRINE') {
+			match = 'EMERALDCITRINE';
+		} else if(match == 'EMERALDRUBY') {
+			match = 'EMERALDRUBY';
+		} else if(match == 'EMERALDSAPPHIRE') {
+			match = 'EMERALDSAPPHIRE';
+		} else if(match == 'RUBY') {
+			match = 'RUBY';
+		} else if(match == 'RUBYAMETHYST') {
+			match = 'RUBYAMETHYST';
+		} else if(match == 'RUBYCITRINE') {
+			match = 'RUBYCITRINE';
+		} else if(match == 'RUBYEMERALD') {
+			match = 'RUBYEMERALD';
+		} else if(match == 'RUBYSAPPHIRE') {
+			match = 'RUBYSAPPHIRE';
+		} else if(match == 'SAPPHIRE') {
+			match = 'SAPPHIRE';
+		} else if(match == 'SAPPHIREAMETHYST') {
+			match = 'SAPPHIREAMETHYST';
+		} else if(match == 'SAPPHIRECITRINE') {
+			match = 'SAPPHIRECITRINE';
+		} else if(match == 'SAPPHIREEMERALD') {
+			match = 'SAPPHIREEMERALD';
+		} else if(match == 'SAPPHIRERUBY') {
+			match = 'SAPPHIRERUBY';
+		}
+		
+		return '<div class="affinity '+match+'" title="'+match+'"></div>';
+    });
+}
 
 
   /**

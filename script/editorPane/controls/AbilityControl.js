@@ -33,35 +33,36 @@ function AbilityControl(){
   		'<div class="helpUnit">'+
   		'<h3>Dice Types</h3>'+
   		'<ul>'+
-			'<li>Star: 1ST</li>'+
-			'<li>Blue: 1B</li>'+
-			'<li>Red: 1R</li>'+
-			'<li>Green: 1G</li>'+
-			'<li>Orange: 1O</li>'+
-			'<li>Purple: 1P</li>'+
+			'<li class="controlStar">Star: 1ST</li>'+
+			'<li class="controlBlue">Blue: 1B</li>'+
+			'<li class="controlRed">Red: 1R</li>'+
+			'<li class="controlGreen">Green: 1G</li>'+
+			'<li class="controlOrange">Orange: 1O</li>'+
+			'<li class="controlPurple">Purple: 1P</li>'+
   		'</ul>'+
   		'</div>'+
 
   		'<div class="helpUnit">'+
   		'<h3>Modifiers</h3>'+
   		'<ul>'+
-  			'<li>Melee: 1SW</li>'+
-  			'<li>Missile: 1MI</li>'+
-  			'<li>Magic: 1MA</li>'+
-  			'<li>Range: 1RG</li>'+
-  			'<li>Action: 1AC</li>'+
-  			'<li>Move: 1MO</li>'+
-  			'<li>Shield: 0SH</li>'+
-  			'<li>Heart: 1HE</li>'+
+  			'<li class="controlMelee">Melee: 1SW</li>'+
+			'<li class="controlMissile">Missile: 1MI</li>'+
+			'<li class="controlMagic">Magic: 1MA</li>'+
+			'<li class="controlRange">Range: 1RG</li>'+
+			'<li class="controlAction">Action: 1AC</li>'+
+			'<li class="controlMove">Move: 1MO</li>'+
+			'<li class="controlShield">Shield: 0SH</li>'+
+			'<li class="controlHeart">Heart: 1HE</li>'+
+			'<li class="controlPotion">Potion: 1PO</li>'+
   		'</ul>'+
   		'</div>'+
 
   		'<h3>Stats</h3>'+
   		'<ul>'+
-  			'<li>Strength: STR</li>'+
-  			'<li>Armor: ARM</li>'+
-  			'<li>Willpower: WILL</li>'+
-  			'<li>Dexterity: DEX</li>'+
+  			'<li class="controlStrengthSTR">Strength: STR</li>'+
+  			'<li class="controlArmorARM">Armor: ARM</li>'+
+  			'<li class="controlWillPowerWILL">Willpower: WILL</li>'+
+  			'<li class="controlDexterityDEX">Dexterity: DEX</li>'+
   		'</ul>'+
   	'</div>'+
   	'<div class="abilities"></div>'+
