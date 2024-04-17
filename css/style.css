@@ -172,3 +172,22 @@ display:none;
 	display:none;
 	}*/
 }
+
+.sdccBar {
+	display: inline;
+}
+
+.discordDiv {
+	display: inline;
+	float: right;
+	text-align: right;
+}
+
+.discordLink {
+	background: none;
+}
+
+.discordButton {
+	width: auto;
+	height: 40px;
+}
