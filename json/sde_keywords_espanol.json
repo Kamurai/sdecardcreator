@@ -862,7 +862,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  "Cuidado {
+  "Cuidado": {
     "description": "Cuando un Boo Booty aparece en el mismo mosaico que este modelo, el Boo Booty sufre dos heridas.",
     "version": 2.0,
     "hasErrata": "false",
@@ -1488,7 +1488,7 @@
     "errata": []
   },
   "Frágil": {
-    "description": "Una miniatura o efecto con Frágil coloca un contador de Frágil en cualquier miniatura que dañe. Una miniatura que sufre Fragil descarta el resultado más alto obtenido cada vez que hace una tirada usando su atributo ARM.".",
+    "description": "Una miniatura o efecto con Frágil coloca un contador de Frágil en cualquier miniatura que dañe. Una miniatura que sufre Fragil descarta el resultado más alto obtenido cada vez que hace una tirada usando su atributo ARM.",
     "version": 1.0,
     "hasErrata": "false",
     "errata": []
@@ -1625,7 +1625,7 @@
     "version": 2.0,
     "hasErrata": "false",
     "errata": []
-  }
+  },
   "Hazlo por mí-A": {
     "description": "Cuando un Héroe dentro de seis casillas de una miniatura con Hazlo por mí se activa, el Héroe debe tirar a VOL. Con una tirada de 0 estrellas, el Héroe debe realizar sus primeros tres movimientos para acercarse a otro Héroe y luego usa su primera acción para apuntar a ese Héroe con una acción de ataque básico. El resto de la activación se realiza de manera normal.",
     "version": 2.0,
@@ -1939,13 +1939,13 @@
     "errata": []
   },
   "Liberado en la muerte-E": {
-    "description": " Cuando una miniatura con Liberado en la muerte es destruido, el grupo puede elegir un monstruo dentro del alcance. La miniatura con Liberado en la muerte realiza un ataque cuerpo a cuerpo contra el monstruo elegido antes de ser eliminado.",
+    "description": "Cuando una miniatura con Liberado en la muerte es destruido, el grupo puede elegir un monstruo dentro del alcance. La miniatura con Liberado en la muerte realiza un ataque cuerpo a cuerpo contra el monstruo elegido antes de ser eliminado.",
     "version": 2.0,
     "hasErrata": "false",
     "errata": []
   },
-  "Licantropia”: {
-    "description": "Las  miniaturas heridas que no son retiradas del juego obtienen +1R y sufren Magia Vulnerable.",
+  "Licantropia": {
+    "description": "Las miniaturas heridas que no son retiradas del juego obtienen +1R y sufren Magia Vulnerable.",
     "version": 1.0,
     "hasErrata": "false",
     "errata": []
@@ -1962,7 +1962,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  "Línea de visión {
+  "Línea de visión": {
     "description": "Las miniaturas requieren línea de visión para apuntar a una miniatura con sus acciones y habilidades. Se considera que las miniaturas tienen línea de visión a cualquier casilla a la que estén adyacentes. Una miniatura tiene línea de visión cuando puede trazar una línea recta desde cualquier punto de su casilla hasta cualquier punto en la casilla objetivo elegida. Esta línea no puede hacer contacto con las paredes. (Esto incluye el lugar donde las paredes se encuentran con las casillas en una esquina). Las miniaturas y contadores no bloquean la línea de visión.",
     "version": 1.0,
     "hasErrata": "false",
@@ -2676,7 +2676,7 @@
       }
     ]
   },
-  "Resolución: {
+  "Resolución": {
     "description": "Las miniaturas con Resolución son inmunes a los Efectos de Control.",
     "version": 2.0,
     "hasErrata": "false",
@@ -3281,5 +3281,5 @@
 			"sourceDescription": "Freyjan Stole (Treasure)"
 		}
 	]
-  },
+  }
 }
