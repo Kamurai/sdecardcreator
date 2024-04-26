@@ -663,8 +663,8 @@ cursor:move;
 	height:30px;
 }
 
-potionMod{
-	background:url('image/potion2.png') no-repeat 0px 3px;
+.card span.potionMod{
+	background:url('css/image/potion/potion2.png') no-repeat 0px 3px;
 	background-size:40px 30px;
 	height: 30px;
 }
