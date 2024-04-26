@@ -23,9 +23,9 @@
 function ImageControl(){
   BaseControl.call(this);
   this.template='<div class="hero monster pet treasure wonder loot explore character command timeout arcadeSolo">'+
-    '<h2><a class="toggleDisplay" href="">Image</a></h2>'+
+    '<h2><a class="toggleDisplay" href=""><span class="uiImage">Image</span></a></h2>'+
     '<div class="controlContent hide">'+
-    '<div class="hero monster pet arcadeSolo">Background '+
+    '<div class="hero monster pet arcadeSolo"><span class="uiBackground">Background</span> '+
       '<select name="background">'+
         '<option value="fae_wood.jpg">Fae Wood</option>'+
         '<option value="arcadian_dunes_1.png">Arcadian Dunes 1</option>'+
@@ -104,16 +104,17 @@ function ImageControl(){
         '<option value="rocks_1.png">Rocks</option>'+
         '<option value="stone_tile.png">Stone Tile</option>'+
         '<option disabled>-Solids-</option>'+
-		'<option value="black.png">Black</option>'+
-        '<option value="white.png">White</option>'+
-        '<option value="gray.png">Gray</option>'+
-        '<option value="brown.png">Brown</option>'+
-        '<option value="blue.png">Blue</option>'+
-        '<option value="red.png">Red</option>'+
-        '<option value="yellow.png">Yellow</option>'+
-        '<option value="green.png">Green</option>'+
-        '<option value="orange.png">Orange</option>'+
-        '<option value="purple.png">Purple</option>'+
+		'<option value="black.png" class="uiBlack">Black</option>'+
+        '<option value="white.png" class="uiWhite">White</option>'+
+        '<option value="gray.png" class="uiGray">Gray</option>'+
+        '<option value="brown.png" class="uiBrown">Brown</option>'+
+        '<option value="blue.png" class="uiBlue">Blue</option>'+
+        '<option value="red.png" class="uiRed">Red</option>'+
+        '<option value="yellow.png" class="uiYellow">Yellow</option>'+
+        '<option value="green.png" class="uiGreen">Green</option>'+
+        '<option value="orange.png" class="uiOrange">Orange</option>'+
+        '<option value="purple.png" class="uiPurple">Purple</option>'+
+        '<option value="transparent.png" class="uiTransparent">Transparent</option>'+
         '<option disabled>----------</option>'+
       '</select>'+
       '<a class="backgroundFlip inactive" href="" title="Mirror Background">'+
@@ -122,15 +123,15 @@ function ImageControl(){
     '</div>'+
 
     '<div>'+
-      'Avatar'+
+      '<span class="uiAvatar">Avatar</span>'+
       '<div class="hero monster pet loot treasure wonder explore command timeout arcadeSolo">'+
-      '<input type="radio" name="imageSource" value="default" checked="checked">Default'+
+      '<input type="radio" name="imageSource" value="default" checked="checked"><span class="uiDefault">Default</span>'+
       '</div>'+
       '<div class="explore">'+
       '<input type="radio" name="imageSource" value="creep" />Creep Spawn <input name="creepSpawn" class="number" type="number" min="0" max="99" value="3" />'+
       '</div>'+
-      '<div><input type="radio" name="imageSource" value="remote">Remote <input name="rCharacter" placeholder="http://" /></div>'+
-      '<div><input type="radio" name="imageSource" value="local">Local <input type="file" name="character" /></div>'+
+      '<div><input type="radio" name="imageSource" value="remote"><span class="uiRemote">Remote</span> <input name="rCharacter" placeholder="http://" /></div>'+
+      '<div><input type="radio" name="imageSource" value="local"><span class="uiLocal">Local</span> <input type="file" name="character" /></div>'+
     '</div>'+
   '</div>'+
   '</div>';

@@ -23,13 +23,13 @@
 function CardModifierControl(){
   BaseControl.call(this);
   this.template='<div class="cardModifier">'+
-      '<h2><a class="toggleDisplay" href="">Card Modifier</a></h2>'+
+      '<h2><a class="toggleDisplay" href=""><span class="uiCardModifier">Card Modifier</span></a></h2>'+
       '<div class="controlContent hide">'+
       '<ul>'+
-      '<li><a href="" class="duplicateCardButton cardModifier" data-action="duplicate">Duplicate Card</a></li>'+
-      '<li><a href="" class="moveCardUpButton cardModifier" data-action="up">Move Card Up</a></li>'+
-      '<li><a href="" class="moveCardDownButton cardModifier" data-action="down">Move Card Down</a></li>'+
-      '<li><a href="" class="deletCardButton cardModifier" data-action="delete">Delete Card</a></li>'+
+      '<li><a href="" class="duplicateCardButton cardModifier" data-action="duplicate"><span class="uiDuplicateCard">Duplicate Card</span></a></li>'+
+      '<li><a href="" class="moveCardUpButton cardModifier" data-action="up"><span class="uiMoveCardUp">Move Card Up</span></a></li>'+
+      '<li><a href="" class="moveCardDownButton cardModifier" data-action="down"><span class="uiMoveCardDown">Move Card Down</span></a></li>'+
+      '<li><a href="" class="deletCardButton cardModifier" data-action="delete"><span class="uiDeleteCard">Delete Card</span></a></li>'+
       '</ul>'+
       '</div>'+
     '</div>';

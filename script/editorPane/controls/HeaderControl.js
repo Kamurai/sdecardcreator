@@ -23,14 +23,14 @@
 function HeaderControl(activeClass){
   BaseControl.call(this);
   this.template='<div class="header">'+
-  	'<h2><a class="toggleDisplay" href="">Header</a></h2>'+
+  	'<h2><a class="toggleDisplay" href=""><span class="uiHeader">Header</span></a></h2>'+
     '<div class="controlContent">'+
-  	'<div class="hero monster pet treasure wonder loot explore command arcadeSolo timeout">*Title <input name="title" required maxlength="30" /></div>'+
-  	'<div class="hero monster pet arcadeSolo">Sub-Title <input name="subTitle" maxlength="40" /></div>'+
+  	'<div class="hero monster pet treasure wonder loot explore command arcadeSolo timeout">*<span class="uiTitle">Title</span> <input name="title" required maxlength="30" /></div>'+
+  	'<div class="hero monster pet arcadeSolo"><span class="uiSubTitle">Sub-Title</span> <input name="subTitle" maxlength="40" /></div>'+
 
   	'<div class="hero monster pet arcadeSolo">'+
-  		'Move <input class="number" type="number" name="move" value="6" min="-9" max="99" />'+
-  		'Actions <input class="number" type="number" name="actions" value="3" min="-9" max="99"  />'+
+  		'<span class="uiMove">Move</span> <input class="number" type="number" name="move" value="6" min="-9" max="99" />'+
+  		'<span class="uiActions">Actions</span> <input class="number" type="number" name="actions" value="3" min="-9" max="99"  />'+
   	'</div>'+
   '</div>'+
   '</div>';

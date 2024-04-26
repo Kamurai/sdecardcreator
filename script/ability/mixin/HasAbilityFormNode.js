@@ -30,25 +30,25 @@ function HasAbilityFormNode(){
   this.getFormTemplate=function(){
     var template = '<div data-ability="'+Ability.counter+'" class="ability">'+
     '<a href="" class="closeAbility" title="Close">X</a>'+
-    '<div class="displayInline">Type <select name="costType">'+
-    '<option value="attack">Attack</option>'+
-    '<option value="support">Support</option>'+
-    '<option value="offensePotion">Offense Potion</option>'+
-    '<option value="supportPotion">Support Potion</option>'+
-    '<option value="emergencyPotion">Emergency Potion</option>'+
-    '<option value="special">Special</option>'+
-    '<option class="arcade" disabled>───Arcade───</option>'+
-    '<option class="arcade" value="attack signature">Signature Attack</option>'+
-    '<option class="arcade" value="support signature">Signature Support</option>'+
-    '<option class="arcade" value="attack overcharge">Overcharge Attack</option>'+
-    '<option class="arcade" value="support overcharge">Overcharge Support</option>'+
+    '<div class="displayInline"><span class="uiType">Type</span> <select name="costType">'+
+    '<option value="attack" class="uiAttack">Attack</option>'+
+    '<option value="support" class="uiSupport">Support</option>'+
+    '<option value="offensePotion" class="uiOffensePotion">Offense Potion</option>'+
+    '<option value="supportPotion" class="uiSupportPotion">Support Potion</option>'+
+    '<option value="emergencyPotion" class="uiEmergencyPotion">Emergency Potion</option>'+
+    '<option value="special" class="uiSpecial">Special</option>'+
+    '<option class="arcade uiListArcade" disabled>───Arcade───</option>'+
+    '<option class="arcade uiSignatureAttack" value="attack signature">Signature Attack</option>'+
+    '<option class="arcade uiSignatureSupport" value="support signature">Signature Support</option>'+
+    '<option class="arcade uiOverchargeAttack" value="attack overcharge">Overcharge Attack</option>'+
+    '<option class="arcade uiOverchargeSupport" value="support overcharge">Overcharge Support</option>'+
     '<option disabled>──────────</option>'+
-    '<option value="definitionOnly">Definition</option>'+
-    '<option value="nameOnly">Name</option>'+
+    '<option value="definitionOnly" class="uiDefinition">Definition</option>'+
+    '<option value="nameOnly" class="uiName">Name</option>'+
     '</select></div>'+
-    '<div class="displayInline">Cost <input class="number" name="cost" type="number" value="1" min="0" max="99" /></div>'+
-    '<div>Name <input name="name" value="Ability '+Ability.counter+'" /></div>'+
-    '<div>Definition <textarea name="definition" ></textarea></div>'+
+    '<div class="displayInline"><span class="uiCost">Cost</span> <input class="number" name="cost" type="number" value="1" min="0" max="99" /></div>'+
+    '<div><span class="uiName">Name</span> <input name="name" value="Ability '+Ability.counter+'" /></div>'+
+    '<div><span class="uiDefinition">Definition</span> <textarea name="definition" ></textarea></div>'+
     '</div>';
 
     return template;

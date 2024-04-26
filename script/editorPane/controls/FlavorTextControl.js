@@ -23,7 +23,7 @@
 function FlavorTextControl(){
   BaseControl.call(this);
   this.template='<div class="hero monster loot treasure wonder explore arcadeSolo flavorText">'+
-    '<h2><a class="toggleDisplay" href="">Flavor Text</a></h2>'+
+    '<h2><a class="toggleDisplay" href=""><span class="uiFlavorText">Flavor Text</span></a></h2>'+
     '<div class="controlContent hide">'+
     '<textarea name="flavorText" /></textarea>'+
     '</div>'+

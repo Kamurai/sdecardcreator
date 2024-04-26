@@ -23,7 +23,7 @@
 function StatsControl(){
   BaseControl.call(this);
   this.template='<div class="hero monster pet arcadeSolo stats">'+
-    '<h2><a class="toggleDisplay" href="">Stats</a></h2>'+
+    '<h2><a class="toggleDisplay" href=""><span class="uiStats">Stats</span></a></h2>'+
     '<div class="controlContent hide">'+
     '<a href="" class="helpButton" title="Stats Help">'+
     '<svg data-reactroot="" class="Icon" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" style="height: 32px; width: 32px;">'+
@@ -58,15 +58,15 @@ function StatsControl(){
       '</div>'+
     '</div>'+
 
-    '<div class="hero monster pet arcadeSolo controlSTR">STR <input name="STR" value="1SW 3B" /></div>'+
-    '<div class="hero monster pet arcadeSolo controlARM">ARM <input name="ARM" value="2B 1R SH" /></div>'+
-    '<div class="arcadeSolo controlRNG">RNG <input name="RNG" value="6RG"/></div>'+
-    '<div class="hero monster controlWILL">WILL <input name="WILL" value="3B" /></div>'+
-    '<div class="hero monster controlDEX">DEX <input name="DEX" value="3B" /></div>'+
-    '<div class="hero pet monster arcadeSolo displayInline controlWounds">Wounds <input class="number" type="number" name="wounds" value="5" min="-9" max="99" /></div>'+
-    '<div class="monster displayInline controlSkullPoints">Skull Points <input class="number" type="number" name="skulls" value="1" min="-9" max="99" /></div>'+
-    '<div class="hero displayInline controlPotions">Potions <input class="number" type="number" name="potions" value="1" min="-9" max="99" /></div>'+
-    '<div class="pet displayInline controlPetCost">Pet Cost <input class="number" type="number" name="petCost" value="1" min="-9" max="99" /></div>'+
+    '<div class="hero monster pet arcadeSolo"><span class="controlSTR">STR </span><input name="STR" value="1SW 3B" /></div>'+
+    '<div class="hero monster pet arcadeSolo"><span class="controlARM">ARM </span><input name="ARM" value="2B 1R SH" /></div>'+
+    '<div class="arcadeSolo"><span class="controlRNG">RNG </span><input name="RNG" value="6RG"/></div>'+
+    '<div class="hero monster"><span class="controlWILL">WILL </span><input name="WILL" value="3B" /></div>'+
+    '<div class="hero monster"><span class="controlDEX">DEX </span><input name="DEX" value="3B" /></div>'+
+    '<div class="hero pet monster arcadeSolo displayInline"><span class="controlWounds">Wounds </span><input class="number" type="number" name="wounds" value="5" min="-9" max="99" /></div>'+
+    '<div class="monster displayInline"><span class="controlSkullPoints">Skull Points </span><input class="number" type="number" name="skulls" value="1" min="-9" max="99" /></div>'+
+    '<div class="hero displayInline"><span class="controlPotions">Potions </span><input class="number" type="number" name="potions" value="1" min="-9" max="99" /></div>'+
+    '<div class="pet displayInline"><span class="controlPetCost">Pet Cost </span><input class="number" type="number" name="petCost" value="1" min="-9" max="99" /></div>'+
   '</div>'+
   '</div>';
 

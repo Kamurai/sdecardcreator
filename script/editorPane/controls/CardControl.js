@@ -23,55 +23,55 @@
 function CardControl(){
   BaseControl.call(this);
   this.template='<div class="cardOverall">'+
-  '<h2><a class="toggleDisplay" href="">Card</a></h2>'+
+  '<h2><a class="toggleDisplay" href=""><span class="uiCard">Card</span></a></h2>'+
   '<div class="controlContent hide">'+
-  	'Type <select name="cardType">'+
-  		'<option value="hero">Hero</option>'+
-  		'<option value="monster">Monster</option>'+
-  		'<option value="pet">Pet</option>'+
+  	'<span class="uiType">Type</span> <select name="cardType">'+
+  		'<option value="hero" class="uiHero">Hero</option>'+
+  		'<option value="monster" class="uiMonster">Monster</option>'+
+  		'<option value="pet" class="uiPet">Pet</option>'+
   		'<option disabled>----------</option>'+
-  		'<option value="loot">Loot</option>'+
-  		'<option value="treasure">Treasure</option>'+
-  		'<option value="wonder">Wonder</option>'+
-      '<option value="explore">Explore</option>'+
+  		'<option value="loot" class="uiLoot">Loot</option>'+
+  		'<option value="treasure" class="uiTreasure">Treasure</option>'+
+  		'<option value="wonder" class="uiWonder">Wonder</option>'+
+      '<option value="explore" class="uiExplore">Explore</option>'+
   		'<option disabled>----------</option>'+
-  		'<option value="timeout">Timeout</option>'+
+  		'<option value="timeout" class="uiTimeout">Timeout</option>'+
       '<option disabled>----------</option>'+
-      '<option value="command">Command</option>'+
+      '<option value="command" class="uiCommand">Command</option>'+
       '<option disabled>----------</option>'+
-  		'<option disabled>-Experimental-</option>'+
-  		'<option value="arcadeSolo">Arcade Solo</option>'+
-      '<option value="arcadeGang">Arcade Gang</option>'+
+  		'<option disabled class="uiExperimental">-Experimental-</option>'+
+  		'<option value="arcadeSolo" class="uiArcadeSolo">Arcade Solo</option>'+
+      '<option value="arcadeGang" class="uiArcadeGang">Arcade Gang</option>'+
   	'</select>'+
 
   	'<div class="cardScale">'+
-  		'Scale <input class="number" name="cardScale" value="1.0" type="number" step="0.1" min="0.1" />'+
+  		'<span class="uiScale">Scale</span> <input class="number" name="cardScale" value="1.0" type="number" step="0.1" min="0.1" />'+
   	'</div>'+
 
     '<div class="author">'+
-      'Author <input class="text" name="author" />'+
+      '<span class="uiAuthor">Author</span> <input class="text" name="author" />'+
     '</div>'+
 
   	'<div class="monster hero pet timeout">'+
-  		'Border '+
+  		'<span class="uiBorder">Border</span> '+
   		'<select name="region">'+
-  			'<option value="blue">Blue</option>'+
-			'<option value="red">Red</option>'+
-  			'<option value="green">Green</option>'+
-  			'<option value="purple">Purple</option>'+
-  			'<option value="yellow">Yellow</option>'+
-			'<option value="orange">Orange</option>'+
-			'<option value="brown">Brown</option>'+
-			'<option value="pink">Pink</option>'+
-			'<option value="gray">Gray</option>'+
-			'<option value="white">White</option>'+
-			'<option value="black">Black</option>'+
+  			'<option value="blue" class="uiBlue">Blue</option>'+
+			'<option value="red" class="uiRed">Red</option>'+
+  			'<option value="green" class="uiGreen">Green</option>'+
+  			'<option value="purple" class="uiPurple">Purple</option>'+
+  			'<option value="yellow" class="uiYellow">Yellow</option>'+
+			'<option value="orange" class="uiOrange">Orange</option>'+
+			'<option value="brown" class="uiBrown">Brown</option>'+
+			'<option value="pink" class="uiPink">Pink</option>'+
+			'<option value="gray" class="uiGray">Gray</option>'+
+			'<option value="white" class="uiWhite">White</option>'+
+			'<option value="black" class="uiBlack">Black</option>'+
 			
-			'<option value="classicBlue">Classic Blue</option>'+
-			'<option value="classicRed">Classic Red</option>'+
-  			'<option value="classicGreen">Classic Green</option>'+
-  			'<option value="classicPurple">Classic Purple</option>'+
-  			'<option value="classicYellow">Classic Yellow</option>'+
+			'<option value="classicBlue" class="uiClassicBlue">Classic Blue</option>'+
+			'<option value="classicRed" class="uiClassicRed">Classic Red</option>'+
+  			'<option value="classicGreen" class="uiClassicGreen">Classic Green</option>'+
+  			'<option value="classicPurple" class="uiClassicPurple">Classic Purple</option>'+
+  			'<option value="classicYellow" class="uiClassicYellow">Classic Yellow</option>'+
   		'</select>'+
   	'</div>'+
 
