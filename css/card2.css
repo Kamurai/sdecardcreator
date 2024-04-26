@@ -1019,15 +1019,15 @@ potionMod{
 	background: radial-gradient(ellipse at center, saddlebrown 23%, #6B3710 79%, rgb(0,0,0) 100%);
 }
 
-.card.hero.white, .card.pet.white, .card.monster.white, .white{
+.card.hero.gray, .card.pet.gray, .card.monster.gray, .gray{
 	background: radial-gradient(ellipse at center, gray 23%, darkgray 79%, black 100%);
 }
 
-.card.hero.black, .card.pet.black, .card.monster.black, .black{
+.card.hero.white, .card.pet.white, .card.monster.white, .white{
 	background: radial-gradient(ellipse at center, white 23%, white 79%, black 100%);
 }
 
-.card.hero.gray, .card.pet.gray, .card.monster.gray, .gray{
+.card.hero.black, .card.pet.black, .card.monster.black, .black{
 	background: radial-gradient(ellipse at center, black 23%, black 79%, white 100%);
 }
 

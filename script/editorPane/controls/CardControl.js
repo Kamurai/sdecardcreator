@@ -63,9 +63,9 @@ function CardControl(){
 			'<option value="orange">Orange</option>'+
 			'<option value="brown">Brown</option>'+
 			'<option value="pink">Pink</option>'+
-			'<option value="white">Gray</option>'+
-			'<option value="black">White</option>'+
-			'<option value="gray">Black</option>'+
+			'<option value="gray">Gray</option>'+
+			'<option value="white">White</option>'+
+			'<option value="black">Black</option>'+
 			
 			'<option value="classicBlue">Classic Blue</option>'+
 			'<option value="classicRed">Classic Red</option>'+
