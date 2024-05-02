@@ -1171,7 +1171,7 @@ function setUILanguageControlRed() {
 function setUILanguageControlGreen() {
 	var en = "Green: 1G";
 	var de = "Green: 1G";
-	var es = "Verde: 1G";
+	var es = "Verde: 1V";
 	var fr = "Green: 1G";
 
 	substituteLanguageControl("controlGreen", en, de, es, fr);
@@ -1180,7 +1180,7 @@ function setUILanguageControlGreen() {
 function setUILanguageControlOrange() {
 	var en = "Orange: 1O";
 	var de = "Orange: 1O";
-	var es = "Naranja: 1O";
+	var es = "Naranja: 1N";
 	var fr = "Orange: 1O";
 
 	substituteLanguageControl("controlOrange", en, de, es, fr);
@@ -1189,7 +1189,7 @@ function setUILanguageControlOrange() {
 function setUILanguageControlPurple() {
 	var en = "Purple: 1P";
 	var de = "Purple: 1P";
-	var es = "Morado: 1P";
+	var es = "Morado: 1M";
 	var fr = "Purple: 1P";
 
 	substituteLanguageControl("controlPurple", en, de, es, fr);
@@ -1261,7 +1261,7 @@ function setUILanguageControlMove() {
 function setUILanguageControlShield() {
 	var en = "Shield: 0SH";
 	var de = "Shield: 0SH";
-	var es = "Eschudo: 0EC";
+	var es = "Escudo: 0EC";
 	var fr = "Shield: 0SH";
 
 	substituteLanguageControl("controlShield", en, de, es, fr);
@@ -1895,7 +1895,7 @@ function setUICardModifierSection(){
 function setUIDuplicateCard() {
 	var en = "Duplicate Card";
 	var de = "Doppelte Karte";
-	var es = "Tarjeta Duplicada";
+	var es = "Duplicar Carte";
 	var fr = "Carte en double";
 
 	substituteLanguageControl("uiDuplicateCard", en, de, es, fr);
