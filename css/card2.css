@@ -569,6 +569,7 @@ cursor:move;
 .card span.actionMod,
 .card span.moveMod,
 .card span.heartMod,
+.card span.potionMod,
 .card span.shieldMod{
 	width:40px;
 	height:37px;
@@ -664,7 +665,7 @@ cursor:move;
 }
 
 .card span.potionMod{
-	background:url('css/image/potion/potion2.png') no-repeat 0px 3px;
+	background:url('image/potion/potion2.png') no-repeat 0px 3px;
 	background-size:40px 30px;
 	height: 30px;
 }
