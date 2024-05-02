@@ -104,7 +104,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  "AUGMENT": {
+  "Augment": {
     "description": "Abilities with AUGMENT may only target or affect friendly models that are hit, including the user.",
     "version": 1.0,
     "hasErrata": "false",
