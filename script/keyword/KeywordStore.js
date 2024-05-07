@@ -148,48 +148,7 @@ function KeywordStore(keywords){
    *
    */
   this.addKeyword=function(key,data){
-	if(data != undefined){
-		//var lKey = key.toLowerCase();
-		var keyClass = this.resolveKeyClass(key);
-
-		//check to see if the keyword is already added, and if the display flag does not equal false
-		if( data.displayBack !== false && data.displayBack !== 'false'  && $('.cardGroup.selected .card .keywords .'+keyClass.toUpperCase()).length ===0){
-		  //console.log(key,data);
-
-		  var description = data.description;
-
-		  if(data.selectedVersion !== undefined){
-			if(data.selectedVersion !== data.version ){
-			  for(var i=0,e;(e=data.errata[i]);i++){
-				if(data.selectedVersion === e.version.toString()){
-				  description=e.description;
-				  break;
-				}
-			  }
-			}
-		  }else if(data.hasErrata === "true" || data.hasErrata === true){
-			description = data.errata[data.errata.length-1].description;
-		  }
-
-		  var parsedDescription = this.parseDescription(description);
-
-		  var backTemplate = '<div class="keyword definedKeyword '+keyClass+'" data-key="'+key+'">'+
-		  '<span class="keyword '+keyClass.toUpperCase()+'"></span>'+
-		  '<span class="name">'+key+'</span>:'+
-		  '<span class="description">'+parsedDescription+'</span>'+
-		  '</div>';
-
-		  var itemTemplate = '<div class="keyword '+keyClass.toUpperCase()+'" data-key="'+key+'">'+
-		  '<span class="keyword '+keyClass.toUpperCase()+'"></span>'+
-		  '<span class="name">'+key+'</span> '+
-		  '<span class="description">'+parsedDescription+'</span>'+
-		  '</div>';
-
-		  $(".cardGroup.selected .card .back .keywords").append(backTemplate);
-
-		  $(".cardGroup.selected .card .item .keywords").append(itemTemplate);
-		}
-	}
+	addKeyword(key,data);
   };
 
 	this.parseDescription=function(description){

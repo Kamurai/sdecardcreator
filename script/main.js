@@ -193,13 +193,13 @@ function addKeyword(displayKey,data) {
 			
 			if(parsedDescription != "" && parsedDescription != undefined){
 				var backTemplate = '<div class="keyword definedKeyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCase(displayKey)+'">'+
-				'<span class="keyword '+keyClass.toUpperCase()+'"></span>'+
+				'<span class="keyword '+translateToEnglish(keyClass.toUpperCase())+'"></span>'+
 				'<span class="name">'+displayKey+'</span>:'+
 				'<span class="description">'+parsedDescription+'</span>'+
 				'</div>';
 
 				var itemTemplate = '<div class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCase(displayKey)+'">'+
-				'<span class="keyword '+keyClass.toUpperCase()+'"></span>'+
+				'<span class="keyword '+translateToEnglish(keyClass.toUpperCase())+'"></span>'+
 				'<span class="name">'+displayKey+'</span> '+
 				'<span class="description">'+parsedDescription+'</span>'+
 				'</div>';
@@ -210,6 +210,108 @@ function addKeyword(displayKey,data) {
 			}
 		}
 	}
+}
+
+function translateToEnglish(nonEnglish){
+	var result = '';
+	
+	if(languageChoice == "en") {
+		result = nonEnglish
+	} else if(languageChoice == "de") {
+		result = translateToEnglishFromDeutch(nonEnglish);
+	} else if(languageChoice == "es") {
+		result = translateToEnglishFromEspanol(nonEnglish);
+	} else if(languageChoice == "fr") {
+		result = translateToEnglishFromFrancais(nonEnglish);
+	} else {
+		result = nonEnglish
+	}
+		
+	return result;
+}
+
+function translateToEnglishFromDeutch(nonEnglish){
+	var result = '';
+	
+	if(nonEnglish == 'AUGMENT') {
+		result = 'AUGMENT';
+	} else if(nonEnglish == 'BANE') {
+		result = 'BANE';
+	} else if(nonEnglish == 'HEX') {
+		result = 'HEX';
+	} else if(nonEnglish == 'FIRE') {
+		result = 'FIRE';
+	} else if(nonEnglish == 'KNOCKDOWN') {
+		result = 'KNOCKDOWN';
+	} else if(nonEnglish == 'ICE') {
+		result = 'ICE';
+	} else if(nonEnglish == 'IMMOBILE') {
+		result = 'IMMOBILE';
+	} else if(nonEnglish == 'POISON') {
+		result = 'POISON';
+	} else if(nonEnglish == 'SLOW') {
+		result = 'SLOW';
+	} else if(nonEnglish == 'DANGEROUS') {
+		result = 'DANGEROUS';
+	}
+		
+	return result;
+}
+
+function translateToEnglishFromEspanol(nonEnglish){
+	var result = '';
+	
+	if(nonEnglish == 'AUMENTO') {
+		result = 'AUGMENT';
+	} else if(nonEnglish == 'ESTRAGO') {
+		result = 'BANE';
+	} else if(nonEnglish == 'MALEFICIO') {
+		result = 'HEX';
+	} else if(nonEnglish == 'FUEGO') {
+		result = 'FIRE';
+	} else if(nonEnglish == 'DERRIBO') {
+		result = 'KNOCKDOWN';
+	} else if(nonEnglish == 'HIELO') {
+		result = 'ICE';
+	} else if(nonEnglish == 'INMOVIL') {
+		result = 'IMMOBILE';
+	} else if(nonEnglish == 'VENENO') {
+		result = 'POISON';
+	} else if(nonEnglish == 'RALENTIZAR') {
+		result = 'SLOW';
+	} else if(nonEnglish == 'PELIGROSO') {
+		result = 'DANGEROUS';
+	}
+		
+	return result;
+}
+
+function translateToEnglishFromFrancais(nonEnglish){
+	var result = '';
+	
+	if(nonEnglish == 'AUGMENT') {
+		result = 'AUGMENT';
+	} else if(nonEnglish == 'BANE') {
+		result = 'BANE';
+	} else if(nonEnglish == 'HEX') {
+		result = 'HEX';
+	} else if(nonEnglish == 'FIRE') {
+		result = 'FIRE';
+	} else if(nonEnglish == 'KNOCKDOWN') {
+		result = 'KNOCKDOWN';
+	} else if(nonEnglish == 'ICE') {
+		result = 'ICE';
+	} else if(nonEnglish == 'IMMOBILE') {
+		result = 'IMMOBILE';
+	} else if(nonEnglish == 'POISON') {
+		result = 'POISON';
+	} else if(nonEnglish == 'SLOW') {
+		result = 'SLOW';
+	} else if(nonEnglish == 'DANGEROUS') {
+		result = 'DANGEROUS';
+	}
+		
+	return result;
 }
 
 function resolveKeyClass(key) {
@@ -282,90 +384,93 @@ function resolveKeyClass(key) {
 }
 
 function replaceDeutchSymbols(secondaryRe, text) {
+	var translation = '';
 	return text.replace(secondaryRe,function(match){
 		if(match == 'AUGMENT') {
-			match = 'AUGMENT';
+			translation = 'AUGMENT';
 		} else if(match == 'BANE') {
-			match = 'BANE';
+			translation = 'BANE';
 		} else if(match == 'HEX') {
-			match = 'HEX';
+			translation = 'HEX';
 		} else if(match == 'FIRE') {
-			match = 'FIRE';
+			translation = 'FIRE';
 		} else if(match == 'KNOCKDOWN') {
-			match = 'KNOCKDOWN';
+			translation = 'KNOCKDOWN';
 		} else if(match == 'ICE') {
-			match = 'ICE';
+			translation = 'ICE';
 		} else if(match == 'IMMOBILE') {
-			match = 'IMMOBILE';
+			translation = 'IMMOBILE';
 		} else if(match == 'POISON') {
-			match = 'POISON';
+			translation = 'POISON';
 		} else if(match == 'SLOW') {
-			match = 'SLOW';
+			translation = 'SLOW';
 		} else if(match == 'DANGEROUS') {
-			match = 'DANGEROUS';
+			translation = 'DANGEROUS';
 		}
 		
-		var result = '<span class="keyword '+match.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
 		
 		return result;
     }.bind(this));
 }
 
 function replaceEspanolSymbols(secondaryRe, text) {
+	var translation = '';
 	return text.replace(secondaryRe,function(match){
 		if(match == 'AUMENTO') {
-			match = 'AUGMENT';
+			translation = 'AUGMENT';
 		} else if(match == 'ESTRAGO') {
-			match = 'BANE';
+			translation = 'BANE';
 		} else if(match == 'MALEFICIO') {
-			match = 'HEX';
+			translation = 'HEX';
 		} else if(match == 'FUEGO') {
-			match = 'FIRE';
+			translation = 'FIRE';
 		} else if(match == 'DERRIBO') {
-			match = 'KNOCKDOWN';
+			translation = 'KNOCKDOWN';
 		} else if(match == 'HIELO') {
-			match = 'ICE';
+			translation = 'ICE';
 		} else if(match == 'INMOVIL') {
-			match = 'IMMOBILE';
+			translation = 'IMMOBILE';
 		} else if(match == 'VENENO') {
-			match = 'POISON';
+			translation = 'POISON';
 		} else if(match == 'RALENTIZAR') {
-			match = 'SLOW';
+			translation = 'SLOW';
 		} else if(match == 'PELIGROSO') {
-			match = 'DANGEROUS';
+			translation = 'DANGEROUS';
 		}
 		
-		var result = '<span class="keyword '+match.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
 		
 		return result;
     }.bind(this));
 }
 
 function replaceFrancaisSymbols(secondaryRe, text) {
+	var translation = '';
 	return text.replace(secondaryRe,function(match){
 		if(match == 'AUGMENT') {
-			match = 'AUGMENT';
+			translation = 'AUGMENT';
 		} else if(match == 'BANE') {
-			match = 'BANE';
+			translation = 'BANE';
 		} else if(match == 'HEX') {
-			match = 'HEX';
+			translation = 'HEX';
 		} else if(match == 'FIRE') {
-			match = 'FIRE';
+			translation = 'FIRE';
 		} else if(match == 'KNOCKDOWN') {
-			match = 'KNOCKDOWN';
+			translation = 'KNOCKDOWN';
 		} else if(match == 'ICE') {
-			match = 'ICE';
+			translation = 'ICE';
 		} else if(match == 'IMMOBILE') {
-			match = 'IMMOBILE';
+			translation = 'IMMOBILE';
 		} else if(match == 'POISON') {
-			match = 'POISON';
+			translation = 'POISON';
 		} else if(match == 'SLOW') {
-			match = 'SLOW';
+			translation = 'SLOW';
 		} else if(match == 'DANGEROUS') {
-			match = 'DANGEROUS';
+			translation = 'DANGEROUS';
 		}
 		
-		var result = '<span class="keyword '+match.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
 		
 		return result;
     }.bind(this));
@@ -416,90 +521,93 @@ function findImmunities(text){
 }
 
 function replaceDeutchImmunities(secondaryRe, text) {
+	var translation = '';
 	return text.replace(secondaryRe,function(match){
 		if(match == 'ALL') {
-			match = 'ALL';
+			translation = 'ALL';
 		} else if(match == 'IMMUNEBANE') {
-			match = 'IMMUNEBANE';
+			translation = 'IMMUNEBANE';
 		} else if(match == 'IMMUNEHEX') {
-			match = 'IMMUNEHEX';
+			translation = 'IMMUNEHEX';
 		} else if(match == 'IMMUNEFIRE') {
-			match = 'IMMUNEFIRE';
+			translation = 'IMMUNEFIRE';
 		} else if(match == 'IMMUNEKNOCKDOWN') {
-			match = 'IMMUNEKNOCKDOWN';
+			translation = 'IMMUNEKNOCKDOWN';
 		} else if(match == 'IMMUNEICE') {
-			match = 'IMMUNEICE';
+			translation = 'IMMUNEICE';
 		} else if(match == 'IMMUNEIMMOBILE') {
-			match = 'IMMUNEIMMOBILE';
+			translation = 'IMMUNEIMMOBILE';
 		} else if(match == 'IMMUNEPOISON') {
-			match = 'IMMUNEPOISON';
+			translation = 'IMMUNEPOISON';
 		} else if(match == 'IMMUNESLOW') {
-			match = 'IMMUNESLOW';
+			translation = 'IMMUNESLOW';
 		} else if(match == 'IMMUNEALL') {
-			match = 'IMMUNEALL';
+			translation = 'IMMUNEALL';
 		}
 		
-		var result = '<span class="keyword '+match.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
 		
 		return result;
     }.bind(this));
 }
 
 function replaceEspanolImmunities(secondaryRe, text) {
+	var translation = '';
 	return text.replace(secondaryRe,function(match){
 		if(match == 'TODO') {
-			match = 'ALL';
+			translation = 'ALL';
 		} else if(match == 'INMUNEAESTRAGO') {
-			match = 'IMMUNEBANE';
+			translation = 'IMMUNEBANE';
 		} else if(match == 'INMUNEAMALEFICIO') {
-			match = 'IMMUNEHEX';
+			translation = 'IMMUNEHEX';
 		} else if(match == 'INMUNEAFUEGO') {
-			match = 'IMMUNEFIRE';
+			translation = 'IMMUNEFIRE';
 		} else if(match == 'INMUNEADERRIBO') {
-			match = 'IMMUNEKNOCKDOWN';
+			translation = 'IMMUNEKNOCKDOWN';
 		} else if(match == 'INMUNEAHIELO') {
-			match = 'IMMUNEICE';
+			translation = 'IMMUNEICE';
 		} else if(match == 'INMUNEAINMOVIL') {
-			match = 'IMMUNEIMMOBILE';
+			translation = 'IMMUNEIMMOBILE';
 		} else if(match == 'INMUNEAVENENO') {
-			match = 'IMMUNEPOISON';
+			translation = 'IMMUNEPOISON';
 		} else if(match == 'INMUNEARALENTIZAR') {
-			match = 'IMMUNESLOW';
+			translation = 'IMMUNESLOW';
 		} else if(match == 'INMUNEATODO') {
-			match = 'IMMUNEALL';
+			translation = 'IMMUNEALL';
 		}
 		
-		var result = '<span class="keyword '+match.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
 		
 		return result;
     }.bind(this));
 }
 
 function replaceFrancaisImmunities(secondaryRe, text) {
+	var translation = '';
 	return text.replace(secondaryRe,function(match){
 		if(match == 'ALL') {
-			match = 'ALL';
+			translation = 'ALL';
 		} else if(match == 'IMMUNEBANE') {
-			match = 'IMMUNEBANE';
+			translation = 'IMMUNEBANE';
 		} else if(match == 'IMMUNEHEX') {
-			match = 'IMMUNEHEX';
+			translation = 'IMMUNEHEX';
 		} else if(match == 'IMMUNEFIRE') {
-			match = 'IMMUNEFIRE';
+			translation = 'IMMUNEFIRE';
 		} else if(match == 'IMMUNEKNOCKDOWN') {
-			match = 'IMMUNEKNOCKDOWN';
+			translation = 'IMMUNEKNOCKDOWN';
 		} else if(match == 'IMMUNEICE') {
-			match = 'IMMUNEICE';
+			translation = 'IMMUNEICE';
 		} else if(match == 'IMMUNEIMMOBILE') {
-			match = 'IMMUNEIMMOBILE';
+			translation = 'IMMUNEIMMOBILE';
 		} else if(match == 'IMMUNEPOISON') {
-			match = 'IMMUNEPOISON';
+			translation = 'IMMUNEPOISON';
 		} else if(match == 'IMMUNESLOW') {
-			match = 'IMMUNESLOW';
+			translation = 'IMMUNESLOW';
 		} else if(match == 'IMMUNEALL') {
-			match = 'IMMUNEALL';
+			translation = 'IMMUNEALL';
 		}
 		
-		var result = '<span class="keyword '+match.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
 		
 		return result;
     }.bind(this));
@@ -539,59 +647,60 @@ this.replaceEnglishAffinities=function(re, description){
 }
   
 this.replaceDeutchAffinities=function(re, description){
+	var translation = '';
 	return description.replace(re,function(match){
 		if(match == 'ALLAFFINITY') {
-			match = 'ALLAFFINITY';
+			translation = 'ALLAFFINITY';
 		} else if(match == 'AMETHYST') {
-			match = 'AMETHYST';
+			translation = 'AMETHYST';
 		} else if(match == 'AMETHYSTCITRINE') {
-			match = 'AMETHYSTCITRINE';
+			translation = 'AMETHYSTCITRINE';
 		} else if(match == 'AMETHYSTEMERALD') {
-			match = 'AMETHYSTEMERALD';
+			translation = 'AMETHYSTEMERALD';
 		} else if(match == 'AMETHYSTRUBY') {
-			match = 'AMETHYSTRUBY';
+			translation = 'AMETHYSTRUBY';
 		} else if(match == 'AMETHYSTSAPPHIRE') {
-			match = 'AMETHYSTSAPPHIRE';
+			translation = 'AMETHYSTSAPPHIRE';
 		} else if(match == 'CITRINE') {
-			match = 'CITRINE';
+			translation = 'CITRINE';
 		} else if(match == 'CITRINEAMETHYST') {
-			match = 'CITRINEAMETHYST';
+			translation = 'CITRINEAMETHYST';
 		} else if(match == 'CITRINEEMERALD') {
-			match = 'CITRINEEMERALD';
+			translation = 'CITRINEEMERALD';
 		} else if(match == 'CITRINERUBY') {
-			match = 'CITRINERUBY';
+			translation = 'CITRINERUBY';
 		} else if(match == 'CITRINESAPPHIRE') {
-			match = 'CITRINESAPPHIRE';
+			translation = 'CITRINESAPPHIRE';
 		} else if(match == 'EMERALD') {
-			match = 'EMERALD';
+			translation = 'EMERALD';
 		} else if(match == 'EMERALDAMETHYST') {
-			match = 'EMERALDAMETHYST';
+			translation = 'EMERALDAMETHYST';
 		} else if(match == 'EMERALDCITRINE') {
-			match = 'EMERALDCITRINE';
+			translation = 'EMERALDCITRINE';
 		} else if(match == 'EMERALDRUBY') {
-			match = 'EMERALDRUBY';
+			translation = 'EMERALDRUBY';
 		} else if(match == 'EMERALDSAPPHIRE') {
-			match = 'EMERALDSAPPHIRE';
+			translation = 'EMERALDSAPPHIRE';
 		} else if(match == 'RUBY') {
-			match = 'RUBY';
+			translation = 'RUBY';
 		} else if(match == 'RUBYAMETHYST') {
-			match = 'RUBYAMETHYST';
+			translation = 'RUBYAMETHYST';
 		} else if(match == 'RUBYCITRINE') {
-			match = 'RUBYCITRINE';
+			translation = 'RUBYCITRINE';
 		} else if(match == 'RUBYEMERALD') {
-			match = 'RUBYEMERALD';
+			translation = 'RUBYEMERALD';
 		} else if(match == 'RUBYSAPPHIRE') {
-			match = 'RUBYSAPPHIRE';
+			translation = 'RUBYSAPPHIRE';
 		} else if(match == 'SAPPHIRE') {
-			match = 'SAPPHIRE';
+			translation = 'SAPPHIRE';
 		} else if(match == 'SAPPHIREAMETHYST') {
-			match = 'SAPPHIREAMETHYST';
+			translation = 'SAPPHIREAMETHYST';
 		} else if(match == 'SAPPHIRECITRINE') {
-			match = 'SAPPHIRECITRINE';
+			translation = 'SAPPHIRECITRINE';
 		} else if(match == 'SAPPHIREEMERALD') {
-			match = 'SAPPHIREEMERALD';
+			translation = 'SAPPHIREEMERALD';
 		} else if(match == 'SAPPHIRERUBY') {
-			match = 'SAPPHIRERUBY';
+			translation = 'SAPPHIRERUBY';
 		}
 		
 		return '<div class="affinity '+match.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
@@ -599,59 +708,60 @@ this.replaceDeutchAffinities=function(re, description){
 }
 
 this.replaceEspanolAffinities=function(re, description){
+	var translation = '';
 	return description.replace(re,function(match){
 		if(match == 'AFINIDADATODO') {
-			match = 'ALLAFFINITY';
+			translation = 'ALLAFFINITY';
 		} else if(match == 'AMATISTA') {
-			match = 'AMETHYST';
+			translation = 'AMETHYST';
 		} else if(match == 'AMATISTACITRINO') {
-			match = 'AMETHYSTCITRINE';
+			translation = 'AMETHYSTCITRINE';
 		} else if(match == 'AMATISTAESMERALDA') {
-			match = 'AMETHYSTEMERALD';
+			translation = 'AMETHYSTEMERALD';
 		} else if(match == 'AMATISTARUBI') {
-			match = 'AMETHYSTRUBY';
+			translation = 'AMETHYSTRUBY';
 		} else if(match == 'AMATISTAZAFIRO') {
-			match = 'AMETHYSTSAPPHIRE';
+			translation = 'AMETHYSTSAPPHIRE';
 		} else if(match == 'CITRINO') {
-			match = 'CITRINE';
+			translation = 'CITRINE';
 		} else if(match == 'CITRINOAMATISTA') {
-			match = 'CITRINEAMETHYST';
+			translation = 'CITRINEAMETHYST';
 		} else if(match == 'CITRINOESMERALDA') {
-			match = 'CITRINEEMERALD';
+			translation = 'CITRINEEMERALD';
 		} else if(match == 'CITRINORUBI') {
-			match = 'CITRINERUBY';
+			translation = 'CITRINERUBY';
 		} else if(match == 'CITRINOZAFIRO') {
-			match = 'CITRINESAPPHIRE';
+			translation = 'CITRINESAPPHIRE';
 		} else if(match == 'ESMERALDA') {
-			match = 'EMERALD';
+			translation = 'EMERALD';
 		} else if(match == 'ESMERALDAAMATISTA') {
-			match = 'EMERALDAMETHYST';
+			translation = 'EMERALDAMETHYST';
 		} else if(match == 'ESMERALDACITRINO') {
-			match = 'EMERALDCITRINE';
+			translation = 'EMERALDCITRINE';
 		} else if(match == 'ESMERALDARUBI') {
-			match = 'EMERALDRUBY';
+			translation = 'EMERALDRUBY';
 		} else if(match == 'ESMERALDAZAFIRO') {
-			match = 'EMERALDSAPPHIRE';
+			translation = 'EMERALDSAPPHIRE';
 		} else if(match == 'RUBI') {
-			match = 'RUBY';
+			translation = 'RUBY';
 		} else if(match == 'RUBIAMATISTA') {
-			match = 'RUBYAMETHYST';
+			translation = 'RUBYAMETHYST';
 		} else if(match == 'RUBICITRINO') {
-			match = 'RUBYCITRINE';
+			translation = 'RUBYCITRINE';
 		} else if(match == 'RUBIESMERALDA') {
-			match = 'RUBYEMERALD';
+			translation = 'RUBYEMERALD';
 		} else if(match == 'RUBIZAFIRO') {
-			match = 'RUBYSAPPHIRE';
+			translation = 'RUBYSAPPHIRE';
 		} else if(match == 'ZAFIRO') {
-			match = 'SAPPHIRE';
+			translation = 'SAPPHIRE';
 		} else if(match == 'ZAFIROAMATISTA') {
-			match = 'SAPPHIREAMETHYST';
+			translation = 'SAPPHIREAMETHYST';
 		} else if(match == 'ZAFIROCITRINO') {
-			match = 'SAPPHIRECITRINE';
+			translation = 'SAPPHIRECITRINE';
 		} else if(match == 'ZAFIROESMERALDA') {
-			match = 'SAPPHIREEMERALD';
+			translation = 'SAPPHIREEMERALD';
 		} else if(match == 'ZAFIRORUBI') {
-			match = 'SAPPHIRERUBY';
+			translation = 'SAPPHIRERUBY';
 		}
 		
 		return '<div class="affinity '+match.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
@@ -659,59 +769,60 @@ this.replaceEspanolAffinities=function(re, description){
 }
   
 this.replaceFrancaisAffinities=function(re, description){
+	var translation = '';
 	return description.replace(re,function(match){
 		if(match == 'ALLAFFINITY') {
-			match = 'ALLAFFINITY';
+			translation = 'ALLAFFINITY';
 		} else if(match == 'AMETHYST') {
-			match = 'AMETHYST';
+			translation = 'AMETHYST';
 		} else if(match == 'AMETHYSTCITRINE') {
-			match = 'AMETHYSTCITRINE';
+			translation = 'AMETHYSTCITRINE';
 		} else if(match == 'AMETHYSTEMERALD') {
-			match = 'AMETHYSTEMERALD';
+			translation = 'AMETHYSTEMERALD';
 		} else if(match == 'AMETHYSTRUBY') {
-			match = 'AMETHYSTRUBY';
+			translation = 'AMETHYSTRUBY';
 		} else if(match == 'AMETHYSTSAPPHIRE') {
-			match = 'AMETHYSTSAPPHIRE';
+			translation = 'AMETHYSTSAPPHIRE';
 		} else if(match == 'CITRINE') {
-			match = 'CITRINE';
+			translation = 'CITRINE';
 		} else if(match == 'CITRINEAMETHYST') {
-			match = 'CITRINEAMETHYST';
+			translation = 'CITRINEAMETHYST';
 		} else if(match == 'CITRINEEMERALD') {
-			match = 'CITRINEEMERALD';
+			translation = 'CITRINEEMERALD';
 		} else if(match == 'CITRINERUBY') {
-			match = 'CITRINERUBY';
+			translation = 'CITRINERUBY';
 		} else if(match == 'CITRINESAPPHIRE') {
-			match = 'CITRINESAPPHIRE';
+			translation = 'CITRINESAPPHIRE';
 		} else if(match == 'EMERALD') {
-			match = 'EMERALD';
+			translation = 'EMERALD';
 		} else if(match == 'EMERALDAMETHYST') {
-			match = 'EMERALDAMETHYST';
+			translation = 'EMERALDAMETHYST';
 		} else if(match == 'EMERALDCITRINE') {
-			match = 'EMERALDCITRINE';
+			translation = 'EMERALDCITRINE';
 		} else if(match == 'EMERALDRUBY') {
-			match = 'EMERALDRUBY';
+			translation = 'EMERALDRUBY';
 		} else if(match == 'EMERALDSAPPHIRE') {
-			match = 'EMERALDSAPPHIRE';
+			translation = 'EMERALDSAPPHIRE';
 		} else if(match == 'RUBY') {
-			match = 'RUBY';
+			translation = 'RUBY';
 		} else if(match == 'RUBYAMETHYST') {
-			match = 'RUBYAMETHYST';
+			translation = 'RUBYAMETHYST';
 		} else if(match == 'RUBYCITRINE') {
-			match = 'RUBYCITRINE';
+			translation = 'RUBYCITRINE';
 		} else if(match == 'RUBYEMERALD') {
-			match = 'RUBYEMERALD';
+			translation = 'RUBYEMERALD';
 		} else if(match == 'RUBYSAPPHIRE') {
-			match = 'RUBYSAPPHIRE';
+			translation = 'RUBYSAPPHIRE';
 		} else if(match == 'SAPPHIRE') {
-			match = 'SAPPHIRE';
+			translation = 'SAPPHIRE';
 		} else if(match == 'SAPPHIREAMETHYST') {
-			match = 'SAPPHIREAMETHYST';
+			translation = 'SAPPHIREAMETHYST';
 		} else if(match == 'SAPPHIRECITRINE') {
-			match = 'SAPPHIRECITRINE';
+			translation = 'SAPPHIRECITRINE';
 		} else if(match == 'SAPPHIREEMERALD') {
-			match = 'SAPPHIREEMERALD';
+			translation = 'SAPPHIREEMERALD';
 		} else if(match == 'SAPPHIRERUBY') {
-			match = 'SAPPHIRERUBY';
+			translation = 'SAPPHIRERUBY';
 		}
 		
 		return '<div class="affinity '+match.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
@@ -907,7 +1018,7 @@ function replaceFrancaisStats(re, text) {
 }
 
 function replace1(match){
-	var result = '<span class="keyword '+match.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+	var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
 		
 	return result;
  }
@@ -1016,7 +1127,7 @@ function setUILoadButton() {
 
 function setUIAddCardButton() {
 	var en = "Add Card";
-	var de = "Karte hinzufügen";
+	var de = "Karte hinzufÃ¼gen";
 	var es = "Agregar tarjeta";
 	var fr = "Ajouter une carte";
 
@@ -1049,9 +1160,9 @@ function setUIHelpDialog() {
 
 function setUIMedicationForAll() {
 	var en = "Medication For All";
-	var de = "Medikamente für alle";
+	var de = "Medikamente fÃ¼r alle";
 	var es = "Medicamentos para todos";
-	var fr = "Des médicaments pour tous";
+	var fr = "Des mÃ©dicaments pour tous";
 
 	substituteLanguageControl("uiMedicationForAll", en, de, es, fr);
 }
@@ -1068,7 +1179,7 @@ function setUIGithub() {
 function setUIFAQ() {
 	var en = "FAQ";
 	var de = "FAQ";
-	var es = "Preguntas más frecuentes";
+	var es = "Preguntas mÃ¡s frecuentes";
 	var fr = "FAQ";
 
 	substituteLanguageControl("uiFAQ", en, de, es, fr);
@@ -1076,7 +1187,7 @@ function setUIFAQ() {
 
 function setUIChanges() {
 	var en = "Changes";
-	var de = "Änderungen";
+	var de = "Ã„nderungen";
 	var es = "Cambios";
 	var fr = "Changements";
 
@@ -1096,7 +1207,7 @@ function setUIAbout() {
 	var en = "About";
 	var de = "Um";
 	var es = "Acerca de";
-	var fr = "À propos";
+	var fr = "Ã€ propos";
 
 	substituteLanguageControl("uiAbout", en, de, es, fr);
 }
@@ -1125,7 +1236,7 @@ function setUIHeaderHeader() {
 	var en = "Header";
 	var de = "Header";
 	var es = "Encabezamiento";
-	var fr = "Entête";
+	var fr = "EntÃªte";
 
 	substituteLanguageControl("uiHeader", en, de, es, fr);
 }
@@ -1142,7 +1253,7 @@ function setUIImageHeader() {
 function setUIStatsHeader() {
 	var en = "Stats";
 	var de = "Statistiken";
-	var es = "Estadísticas";
+	var es = "EstadÃ­sticas";
 	var fr = "Statistiques";
 
 	substituteLanguageControl("uiStats", en, de, es, fr);
@@ -1152,16 +1263,16 @@ function setUIKeywordHeader() {
 	var en = "Keyword";
 	var de = "Stichwort";
 	var es = "Palabra clave";
-	var fr = "Mot-clé";
+	var fr = "Mot-clÃ©";
 
 	substituteLanguageControl("uiKeyword", en, de, es, fr);
 }
 
 function setUIAbilityHeader() {
 	var en = "Ability";
-	var de = "Fähigkeit";
+	var de = "FÃ¤higkeit";
 	var es = "Capacidad";
-	var fr = "Capacité";
+	var fr = "CapacitÃ©";
 
 	substituteLanguageControl("uiAbility", en, de, es, fr);
 }
@@ -1224,8 +1335,8 @@ function setUICardTypeList(){
 function setUIHero() {
 	var en = "Hero";
 	var de = "Held";
-	var es = "Héroe";
-	var fr = "Héros";
+	var es = "HÃ©roe";
+	var fr = "HÃ©ros";
 
 	substituteLanguageControl("uiHero", en, de, es, fr);
 }
@@ -1251,7 +1362,7 @@ function setUIPet() {
 function setUILoot() {
 	var en = "Loot";
 	var de = "Beute";
-	var es = "Botín";
+	var es = "BotÃ­n";
 	var fr = "Butin";
 
 	substituteLanguageControl("uiLoot", en, de, es, fr);
@@ -1261,7 +1372,7 @@ function setUITreasure() {
 	var en = "Treasure";
 	var de = "Schatz";
 	var es = "Tesoro";
-	var fr = "Trésor";
+	var fr = "TrÃ©sor";
 
 	substituteLanguageControl("uiTreasure", en, de, es, fr);
 }
@@ -1287,7 +1398,7 @@ function setUIExplore() {
 function setUITimeout() {
 	var en = "Timeout";
 	var de = "Auszeit";
-	var es = "Se acabó el tiempo";
+	var es = "Se acabÃ³ el tiempo";
 	var fr = "Temps mort";
 
 	substituteLanguageControl("uiTimeout", en, de, es, fr);
@@ -1306,7 +1417,7 @@ function setUIExperimental() {
 	var en = "-Experimental-";
 	var de = "-Experimental-";
 	var es = "-Experimental-";
-	var fr = "-Expérimental-";
+	var fr = "-ExpÃ©rimental-";
 
 	substituteLanguageControl("uiExperimental", en, de, es, fr);
 }
@@ -1333,7 +1444,7 @@ function setUIScale() {
 	var en = "Scale";
 	var de = "Skala";
 	var es = "Escala";
-	var fr = "Échelle";
+	var fr = "Ã‰chelle";
 
 	substituteLanguageControl("uiScale", en, de, es, fr);
 }
@@ -1351,7 +1462,7 @@ function setUIBorder() {
 	var en = "Border";
 	var de = "Grenze";
 	var es = "Borde";
-	var fr = "Frontière";
+	var fr = "FrontiÃ¨re";
 
 	substituteLanguageControl("uiBorder", en, de, es, fr);
 }
@@ -1380,7 +1491,7 @@ function setUIBorderList(){
 function setUIBlue() {
 	var en = "Blue";
 	var de = "Klassisches Blau";
-	var es = "Azul Clásico";
+	var es = "Azul ClÃ¡sico";
 	var fr = "Bleu Classique";
 
 	substituteLanguageControl("uiBlue", en, de, es, fr);
@@ -1389,7 +1500,7 @@ function setUIBlue() {
 function setUIRed() {
 	var en = "Red";
 	var de = "Klassisches Rot";
-	var es = "Rojo Clásico";
+	var es = "Rojo ClÃ¡sico";
 	var fr = "Rouge Classique";
 
 	substituteLanguageControl("uiRed", en, de, es, fr);
@@ -1397,8 +1508,8 @@ function setUIRed() {
 
 function setUIGreen() {
 	var en = "Green";
-	var de = "Klassisches Grün";
-	var es = "Verde Clásico";
+	var de = "Klassisches GrÃ¼n";
+	var es = "Verde ClÃ¡sico";
 	var fr = "Vert Classique";
 
 	substituteLanguageControl("uiGreen", en, de, es, fr);
@@ -1407,7 +1518,7 @@ function setUIGreen() {
 function setUIPurple() {
 	var en = "Purple";
 	var de = "Klassisches Lila";
-	var es = "Púrpura Clásico";
+	var es = "PÃºrpura ClÃ¡sico";
 	var fr = "Violet Classique";
 
 	substituteLanguageControl("uiPurple", en, de, es, fr);
@@ -1416,7 +1527,7 @@ function setUIPurple() {
 function setUIYellow() {
 	var en = "Yellow";
 	var de = "Klassisches Gelb";
-	var es = "Amarillo Clásico";
+	var es = "Amarillo ClÃ¡sico";
 	var fr = "Jaune Classique";
 
 	substituteLanguageControl("uiYellow", en, de, es, fr);
@@ -1434,7 +1545,7 @@ function setUIOrange() {
 function setUIBrown() {
 	var en = "Brown";
 	var de = "Braun";
-	var es = "Marrón";
+	var es = "MarrÃ³n";
 	var fr = "Brun";
 
 	substituteLanguageControl("uiBrown", en, de, es, fr);
@@ -1460,7 +1571,7 @@ function setUIGray() {
 
 function setUIWhite() {
 	var en = "White";
-	var de = "Weiß";
+	var de = "WeiÃŸ";
 	var es = "Blanco";
 	var fr = "Blanc";
 
@@ -1479,7 +1590,7 @@ function setUIBlack() {
 function setUIClassicBlue() {
 	var en = "Classic Blue";
 	var de = "Klassisches Blau";
-	var es = "Azul Clásico";
+	var es = "Azul ClÃ¡sico";
 	var fr = "Bleu Classique";
 
 	substituteLanguageControl("uiClassicBlue", en, de, es, fr);
@@ -1488,7 +1599,7 @@ function setUIClassicBlue() {
 function setUIClassicRed() {
 	var en = "Classic Red";
 	var de = "Klassisches Rot";
-	var es = "Rojo Clásico";
+	var es = "Rojo ClÃ¡sico";
 	var fr = "Rouge Classique";
 
 	substituteLanguageControl("uiClassicRed", en, de, es, fr);
@@ -1496,8 +1607,8 @@ function setUIClassicRed() {
 
 function setUIClassicGreen() {
 	var en = "Classic Green";
-	var de = "Klassisches Grün";
-	var es = "Verde Clásico";
+	var de = "Klassisches GrÃ¼n";
+	var es = "Verde ClÃ¡sico";
 	var fr = "Vert Classique";
 
 	substituteLanguageControl("uiClassicGreen", en, de, es, fr);
@@ -1506,7 +1617,7 @@ function setUIClassicGreen() {
 function setUIClassicPurple() {
 	var en = "Classic Purple";
 	var de = "Klassisches Lila";
-	var es = "Púrpura Clásico";
+	var es = "PÃºrpura ClÃ¡sico";
 	var fr = "Violet Classique";
 
 	substituteLanguageControl("uiClassicPurple", en, de, es, fr);
@@ -1515,7 +1626,7 @@ function setUIClassicPurple() {
 function setUIClassicYellow() {
 	var en = "Classic Yellow";
 	var de = "Klassisches Gelb";
-	var es = "Amarillo Clásico";
+	var es = "Amarillo ClÃ¡sico";
 	var fr = "Jaune Classique";
 
 	substituteLanguageControl("uiClassicYellow", en, de, es, fr);
@@ -1531,7 +1642,7 @@ function setUIHeaderSection(){
 function setUITitle() {
 	var en = "Title";
 	var de = "Titel";
-	var es = "Título";
+	var es = "TÃ­tulo";
 	var fr = "Titre";
 
 	substituteLanguageControl("uiTitle", en, de, es, fr);
@@ -1550,7 +1661,7 @@ function setUIMove() {
 	var en = "Move";
 	var de = "Bewegen";
 	var es = "Mover";
-	var fr = "Se déplacer";
+	var fr = "Se dÃ©placer";
 
 	substituteLanguageControl("uiMove", en, de, es, fr);
 }
@@ -1575,7 +1686,7 @@ function setUIBackground() {
 	var en = "Background";
 	var de = "Hintergrund";
 	var es = "Fondo";
-	var fr = "Arrière-plan";
+	var fr = "ArriÃ¨re-plan";
 
 	substituteLanguageControl("uiBackground", en, de, es, fr);
 }
@@ -1618,7 +1729,7 @@ function setUIDefault() {
 	var en = "Default";
 	var de = "Standard";
 	var es = "Por defecto";
-	var fr = "Défaut";
+	var fr = "DÃ©faut";
 
 	substituteLanguageControl("uiDefault", en, de, es, fr);
 }
@@ -1627,7 +1738,7 @@ function setUIRemote() {
 	var en = "Remote";
 	var de = "Fernbedienung";
 	var es = "Remoto";
-	var fr = "Télécommande";
+	var fr = "TÃ©lÃ©commande";
 
 	substituteLanguageControl("uiRemote", en, de, es, fr);
 }
@@ -1683,9 +1794,9 @@ function setUIStats(){
 
 function setUIDiceTypes() {
 	var en = "Dice Types";
-	var de = "Würfeltypen";
+	var de = "WÃ¼rfeltypen";
 	var es = "Tipos de dados";
-	var fr = "Types de dés";
+	var fr = "Types de dÃ©s";
 
 	substituteLanguageControl("uiDiceTypes", en, de, es, fr);
 }
@@ -1891,7 +2002,7 @@ function setUILanguageControlWounds() {
 function setUILanguageControlSkullPoints() {
 	var en = "Skull Points ";
 	var de = "Skull Points ";
-	var es = "Puntos del Cráneo ";
+	var es = "Puntos del CrÃ¡neo ";
 	var fr = "Skull Points ";
 
 	substituteLanguageControl("controlSkullPoints", en, de, es, fr);
@@ -1923,9 +2034,9 @@ function setUIKeywordSection(){
 
 function setUIAffinity() {
 	var en = "Affinity";
-	var de = "Affinität";
+	var de = "AffinitÃ¤t";
 	var es = "Afinidad";
-	var fr = "Affinité";
+	var fr = "AffinitÃ©";
 
 	substituteLanguageControl("uiAffinity", en, de, es, fr);
 }
@@ -2194,9 +2305,9 @@ function setUISapphireRuby() {
 
 function setUIAllAffinity() {
 	var en = "All Affinity";
-	var de = "Alle Affinität";
+	var de = "Alle AffinitÃ¤t";
 	var es = "Toda la afinidad";
-	var fr = "Toute Affinité";
+	var fr = "Toute AffinitÃ©";
 
 	substituteLanguageControl("uiAllAffinity", en, de, es, fr);
 }
@@ -2221,9 +2332,9 @@ function setUINone() {
 
 function setUIKeywords() {
 	var en = "Keywords";
-	var de = "Schlüsselwörter";
+	var de = "SchlÃ¼sselwÃ¶rter";
 	var es = "Palabras clave";
-	var fr = "Mots clés";
+	var fr = "Mots clÃ©s";
 
 	substituteLanguageControl("uiKeywords", en, de, es, fr);
 }
@@ -2308,7 +2419,7 @@ function setUIAttack() {
 
 function setUISupport() {
 	var en = "Support";
-	var de = "Unterstützung";
+	var de = "UnterstÃ¼tzung";
 	var es = "Apoyo";
 	var fr = "Soutien";
 
@@ -2318,7 +2429,7 @@ function setUISupport() {
 function setUIOffensivePotion() {
 	var en = "Offensive Potion";
 	var de = "Angriffstrank";
-	var es = "Poción ofensiva";
+	var es = "PociÃ³n ofensiva";
 	var fr = "Potion offensive";
 
 	substituteLanguageControl("uiOffensivePotion", en, de, es, fr);
@@ -2326,8 +2437,8 @@ function setUIOffensivePotion() {
 
 function setUISupportPotion() {
 	var en = "Support Potion";
-	var de = "Unterstützungstrank";
-	var es = "Poción de apoyo";
+	var de = "UnterstÃ¼tzungstrank";
+	var es = "PociÃ³n de apoyo";
 	var fr = "Potion de soutien";
 
 	substituteLanguageControl("uiSupportPotion", en, de, es, fr);
@@ -2336,7 +2447,7 @@ function setUISupportPotion() {
 function setUIEmergencyPotion() {
 	var en = "Emergency Potion";
 	var de = "Notfalltrank";
-	var es = "Poción de emergencia";
+	var es = "PociÃ³n de emergencia";
 	var fr = "Potion d'urgence";
 
 	substituteLanguageControl("uiEmergencyPotion", en, de, es, fr);
@@ -2346,7 +2457,7 @@ function setUISpecial() {
 	var en = "Special";
 	var de = "Besonders";
 	var es = "Especial";
-	var fr = "Spécial";
+	var fr = "SpÃ©cial";
 
 	substituteLanguageControl("uiSpecial", en, de, es, fr);
 }
@@ -2363,7 +2474,7 @@ function setUIListArcade() {
 function setUISignatureAttack() {
 	var en = "Signature Attack";
 	var de = "Signaturangriff";
-	var es = "Ataque característico";
+	var es = "Ataque caracterÃ­stico";
 	var fr = "Attaque de signature";
 
 	substituteLanguageControl("uiSignatureAttack", en, de, es, fr);
@@ -2371,7 +2482,7 @@ function setUISignatureAttack() {
 
 function setUISignatureSupport() {
 	var en = "Signature Support";
-	var de = "Signaturunterstützung";
+	var de = "SignaturunterstÃ¼tzung";
 	var es = "Soporte de firma";
 	var fr = "Prise en charge des signatures";
 
@@ -2380,7 +2491,7 @@ function setUISignatureSupport() {
 
 function setUIOverchargeAttack() {
 	var en = "Overcharge Attack";
-	var de = "Überladungsangriff";
+	var de = "Ãœberladungsangriff";
 	var es = "Ataque de sobrecarga";
 	var fr = "Attaque de surcharge";
 
@@ -2389,7 +2500,7 @@ function setUIOverchargeAttack() {
 
 function setUIOverchargeSupport() {
 	var en = "Overcharge Support";
-	var de = "Überladungsunterstützung";
+	var de = "ÃœberladungsunterstÃ¼tzung";
 	var es = "Soporte de sobrecarga";
 	var fr = "Prise en charge des surcharges";
 
@@ -2400,7 +2511,7 @@ function setUICost() {
 	var en = "Cost";
 	var de = "Kosten";
 	var es = "Costo";
-	var fr = "Coût";
+	var fr = "CoÃ»t";
 
 	substituteLanguageControl("uiCost", en, de, es, fr);
 }
@@ -2417,17 +2528,17 @@ function setUIName() {
 function setUIDefinition() {
 	var en = "Definition";
 	var de = "Definition";
-	var es = "Definición";
-	var fr = "Définition";
+	var es = "DefiniciÃ³n";
+	var fr = "DÃ©finition";
 
 	substituteLanguageControl("uiDefinition", en, de, es, fr);
 }
 
 function setUIAddAbility() {
 	var en = "Add Ability";
-	var de = "Fähigkeit hinzufügen";
+	var de = "FÃ¤higkeit hinzufÃ¼gen";
 	var es = "Agregar habilidad";
-	var fr = "Ajouter une capacité";
+	var fr = "Ajouter une capacitÃ©";
 
 	substituteLanguageControl("uiAddAbility", en, de, es, fr);
 }
@@ -2454,7 +2565,7 @@ function setUIMoveCardUp() {
 	var en = "Move Card Up";
 	var de = "Karte nach oben verschieben";
 	var es = "Mover tarjeta hacia arriba";
-	var fr = "Déplacer la carte vers le haut";
+	var fr = "DÃ©placer la carte vers le haut";
 
 	substituteLanguageControl("uiMoveCardUp", en, de, es, fr);
 }
@@ -2463,14 +2574,14 @@ function setUIMoveCardDown() {
 	var en = "Move Card Down";
 	var de = "Karte nach unten bewegen";
 	var es = "Mover tarjeta hacia abajo";
-	var fr = "Déplacer la carte vers le bas";
+	var fr = "DÃ©placer la carte vers le bas";
 
 	substituteLanguageControl("uiMoveCardDown", en, de, es, fr);
 }
 
 function setUIDeleteCard() {
 	var en = "Delete Card";
-	var de = "Karte löschen";
+	var de = "Karte lÃ¶schen";
 	var es = "Eliminar tarjeta";
 	var fr = "Supprimer la carte";
 
