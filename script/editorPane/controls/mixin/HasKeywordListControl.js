@@ -57,7 +57,7 @@ function HasKeywordListControl(){
    * Keyord text input.
    */
   this.keywordList.on('input',$.proxy(function(coreNode,event){
-    coreNode.setKeywords($(this).val());
+    coreNode.setKeywords($(this).val().toUpperCase());
   },null,this));
 
 

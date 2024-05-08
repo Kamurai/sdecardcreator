@@ -57,7 +57,8 @@ function KeywordStore(keywords){
       if(data.hasOwnProperty(key)){
         raw.push(key);
         rawOrder.push(key);
-        this.lookup[key.toLowerCase()]=key;
+        //this.lookup[key.toLowerCase()]=key;
+        this.lookup[toCamelCase(key)]=key;
       }
     }
 
@@ -108,6 +109,15 @@ function KeywordStore(keywords){
   /**
    * Find keywords that can contain other keywords.
    */
+  this.findKeywords=function(text){
+    text = text.replace(this.re,function(match){
+      var key = this.lookup[toCamelCase(match)];
+      var keyClass = this.resolveKeyClass(key);
+      return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCase(key)+'">'+toCamelCase(key)+'</span>';
+    }.bind(this));
+    return text;
+  };
+  
   this.findNKeywords=function(text){
     text = text.replace(this.reN,function(match,key,number){
       //console.log('findNKeywords',match,arguments);
@@ -182,21 +192,24 @@ function KeywordStore(keywords){
    *
    */
   this.resolveKeyClass=function(key){
-    var parts = key.split(' ');
+    var parts = '';
     var returner ='';
+	
+	if(key != undefined) {
+		parts = key.split(' ');
+		for(var i=0,item;(item=parts[i]);i++){
+		  if(i==0){
+			//item = item.toLowerCase();
+			item = item.replace('\'','');
 
-    for(var i=0,item;(item=parts[i]);i++){
-      if(i==0){
-        //item = item.toLowerCase();
-        item = item.replace('\'','');
+			if($.isNumeric(item[0])){
+			  item="key-"+item;
+			}
+		  }
 
-        if($.isNumeric(item[0])){
-          item="key-"+item;
-        }
-      }
-
-      returner+=item;
-    }
+		  returner+=item;
+		}
+	}
     return returner;
   };
 
@@ -252,6 +265,9 @@ function KeywordStore(keywords){
    *
    */
   this.checkKeywords=function(node){
+	  checkKeywords(node);
+  }
+  /*
     var keysFound = [];
     //clear keywords
     $('.cardGroup.selected .card .keywords').empty();
@@ -270,7 +286,7 @@ function KeywordStore(keywords){
       this.addKeyword(key,this.data[key]);
     }
   };
-
+*/
 
   /**
    * params: name, description, version, hasErrata, displayBack

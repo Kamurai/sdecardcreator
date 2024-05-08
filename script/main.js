@@ -145,7 +145,7 @@ function checkKeywords(node) {
       return a.localeCompare(b);
     });
 	
-	keywordStore = createKeywordStore();
+	var keywordStore = createKeywordStore(); //?
 	
 	//loop through keysfound
     for(var i=0;i<keysFound.length;i++){
@@ -253,6 +253,78 @@ function translateToEnglishFromDeutch(nonEnglish){
 		result = 'SLOW';
 	} else if(nonEnglish == 'DANGEROUS') {
 		result = 'DANGEROUS';
+	} else if(nonEnglish == 'ALL') {
+		result = 'ALL';
+	} else if(nonEnglish == 'IMMUNEBANE') {
+		result = 'IMMUNEBANE';
+	} else if(nonEnglish == 'IMMUNEHEX') {
+		result = 'IMMUNEHEX';
+	} else if(nonEnglish == 'IMMUNEFIRE') {
+		result = 'IMMUNEFIRE';
+	} else if(nonEnglish == 'IMMUNEKNOCKDOWN') {
+		result = 'IMMUNEKNOCKDOWN';
+	} else if(nonEnglish == 'IMMUNEICE') {
+		result = 'IMMUNEICE';
+	} else if(nonEnglish == 'IMMUNEIMMOBILE') {
+		result = 'IMMUNEIMMOBILE';
+	} else if(nonEnglish == 'IMMUNEPOISON') {
+		result = 'IMMUNEPOISON';
+	} else if(nonEnglish == 'IMMUNESLOW') {
+		result = 'IMMUNESLOW';
+	} else if(nonEnglish == 'IMMUNEALL') {
+		result = 'IMMUNEALL';
+	} else if(nonEnglish == 'ALLAFFINITY') {
+		result = 'ALLAFFINITY';
+	} else if(nonEnglish == 'AMETHYST') {
+		result = 'AMETHYST';
+	} else if(nonEnglish == 'AMETHYSTCITRINE') {
+		result = 'AMETHYSTCITRINE';
+	} else if(nonEnglish == 'AMETHYSTEMERALD') {
+		result = 'AMETHYSTEMERALD';
+	} else if(nonEnglish == 'AMETHYSTRUBY') {
+		result = 'AMETHYSTRUBY';
+	} else if(nonEnglish == 'AMETHYSTSAPPHIRE') {
+		result = 'AMETHYSTSAPPHIRE';
+	} else if(nonEnglish == 'CITRINE') {
+		result = 'CITRINE';
+	} else if(nonEnglish == 'CITRINEAMETHYST') {
+		result = 'CITRINEAMETHYST';
+	} else if(nonEnglish == 'CITRINEEMERALD') {
+		result = 'CITRINEEMERALD';
+	} else if(nonEnglish == 'CITRINERUBY') {
+		result = 'CITRINERUBY';
+	} else if(nonEnglish == 'CITRINESAPPHIRE') {
+		result = 'CITRINESAPPHIRE';
+	} else if(nonEnglish == 'EMERALD') {
+		result = 'EMERALD';
+	} else if(nonEnglish == 'EMERALDAMETHYST') {
+		result = 'EMERALDAMETHYST';
+	} else if(nonEnglish == 'EMERALDCITRINE') {
+		result = 'EMERALDCITRINE';
+	} else if(nonEnglish == 'EMERALDRUBY') {
+		result = 'EMERALDRUBY';
+	} else if(nonEnglish == 'EMERALDSAPPHIRE') {
+		result = 'EMERALDSAPPHIRE';
+	} else if(nonEnglish == 'RUBY') {
+		result = 'RUBY';
+	} else if(nonEnglish == 'RUBYAMETHYST') {
+		result = 'RUBYAMETHYST';
+	} else if(nonEnglish == 'RUBYCITRINE') {
+		result = 'RUBYCITRINE';
+	} else if(nonEnglish == 'RUBYEMERALD') {
+		result = 'RUBYEMERALD';
+	} else if(nonEnglish == 'RUBYSAPPHIRE') {
+		result = 'RUBYSAPPHIRE';
+	} else if(nonEnglish == 'SAPPHIRE') {
+		result = 'SAPPHIRE';
+	} else if(nonEnglish == 'SAPPHIREAMETHYST') {
+		result = 'SAPPHIREAMETHYST';
+	} else if(nonEnglish == 'SAPPHIRECITRINE') {
+		result = 'SAPPHIRECITRINE';
+	} else if(nonEnglish == 'SAPPHIREEMERALD') {
+		result = 'SAPPHIREEMERALD';
+	} else if(nonEnglish == 'SAPPHIRERUBY') {
+		result = 'SAPPHIRERUBY';
 	}
 		
 	return result;
@@ -281,6 +353,78 @@ function translateToEnglishFromEspanol(nonEnglish){
 		result = 'SLOW';
 	} else if(nonEnglish == 'PELIGROSO') {
 		result = 'DANGEROUS';
+	} else if(nonEnglish == 'TODO') {
+		result = 'ALL';
+	} else if(nonEnglish == 'INMUNEAESTRAGO') {
+		result = 'IMMUNEBANE';
+	} else if(nonEnglish == 'INMUNEAMALEFICIO') {
+		result = 'IMMUNEHEX';
+	} else if(nonEnglish == 'INMUNEAFUEGO') {
+		result = 'IMMUNEFIRE';
+	} else if(nonEnglish == 'INMUNEADERRIBO') {
+		result = 'IMMUNEKNOCKDOWN';
+	} else if(nonEnglish == 'INMUNEAHIELO') {
+		result = 'IMMUNEICE';
+	} else if(nonEnglish == 'INMUNEAINMOVIL') {
+		result = 'IMMUNEIMMOBILE';
+	} else if(nonEnglish == 'INMUNEAVENENO') {
+		result = 'IMMUNEPOISON';
+	} else if(nonEnglish == 'INMUNEARALENTIZAR') {
+		result = 'IMMUNESLOW';
+	} else if(nonEnglish == 'INMUNEATODO') {
+		result = 'IMMUNEALL';
+	} else if(nonEnglish == 'AFINIDADATODO') {
+		result = 'ALLAFFINITY';
+	} else if(nonEnglish == 'AMATISTA') {
+		result = 'AMETHYST';
+	} else if(nonEnglish == 'AMATISTACITRINO') {
+		result = 'AMETHYSTCITRINE';
+	} else if(nonEnglish == 'AMATISTAESMERALDA') {
+		result = 'AMETHYSTEMERALD';
+	} else if(nonEnglish == 'AMATISTARUBI') {
+		result = 'AMETHYSTRUBY';
+	} else if(nonEnglish == 'AMATISTAZAFIRO') {
+		result = 'AMETHYSTSAPPHIRE';
+	} else if(nonEnglish == 'CITRINO') {
+		result = 'CITRINE';
+	} else if(nonEnglish == 'CITRINOAMATISTA') {
+		result = 'CITRINEAMETHYST';
+	} else if(nonEnglish == 'CITRINOESMERALDA') {
+		result = 'CITRINEEMERALD';
+	} else if(nonEnglish == 'CITRINORUBI') {
+		result = 'CITRINERUBY';
+	} else if(nonEnglish == 'CITRINOZAFIRO') {
+		result = 'CITRINESAPPHIRE';
+	} else if(nonEnglish == 'ESMERALDA') {
+		result = 'EMERALD';
+	} else if(nonEnglish == 'ESMERALDAAMATISTA') {
+		result = 'EMERALDAMETHYST';
+	} else if(nonEnglish == 'ESMERALDACITRINO') {
+		result = 'EMERALDCITRINE';
+	} else if(nonEnglish == 'ESMERALDARUBI') {
+		result = 'EMERALDRUBY';
+	} else if(nonEnglish == 'ESMERALDAZAFIRO') {
+		result = 'EMERALDSAPPHIRE';
+	} else if(nonEnglish == 'RUBI') {
+		result = 'RUBY';
+	} else if(nonEnglish == 'RUBIAMATISTA') {
+		result = 'RUBYAMETHYST';
+	} else if(nonEnglish == 'RUBICITRINO') {
+		result = 'RUBYCITRINE';
+	} else if(nonEnglish == 'RUBIESMERALDA') {
+		result = 'RUBYEMERALD';
+	} else if(nonEnglish == 'RUBIZAFIRO') {
+		result = 'RUBYSAPPHIRE';
+	} else if(nonEnglish == 'ZAFIRO') {
+		result = 'SAPPHIRE';
+	} else if(nonEnglish == 'ZAFIROAMATISTA') {
+		result = 'SAPPHIREAMETHYST';
+	} else if(nonEnglish == 'ZAFIROCITRINO') {
+		result = 'SAPPHIRECITRINE';
+	} else if(nonEnglish == 'ZAFIROESMERALDA') {
+		result = 'SAPPHIREEMERALD';
+	} else if(nonEnglish == 'ZAFIRORUBI') {
+		result = 'SAPPHIRERUBY';
 	}
 		
 	return result;
@@ -309,6 +453,78 @@ function translateToEnglishFromFrancais(nonEnglish){
 		result = 'SLOW';
 	} else if(nonEnglish == 'DANGEROUS') {
 		result = 'DANGEROUS';
+	} else if(nonEnglish == 'ALL') {
+		result = 'ALL';
+	} else if(nonEnglish == 'IMMUNEBANE') {
+		result = 'IMMUNEBANE';
+	} else if(nonEnglish == 'IMMUNEHEX') {
+		result = 'IMMUNEHEX';
+	} else if(nonEnglish == 'IMMUNEFIRE') {
+		result = 'IMMUNEFIRE';
+	} else if(nonEnglish == 'IMMUNEKNOCKDOWN') {
+		result = 'IMMUNEKNOCKDOWN';
+	} else if(nonEnglish == 'IMMUNEICE') {
+		result = 'IMMUNEICE';
+	} else if(nonEnglish == 'IMMUNEIMMOBILE') {
+		result = 'IMMUNEIMMOBILE';
+	} else if(nonEnglish == 'IMMUNEPOISON') {
+		result = 'IMMUNEPOISON';
+	} else if(nonEnglish == 'IMMUNESLOW') {
+		result = 'IMMUNESLOW';
+	} else if(nonEnglish == 'IMMUNEALL') {
+		result = 'IMMUNEALL';
+	} else if(nonEnglish == 'ALLAFFINITY') {
+		result = 'ALLAFFINITY';
+	} else if(nonEnglish == 'AMETHYST') {
+		result = 'AMETHYST';
+	} else if(nonEnglish == 'AMETHYSTCITRINE') {
+		result = 'AMETHYSTCITRINE';
+	} else if(nonEnglish == 'AMETHYSTEMERALD') {
+		result = 'AMETHYSTEMERALD';
+	} else if(nonEnglish == 'AMETHYSTRUBY') {
+		result = 'AMETHYSTRUBY';
+	} else if(nonEnglish == 'AMETHYSTSAPPHIRE') {
+		result = 'AMETHYSTSAPPHIRE';
+	} else if(nonEnglish == 'CITRINE') {
+		result = 'CITRINE';
+	} else if(nonEnglish == 'CITRINEAMETHYST') {
+		result = 'CITRINEAMETHYST';
+	} else if(nonEnglish == 'CITRINEEMERALD') {
+		result = 'CITRINEEMERALD';
+	} else if(nonEnglish == 'CITRINERUBY') {
+		result = 'CITRINERUBY';
+	} else if(nonEnglish == 'CITRINESAPPHIRE') {
+		result = 'CITRINESAPPHIRE';
+	} else if(nonEnglish == 'EMERALD') {
+		result = 'EMERALD';
+	} else if(nonEnglish == 'EMERALDAMETHYST') {
+		result = 'EMERALDAMETHYST';
+	} else if(nonEnglish == 'EMERALDCITRINE') {
+		result = 'EMERALDCITRINE';
+	} else if(nonEnglish == 'EMERALDRUBY') {
+		result = 'EMERALDRUBY';
+	} else if(nonEnglish == 'EMERALDSAPPHIRE') {
+		result = 'EMERALDSAPPHIRE';
+	} else if(nonEnglish == 'RUBY') {
+		result = 'RUBY';
+	} else if(nonEnglish == 'RUBYAMETHYST') {
+		result = 'RUBYAMETHYST';
+	} else if(nonEnglish == 'RUBYCITRINE') {
+		result = 'RUBYCITRINE';
+	} else if(nonEnglish == 'RUBYEMERALD') {
+		result = 'RUBYEMERALD';
+	} else if(nonEnglish == 'RUBYSAPPHIRE') {
+		result = 'RUBYSAPPHIRE';
+	} else if(nonEnglish == 'SAPPHIRE') {
+		result = 'SAPPHIRE';
+	} else if(nonEnglish == 'SAPPHIREAMETHYST') {
+		result = 'SAPPHIREAMETHYST';
+	} else if(nonEnglish == 'SAPPHIRECITRINE') {
+		result = 'SAPPHIRECITRINE';
+	} else if(nonEnglish == 'SAPPHIREEMERALD') {
+		result = 'SAPPHIREEMERALD';
+	} else if(nonEnglish == 'SAPPHIRERUBY') {
+		result = 'SAPPHIRERUBY';
 	}
 		
 	return result;
@@ -703,7 +919,7 @@ this.replaceDeutchAffinities=function(re, description){
 			translation = 'SAPPHIRERUBY';
 		}
 		
-		return '<div class="affinity '+match.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
+		return '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
     });
 }
 
@@ -764,7 +980,7 @@ this.replaceEspanolAffinities=function(re, description){
 			translation = 'SAPPHIRERUBY';
 		}
 		
-		return '<div class="affinity '+match.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
+		return '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
     });
 }
   
@@ -825,7 +1041,7 @@ this.replaceFrancaisAffinities=function(re, description){
 			translation = 'SAPPHIRERUBY';
 		}
 		
-		return '<div class="affinity '+match.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
+		return '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
     });
 }
 
@@ -2612,7 +2828,7 @@ function toCamelCase(input) {
 	var result = '';
 	var first = '';
 	
-	if(input.length > 0) {
+	if(input != undefined && input.length > 0) {
 		first = input.toString().substring(0,1); //get first character
 		first = first.toUpperCase();
 		
