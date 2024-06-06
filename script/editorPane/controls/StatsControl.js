@@ -61,8 +61,8 @@ function StatsControl(){
     '<div class="hero monster pet arcadeSolo"><span class="controlSTR">STR </span><input name="STR" value="1SW 3B" /></div>'+
     '<div class="hero monster pet arcadeSolo"><span class="controlARM">ARM </span><input name="ARM" value="2B 1R SH" /></div>'+
     '<div class="arcadeSolo"><span class="controlRNG">RNG </span><input name="RNG" value="6RG"/></div>'+
-    '<div class="hero monster"><span class="controlWILL">WILL </span><input name="WILL" value="3B" /></div>'+
-    '<div class="hero monster"><span class="controlDEX">DEX </span><input name="DEX" value="3B" /></div>'+
+    '<div class="hero monster pet"><span class="controlWILL">WILL </span><input name="WILL" value="3B" /></div>'+
+    '<div class="hero monster pet"><span class="controlDEX">DEX </span><input name="DEX" value="3B" /></div>'+
     '<div class="hero pet monster arcadeSolo displayInline"><span class="controlWounds">Wounds </span><input class="number" type="number" name="wounds" value="5" min="-9" max="99" /></div>'+
     '<div class="monster displayInline"><span class="controlSkullPoints">Skull Points </span><input class="number" type="number" name="skulls" value="1" min="-9" max="99" /></div>'+
     '<div class="hero displayInline"><span class="controlPotions">Potions </span><input class="number" type="number" name="potions" value="1" min="-9" max="99" /></div>'+

@@ -23,8 +23,8 @@
 function HasStats(){
   this.STRStat = new Stat(this,"STR", 'hero monster pet', '3B 1SW');
   this.ARMStat = new Stat(this, "ARM", 'hero monster pet', '2B 1R SH');
-  this.WILLStat = new Stat(this, "WILL", 'hero monster', '3B');
-  this.DEXStat = new Stat(this, "DEX", 'hero monster', '3B');
+  this.WILLStat = new Stat(this, "WILL", 'hero monster pet', '3B');
+  this.DEXStat = new Stat(this, "DEX", 'hero monster pet', '3B');
 
 
   /**
