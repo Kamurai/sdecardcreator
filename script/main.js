@@ -1706,45 +1706,45 @@ function setUIBorderList(){
 
 function setUIBlue() {
 	var en = "Blue";
-	var de = "Klassisches Blau";
-	var es = "Azul Clásico";
-	var fr = "Bleu Classique";
+	var de = "Blau";
+	var es = "Azul";
+	var fr = "Bleu";
 
 	substituteLanguageControl("uiBlue", en, de, es, fr);
 }
 
 function setUIRed() {
 	var en = "Red";
-	var de = "Klassisches Rot";
-	var es = "Rojo Clásico";
-	var fr = "Rouge Classique";
+	var de = "Rot";
+	var es = "Rojo";
+	var fr = "Rouge";
 
 	substituteLanguageControl("uiRed", en, de, es, fr);
 }
 
 function setUIGreen() {
 	var en = "Green";
-	var de = "Klassisches Grün";
-	var es = "Verde Clásico";
-	var fr = "Vert Classique";
+	var de = "Grün";
+	var es = "Verde";
+	var fr = "Vert";
 
 	substituteLanguageControl("uiGreen", en, de, es, fr);
 }
 
 function setUIPurple() {
 	var en = "Purple";
-	var de = "Klassisches Lila";
-	var es = "Púrpura Clásico";
-	var fr = "Violet Classique";
+	var de = "Lila";
+	var es = "Púrpura";
+	var fr = "Violet";
 
 	substituteLanguageControl("uiPurple", en, de, es, fr);
 }
 
 function setUIYellow() {
 	var en = "Yellow";
-	var de = "Klassisches Gelb";
-	var es = "Amarillo Clásico";
-	var fr = "Jaune Classique";
+	var de = "Gelb";
+	var es = "Gelb";
+	var fr = "Jaune";
 
 	substituteLanguageControl("uiYellow", en, de, es, fr);
 }
@@ -2304,10 +2304,10 @@ function setUIAmethyst() {
 }
 
 function setUIAmethystCitrine() {
-	var en = "Amethyst Amethyst";
-	var de = "Amethyst Amethyst";
+	var en = "Amethyst Citrine";
+	var de = "Amethyst Citrine";
 	var es = "Amatista Citrino";
-	var fr = "Amethyst Amethyst";
+	var fr = "Amethyst Citrine";
 
 	substituteLanguageControl("uiAmethystCitrine", en, de, es, fr);
 }
@@ -2680,9 +2680,9 @@ function setUISpecial() {
 
 function setUIListArcade() {
 	var en = "---Arcade---";
-	var de = "Arkade";
-	var es = "Arcada";
-	var fr = "Arcade";
+	var de = "---Arkade---";
+	var es = "---Arcada---";
+	var fr = "---Arcade---";
 
 	substituteLanguageControl("uiListArcade", en, de, es, fr);
 }
@@ -2781,7 +2781,7 @@ function setUIMoveCardUp() {
 	var en = "Move Card Up";
 	var de = "Karte nach oben verschieben";
 	var es = "Mover tarjeta hacia arriba";
-	var fr = "Déplacer la carte vers le haut";
+	var fr = "Mover tarjeta hacia arriba";
 
 	substituteLanguageControl("uiMoveCardUp", en, de, es, fr);
 }
