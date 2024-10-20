@@ -479,7 +479,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  "Clever-C": {
+  "Clever-E": {
     "description": "When a Boss Sighting space is reached, a model with Clever may suffer a wound to cancel the Boss Sighting.",
     "version": 2.0,
     "hasErrata": "false",
@@ -1030,7 +1030,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  "Frosty Imps": {
+  "Frosty Imps-E": {
     "description": "Spawn Frost Imps within three squares of the dungeon boss until there are six Frost Imps in play.",
     "version": 2.0,
     "hasErrata": "false",
@@ -1309,12 +1309,12 @@
   },
   "Holy": {
     "description": "A model with Holy may reroll a single dice when making an attack roll versus undead or demons.",
-    "version": 1,
+    "version": 1.0,
     "hasErrata": "true",
     "errata": [
       {
         "description": "A model with Holy may reroll a single dice when making offensive actions against undead, demons, or nether models.",
-        "version": 2,
+        "version": 1.99,
         "source": "",
         "sourceDescription": "Forgotten King Updated keyword."
       }
@@ -1341,7 +1341,7 @@
   },
   "Host": {
     "description": "When a model with HOST is spawned you may immediately place an additional model with Host in an empty, adjacent square. You may activate two models with Host for every skull value. Each model must fully complete its activation before the second is activated.",
-    "version": 1,
+    "version": 1.0,
     "hasErrata": "false",
     "errata": []
   },
@@ -1457,13 +1457,13 @@
   },
   "Infested-A": {
     "description": "When a Spawning Point model with Infested is destroyed, spawn up to four Dirty Rats from it before removing it.  These Dirty Rats form a Rat King Elite Gang.",
-    "version": 1.0,
+    "version": 2.0,
     "hasErrata": "false",
     "errata": []
   },
   "Infested-E": {
     "description": "When a model with Infested is destroyed, spawn up to 4 Skull Points worth of monsters with the Vermin ability within 3 squares of it before removing it.",
-    "version": 1.0,
+    "version": 2.0,
     "hasErrata": "false",
     "errata": []
   },
@@ -2271,7 +2271,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  "Reach": {
+  "Reach-E": {
     "description": "This ability allows the model to target an enemy with a melee attack up to X squares away. A model may use any of its abilities or special actions using Reach X, unless specified otherwise.",
     "version": 1.5,
     "hasErrata": "false",
@@ -2800,7 +2800,7 @@
   },
   "Stealth": {
     "description": "When a model with stealth is targeted by a ranged affect they may immediately make a DEX roll. Subtract the number of stars rolled from the attacker's range. if the roll causes the attacker to be out of range the attack is considered to have failed.",
-    "version": 1,
+    "version": 1.0,
     "hasErrata": "true",
     "errata": [
       {
@@ -3077,19 +3077,19 @@
   },
   "Uncanny Awareness": {
     "description": "Models with Uncanny Awareness ignore Stealth.",
-    "version": 1,
+    "version": 1.0,
     "hasErrata": "false",
     "errata": []
   },
   "Unstable Design": {
     "description": "When a model with Unstable Design suffers a critical, it immediately takes its Vent Steam action.  If the model with Unstable Design would be destroyed by the critical, it takes Vent Steam before being removed.",
-    "version": 1.0,
+    "version": 2.0,
     "hasErrata": "false",
     "errata": []
   },
   "Vent Steam": {
     "description": "Dangerous, 1SW, +1B STR, Wave 1.",
-    "version": 1.0,
+    "version": 2.0,
     "hasErrata": "false",
     "errata": []
   },
@@ -3199,7 +3199,7 @@
     "errata": []
   },
   "Yip's Wrath": {
-    "description": "During its activation, a model with Yip's Wrath may make the following offensive action a single time for free:  0AC: 4mi, knockdown.",
+    "description": "During its activation, a model with Yip's Wrath may make the following offensive action a single time for free:  0AC: 4MI, KNOCKDOWN.",
     "version": 2.0,
     "hasErrata": "false",
     "errata": []
@@ -3222,7 +3222,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  "You've Been Naughty": {
+  " ": {
     "description": "After an enemy model rolls a critical success against a model with You've Been Naughty, the enemy model Shapeshifts into a Naughtie (regardless of the number of wounds dealt by the critical).  The Consul selects one Naughtie shapeshift card that is not already being used by a Hero.  If all Naughtie shapeshift cards are in play, this ability has no effect.  Heroes on Kringle's Nice List may not be shapeshifted in this way.",
     "version": 2.0,
     "hasErrata": "false",
