@@ -52,6 +52,7 @@ function EditForm(){
     this.bitControl = new BitControl();
     this.flavorTextControl = new FlavorTextControl();
     this.cardModifierControl = new CardModifierControl();
+	this.cardModifierControl = new CardModifierControl();
 
     this.setDisplay(this.node,'hero');
   };
