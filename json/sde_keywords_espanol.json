@@ -24,7 +24,7 @@
     "errata": []
   },
   "Adorno brillante-A": {
-    "description": " Cuando se roba una carta de trama, tira 1R. Todos los monstruos con Adorno brillante obtienen una bonificación permanente, dependiendo de la tirada:<br><br>Sin estrellas: +1ST ARM<br>Una estrella: +1ST FUE<br>Dos o más estrellas: +1AC.",
+    "description": "Cuando se roba una carta de trama, tira 1R. Todos los monstruos con Adorno brillante obtienen una bonificación permanente, dependiendo de la tirada:<br><br>Sin estrellas: +1ST ARM<br>Una estrella: +1ST FUE<br>Dos o más estrellas: +1AC.",
     "version": 2.0,
     "hasErrata": "false",
     "errata": []
@@ -42,7 +42,7 @@
     "errata": []
   },
   "Agarre": {
-    "description": " Las miniaturas enemigas no puede moverse mientras estén adyacentes a una miniatura con Agarre.",
+    "description": "Las miniaturas enemigas no puede moverse mientras estén adyacentes a una miniatura con Agarre.",
     "version": 1.99,
     "hasErrata": "true",
     "errata": [
@@ -67,7 +67,7 @@
     "errata": []
   },
   "Alboroto-E": {
-    "description": " Una miniatura con Alboroto gana +1B mientras realiza acciones ofensivas por cada punto de aparición que fue destruido en este juego.",
+    "description": "Una miniatura con Alboroto gana +1B mientras realiza acciones ofensivas por cada punto de aparición que fue destruido en este juego.",
     "version": 2.0,
     "hasErrata": "false",
     "errata": []
@@ -135,7 +135,7 @@
   },
   "Anfitrión": {
     "description": "Cuando se genera una miniatura con Anfitrión, puedes colocar inmediatamente una miniatura adicional con Anfitrión en una casilla adyacente vacía. Puedes activar dos miniaturas con Anfitrión por cada valor de cráneo. Cada miniatura debe completar completamente su activación antes de que el segundo sea activado.",
-    "version": 1,
+    "version": 1.0,
     "hasErrata": "false",
     "errata": []
   },
@@ -304,7 +304,7 @@
     "hasErrata": "true",
     "errata": [
       {
-        "description": " Elige una miniatura enemiga que esté a 5 casillas o menos de distancia y dentro de la línea de visión. Coloca la miniatura con Ataque en Salto adyacente a esta miniatura objetivo y luego realiza la tirada ofensiva con normalidad.",
+        "description": "Elige una miniatura enemiga que esté a 5 casillas o menos de distancia y dentro de la línea de visión. Coloca la miniatura con Ataque en Salto adyacente a esta miniatura objetivo y luego realiza la tirada ofensiva con normalidad.",
         "version": 1.99,
         "source": "",
         "sourceDescription": "Forgotten King Updated keyword."
@@ -654,7 +654,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  "Cerdos y Regalos ": {
+  "Cerdos y Regalos": {
     "description": "Por determinar.",
     "version": 2.0,
     "hasErrata": "false",
@@ -2625,7 +2625,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  "Regalos de la oscuridad ": {
+  "Regalos de la oscuridad": {
     "description": "Por determinar.",
     "version": 2.0,
     "hasErrata": "false",
