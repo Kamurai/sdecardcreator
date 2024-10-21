@@ -46,26 +46,230 @@ function changeLanguageFromTo(previousLanguage, nextLanguage) {
 function updateKeywordLanguage() {
 	stripStatsFromKeywords();
 	
-	applyLanguageToDefinitions();
+	//stripSymbolsFromKeywords();
+	
 	switchKeywordLanguages();
+	
+	applyLanguageToDefinitions();
 	applyLanguageToDescriptions();
 	
 	setUILanguage();
+	//updatebox();
 }
 
 function stripStatsFromKeywords() {
-	stripFromKeywords('STR');
-	stripFromKeywords('ARM');
-	stripFromKeywords('WILL');
-	stripFromKeywords('DEX');
+	if(languageChoice == "en") {
+		stripStatsFromKeywordsEnglish();
+	} else if(languageChoice == "de") {
+		stripStatsFromKeywordsDeutch();
+	} else if(languageChoice == "es") {
+		stripStatsFromKeywordsEspanol();
+	} else if(languageChoice == "fr") {
+		stripStatsFromKeywordsFrancais();
+	} else {
+		stripStatsFromKeywordsEnglish();
+	}
 }
 
-function stripFromKeywords(stat) {
+function stripStatsFromKeywordsEnglish() {
+	stripStatFromKeywords('STR');
+	stripStatFromKeywords('ARM');
+	stripStatFromKeywords('WILL');
+	stripStatFromKeywords('DEX');
+}
+
+function stripStatsFromKeywordsDeutch() {
+	stripStatFromKeywords('STR');
+	stripStatFromKeywords('RUS');
+	stripStatFromKeywords('WILL');
+	stripStatFromKeywords('DEX');
+}
+
+function stripStatsFromKeywordsEspanol() {
+	stripStatFromKeywords('FUE');
+	stripStatFromKeywords('ARM');
+	stripStatFromKeywords('VOL');
+	stripStatFromKeywords('DES');
+}
+
+function stripStatsFromKeywordsFrancais() {
+	stripStatFromKeywords('FOR');
+	stripStatFromKeywords('ARM');
+	stripStatFromKeywords('VOL');
+	stripStatFromKeywords('DEX');
+}
+
+function stripStatFromKeywords(stat) {
 	var elements = document.getElementsByClassName(stat);
 	while(elements.length > 0) {
 		var element = elements[0];
 		element.classList.remove('stat');
 		element.classList.remove(stat);
+	}
+}
+
+function stripSymbolsFromKeywords() {
+	stripDiceFromKeywords();
+	stripOffenseFromKeywords();
+	stripModFromKeywords();
+	
+	stripKeySymoblsFromKeywords();
+	stripImmunitiesFromKeywords();
+	stripAffinitiesFromKeywords();
+}
+
+function stripDiceFromKeywords() {
+	stripDiceFromKeywordsByColor('star');
+	stripDiceFromKeywordsByColor('blue');
+	stripDiceFromKeywordsByColor('red');
+	stripDiceFromKeywordsByColor('green');
+	stripDiceFromKeywordsByColor('orange');
+	stripDiceFromKeywordsByColor('purple');
+}
+
+function stripDiceFromKeywordsByColor(color) {
+	var elements = document.getElementsByClassName(color);
+	for(var x = 0; x < elements.length; x++) {
+		var element = elements[x];
+		
+		if(element.parentElement.classList.contains("definition") || element.parentElement.classList.contains("description")) {
+			element.classList.remove('dice');
+			element.classList.remove(color);
+			if(color == 'star') {
+				element.append(color.substr(0,2).toUpperCase());
+			} else {
+				element.append(color.substr(0,1).toUpperCase());
+			}
+		}
+	}
+}
+
+function stripOffenseFromKeywords() {
+	stripOffenseFromKeywordsByType('missile');
+	stripOffenseFromKeywordsByType('magic');
+	stripOffenseFromKeywordsByType('melee');
+	stripOffenseFromKeywordsByType('range');
+}
+
+function stripOffenseFromKeywordsByType(type) {
+	var elements = document.getElementsByClassName(type);
+	for(var x = 0; x < elements.length; x++) {
+		var element = elements[x];
+		
+		if(element.parentElement.classList.contains("definition") || element.parentElement.classList.contains("description")) {
+			element.classList.remove('offense');
+			element.classList.remove(type);
+			element.append(type.substr(0,2).toUpperCase());
+			x--;
+		}
+	}
+}
+
+function stripModFromKeywords() {
+	stripModFromKeywordsByTarget('actionMod');
+	stripModFromKeywordsByTarget('moveMod');
+	stripModFromKeywordsByTarget('potionMod');
+	stripModFromKeywordsByTarget('shieldMod');
+	stripModFromKeywordsByTarget('heartMod');
+}
+
+function stripModFromKeywordsByTarget(target) {
+	var elements = document.getElementsByClassName(target);
+	for(var x = 0; x < elements.length; x++) {
+		var element = elements[x];
+		
+		if(element.parentElement.classList.contains("definition") || element.parentElement.classList.contains("description")) {
+			element.classList.remove(target);
+			element.append(target.substr(0,2).toUpperCase());
+			x--;
+		}
+	}
+}
+
+function stripKeySymoblsFromKeywords() {
+	stripKeySymoblsFromKeywordsByType('AUGMENT');
+	stripKeySymoblsFromKeywordsByType('DANGEROUS');
+	stripKeySymoblsFromKeywordsByType('BANE');
+	stripKeySymoblsFromKeywordsByType('HEX');
+	stripKeySymoblsFromKeywordsByType('FIRE');
+	stripKeySymoblsFromKeywordsByType('KNOCKDOWN');
+	stripKeySymoblsFromKeywordsByType('ICE');
+	stripKeySymoblsFromKeywordsByType('IMMOBILE');
+	stripKeySymoblsFromKeywordsByType('POISON');
+	stripKeySymoblsFromKeywordsByType('SLOW');
+	stripKeySymoblsFromKeywordsByType('ALL');
+}
+
+function stripImmunitiesFromKeywords() {
+	stripKeySymoblsFromKeywordsByType('IMMUNEBANE');
+	stripKeySymoblsFromKeywordsByType('IMMUNEHEX');
+	stripKeySymoblsFromKeywordsByType('IMMUNEFIRE');
+	stripKeySymoblsFromKeywordsByType('IMMUNEKNOCKDOWN');
+	stripKeySymoblsFromKeywordsByType('IMMUNEICE');
+	stripKeySymoblsFromKeywordsByType('IMMUNEIMMOBILE');
+	stripKeySymoblsFromKeywordsByType('IMMUNEPOISON');
+	stripKeySymoblsFromKeywordsByType('IMMUNESLOW');
+	stripKeySymoblsFromKeywordsByType('IMMUNEALL');
+}
+
+function stripKeySymoblsFromKeywordsByType(type) {
+	var elements = document.getElementsByClassName(type);
+	while(elements.length > 0) {
+		var element = elements[0];
+		element.classList.remove('keyword');
+		element.classList.remove(type);
+		//element.append(type.substr(0,2).toUpperCase());
+		element.innerText = element.innerText.toUpperCase();
+	}
+}
+
+function stripAffinitiesFromKeywords() {
+	stripAffinitiesFromKeywordsByType('ALLAFFINITY');
+	
+	stripAffinitiesFromKeywordsByType('AMETHYST');
+	stripAffinitiesFromKeywordsByType('AMETHYSTCITRINE');
+	stripAffinitiesFromKeywordsByType('AMETHYSTEMERALD');
+	stripAffinitiesFromKeywordsByType('AMETHYSTRUBY');
+	stripAffinitiesFromKeywordsByType('AMETHYSTSAPPHIRE');
+	
+	stripAffinitiesFromKeywordsByType('CITRINE');
+	stripAffinitiesFromKeywordsByType('CITRINEAMETHYST');
+	stripAffinitiesFromKeywordsByType('CITRINEEMERALD');
+	stripAffinitiesFromKeywordsByType('CITRINERUBY');
+	stripAffinitiesFromKeywordsByType('CITRINESAPPHIRE');
+	
+	stripAffinitiesFromKeywordsByType('EMERALD');
+	stripAffinitiesFromKeywordsByType('EMERALDAMETHYST');
+	stripAffinitiesFromKeywordsByType('EMERALDCITRINE');
+	stripAffinitiesFromKeywordsByType('EMERALDRUBY');
+	stripAffinitiesFromKeywordsByType('EMERALDSAPPHIRE');
+	
+	stripAffinitiesFromKeywordsByType('RUBY');
+	stripAffinitiesFromKeywordsByType('RUBYAMETHYST');
+	stripAffinitiesFromKeywordsByType('RUBYCITRINE');
+	stripAffinitiesFromKeywordsByType('RUBYEMERALD');
+	stripAffinitiesFromKeywordsByType('RUBYSAPPHIRE');
+	
+	stripAffinitiesFromKeywordsByType('SAPPHIRE');
+	stripAffinitiesFromKeywordsByType('SAPPHIREAMETHYST');
+	stripAffinitiesFromKeywordsByType('SAPPHIRECITRINE');
+	stripAffinitiesFromKeywordsByType('SAPPHIREEMERALD');
+	stripAffinitiesFromKeywordsByType('SAPPHIRERUBY');
+}
+
+function stripAffinitiesFromKeywordsByType(type) {
+	var elements = document.getElementsByClassName(type);
+	for(var x = 0; x < elements.length; x++) {
+		var element = elements[x];
+		
+		if(element.parentElement.classList.contains("definition") || element.parentElement.classList.contains("description")) {
+			element.classList.remove('affinity');
+			element.classList.remove(type);
+			//element.append(type.substr(0,2).toUpperCase());
+		//	element.innerText = type.toUpperCase();
+			element.innerHTML = type.toUpperCase();
+			x--;
+		}
 	}
 }
 
@@ -858,7 +1062,7 @@ this.findAffinities=function(description){
   
 this.replaceEnglishAffinities=function(re, description){
 	return description.replace(re,function(match){
-		return '<div class="affinity '+match.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
+		return '<span class="affinity '+match.toUpperCase()+'" title="'+toCamelCase(match)+'"></span>';
     });
 }
   
@@ -1313,6 +1517,7 @@ function setUILanguage() {
 	setUIAbilitySection();
 	//setUIFlavorTextSection();
 	setUICardModifierSection();
+	setUILegendSection();
 }
 
 function setUIButtonBar(){
@@ -1329,7 +1534,7 @@ function setUISaveButton() {
 	var es = "Ahorrar";
 	var fr = "Sauvegarder";
 
-	substituteLanguageControl("uiSave", en, de, es, fr);
+	substituteLanguage("uiSave", en, de, es, fr);
 }
 
 function setUILoadButton() {
@@ -1338,7 +1543,7 @@ function setUILoadButton() {
 	var es = "Carga";
 	var fr = "Charger";
 
-	substituteLanguageControl("uiLoad", en, de, es, fr);
+	substituteLanguage("uiLoad", en, de, es, fr);
 }
 
 function setUIAddCardButton() {
@@ -1347,7 +1552,7 @@ function setUIAddCardButton() {
 	var es = "Agregar tarjeta";
 	var fr = "Ajouter une carte";
 
-	substituteLanguageControl("uiAddCard", en, de, es, fr);
+	substituteLanguage("uiAddCard", en, de, es, fr);
 }
 
 function setUIHelpButton() {
@@ -1356,7 +1561,7 @@ function setUIHelpButton() {
 	var es = "Ayuda";
 	var fr = "Aide";
 
-	substituteLanguageControl("uiHelp", en, de, es, fr);
+	substituteLanguage("uiHelp", en, de, es, fr);
 }
 
 function setUIHelpDialog() {
@@ -1380,7 +1585,7 @@ function setUIMedicationForAll() {
 	var es = "Medicamentos para todos";
 	var fr = "Des médicaments pour tous";
 
-	substituteLanguageControl("uiMedicationForAll", en, de, es, fr);
+	substituteLanguage("uiMedicationForAll", en, de, es, fr);
 }
 
 function setUIGithub() {
@@ -1389,7 +1594,7 @@ function setUIGithub() {
 	var es = "GitHub";
 	var fr = "GitHub";
 
-	substituteLanguageControl("uiGitHub", en, de, es, fr);
+	substituteLanguage("uiGitHub", en, de, es, fr);
 }
 
 function setUIFAQ() {
@@ -1398,7 +1603,7 @@ function setUIFAQ() {
 	var es = "Preguntas más frecuentes";
 	var fr = "FAQ";
 
-	substituteLanguageControl("uiFAQ", en, de, es, fr);
+	substituteLanguage("uiFAQ", en, de, es, fr);
 }
 
 function setUIChanges() {
@@ -1407,7 +1612,7 @@ function setUIChanges() {
 	var es = "Cambios";
 	var fr = "Changements";
 
-	substituteLanguageControl("uiChanges", en, de, es, fr);
+	substituteLanguage("uiChanges", en, de, es, fr);
 }
 
 function setUIToDo() {
@@ -1416,7 +1621,7 @@ function setUIToDo() {
 	var es = "Hacer";
 	var fr = "Faire";
 
-	substituteLanguageControl("uiToDo", en, de, es, fr);
+	substituteLanguage("uiToDo", en, de, es, fr);
 }
 
 function setUIAbout() {
@@ -1425,7 +1630,7 @@ function setUIAbout() {
 	var es = "Acerca de";
 	var fr = "À propos";
 
-	substituteLanguageControl("uiAbout", en, de, es, fr);
+	substituteLanguage("uiAbout", en, de, es, fr);
 }
 
 function setUISectionHeaders(){
@@ -1445,7 +1650,7 @@ function setUICardHeader() {
 	var es = "Tarjeta";
 	var fr = "Card";
 
-	substituteLanguageControl("uiCard", en, de, es, fr);
+	substituteLanguage("uiCard", en, de, es, fr);
 }
 
 function setUIHeaderHeader() {
@@ -1454,7 +1659,7 @@ function setUIHeaderHeader() {
 	var es = "Encabezamiento";
 	var fr = "Entête";
 
-	substituteLanguageControl("uiHeader", en, de, es, fr);
+	substituteLanguage("uiHeader", en, de, es, fr);
 }
 
 function setUIImageHeader() {
@@ -1463,7 +1668,7 @@ function setUIImageHeader() {
 	var es = "Imagen";
 	var fr = "Image";
 
-	substituteLanguageControl("uiImage", en, de, es, fr);
+	substituteLanguage("uiImage", en, de, es, fr);
 }
 
 function setUIStatsHeader() {
@@ -1472,7 +1677,7 @@ function setUIStatsHeader() {
 	var es = "Estadísticas";
 	var fr = "Statistiques";
 
-	substituteLanguageControl("uiStats", en, de, es, fr);
+	substituteLanguage("uiStats", en, de, es, fr);
 }
 
 function setUIKeywordHeader() {
@@ -1481,7 +1686,7 @@ function setUIKeywordHeader() {
 	var es = "Palabra clave";
 	var fr = "Mot-clé";
 
-	substituteLanguageControl("uiKeyword", en, de, es, fr);
+	substituteLanguage("uiKeyword", en, de, es, fr);
 }
 
 function setUIAbilityHeader() {
@@ -1490,7 +1695,7 @@ function setUIAbilityHeader() {
 	var es = "Capacidad";
 	var fr = "Capacité";
 
-	substituteLanguageControl("uiAbility", en, de, es, fr);
+	substituteLanguage("uiAbility", en, de, es, fr);
 }
 
 function setUIFlavorTextHeader() {
@@ -1499,7 +1704,7 @@ function setUIFlavorTextHeader() {
 	var es = "Texto de Sabor";
 	var fr = "Texte de Saveur";
 
-	substituteLanguageControl("uiFlavorText", en, de, es, fr);
+	substituteLanguage("uiFlavorText", en, de, es, fr);
 }
 
 function setUICardModifierHeader() {
@@ -1508,7 +1713,7 @@ function setUICardModifierHeader() {
 	var es = "Modificador de tarjeta";
 	var fr = "Modificateur de carte";
 
-	substituteLanguageControl("uiCardModifier", en, de, es, fr);
+	substituteLanguage("uiCardModifier", en, de, es, fr);
 }
 
 function setUICardSection(){
@@ -1526,7 +1731,7 @@ function setUIType() {
 	var es = "Tipo";
 	var fr = "Taper";
 
-	substituteLanguageControl("uiType", en, de, es, fr);
+	substituteLanguage("uiType", en, de, es, fr);
 }
 
 function setUICardTypeList(){
@@ -1554,7 +1759,7 @@ function setUIHero() {
 	var es = "Héroe";
 	var fr = "Héros";
 
-	substituteLanguageControl("uiHero", en, de, es, fr);
+	substituteLanguage("uiHero", en, de, es, fr);
 }
 
 function setUIMonster() {
@@ -1563,7 +1768,7 @@ function setUIMonster() {
 	var es = "Monstruo";
 	var fr = "Monstre";
 
-	substituteLanguageControl("uiMonster", en, de, es, fr);
+	substituteLanguage("uiMonster", en, de, es, fr);
 }
 
 function setUIPet() {
@@ -1572,7 +1777,7 @@ function setUIPet() {
 	var es = "Mascota";
 	var fr = "Animal de compagnie";
 
-	substituteLanguageControl("uiPet", en, de, es, fr);
+	substituteLanguage("uiPet", en, de, es, fr);
 }
 
 function setUILoot() {
@@ -1581,7 +1786,7 @@ function setUILoot() {
 	var es = "Botín";
 	var fr = "Butin";
 
-	substituteLanguageControl("uiLoot", en, de, es, fr);
+	substituteLanguage("uiLoot", en, de, es, fr);
 }
 
 function setUITreasure() {
@@ -1590,7 +1795,7 @@ function setUITreasure() {
 	var es = "Tesoro";
 	var fr = "Trésor";
 
-	substituteLanguageControl("uiTreasure", en, de, es, fr);
+	substituteLanguage("uiTreasure", en, de, es, fr);
 }
 
 function setUIWonder() {
@@ -1599,7 +1804,7 @@ function setUIWonder() {
 	var es = "Preguntarse";
 	var fr = "Merveille";
 
-	substituteLanguageControl("uiWonder", en, de, es, fr);
+	substituteLanguage("uiWonder", en, de, es, fr);
 }
 
 function setUIExplore() {
@@ -1608,7 +1813,7 @@ function setUIExplore() {
 	var es = "Explorar";
 	var fr = "Explorer";
 
-	substituteLanguageControl("uiExplore", en, de, es, fr);
+	substituteLanguage("uiExplore", en, de, es, fr);
 }
 
 function setUITimeout() {
@@ -1617,7 +1822,7 @@ function setUITimeout() {
 	var es = "Se acabó el tiempo";
 	var fr = "Temps mort";
 
-	substituteLanguageControl("uiTimeout", en, de, es, fr);
+	substituteLanguage("uiTimeout", en, de, es, fr);
 }
 
 function setUICommand() {
@@ -1626,7 +1831,7 @@ function setUICommand() {
 	var es = "Dominio";
 	var fr = "Commande";
 
-	substituteLanguageControl("uiCommand", en, de, es, fr);
+	substituteLanguage("uiCommand", en, de, es, fr);
 }
 
 function setUIExperimental() {
@@ -1635,7 +1840,7 @@ function setUIExperimental() {
 	var es = "-Experimental-";
 	var fr = "-Expérimental-";
 
-	substituteLanguageControl("uiExperimental", en, de, es, fr);
+	substituteLanguage("uiExperimental", en, de, es, fr);
 }
 
 function setUIArcadeSolo() {
@@ -1644,7 +1849,7 @@ function setUIArcadeSolo() {
 	var es = "Arcade En solitario";
 	var fr = "Arcade Solo";
 
-	substituteLanguageControl("uiArcadeSolo", en, de, es, fr);
+	substituteLanguage("uiArcadeSolo", en, de, es, fr);
 }
 
 function setUIArcadeGang() {
@@ -1653,7 +1858,7 @@ function setUIArcadeGang() {
 	var es = "Pandilla arcade";
 	var fr = "Gang d'arcade";
 
-	substituteLanguageControl("uiArcadeGang", en, de, es, fr);
+	substituteLanguage("uiArcadeGang", en, de, es, fr);
 }
 
 function setUIScale() {
@@ -1662,7 +1867,7 @@ function setUIScale() {
 	var es = "Escala";
 	var fr = "Échelle";
 
-	substituteLanguageControl("uiScale", en, de, es, fr);
+	substituteLanguage("uiScale", en, de, es, fr);
 }
 
 function setUIAuthor() {
@@ -1671,7 +1876,7 @@ function setUIAuthor() {
 	var es = "Autor";
 	var fr = "Auteur";
 
-	substituteLanguageControl("uiAuthor", en, de, es, fr);
+	substituteLanguage("uiAuthor", en, de, es, fr);
 }
 
 function setUIBorder() {
@@ -1680,7 +1885,7 @@ function setUIBorder() {
 	var es = "Borde";
 	var fr = "Frontière";
 
-	substituteLanguageControl("uiBorder", en, de, es, fr);
+	substituteLanguage("uiBorder", en, de, es, fr);
 }
 
 function setUIBorderList(){
@@ -1710,7 +1915,7 @@ function setUIBlue() {
 	var es = "Azul";
 	var fr = "Bleu";
 
-	substituteLanguageControl("uiBlue", en, de, es, fr);
+	substituteLanguage("uiBlue", en, de, es, fr);
 }
 
 function setUIRed() {
@@ -1719,7 +1924,7 @@ function setUIRed() {
 	var es = "Rojo";
 	var fr = "Rouge";
 
-	substituteLanguageControl("uiRed", en, de, es, fr);
+	substituteLanguage("uiRed", en, de, es, fr);
 }
 
 function setUIGreen() {
@@ -1728,7 +1933,7 @@ function setUIGreen() {
 	var es = "Verde";
 	var fr = "Vert";
 
-	substituteLanguageControl("uiGreen", en, de, es, fr);
+	substituteLanguage("uiGreen", en, de, es, fr);
 }
 
 function setUIPurple() {
@@ -1737,7 +1942,7 @@ function setUIPurple() {
 	var es = "Púrpura";
 	var fr = "Violet";
 
-	substituteLanguageControl("uiPurple", en, de, es, fr);
+	substituteLanguage("uiPurple", en, de, es, fr);
 }
 
 function setUIYellow() {
@@ -1746,7 +1951,7 @@ function setUIYellow() {
 	var es = "Gelb";
 	var fr = "Jaune";
 
-	substituteLanguageControl("uiYellow", en, de, es, fr);
+	substituteLanguage("uiYellow", en, de, es, fr);
 }
 
 function setUIOrange() {
@@ -1755,7 +1960,7 @@ function setUIOrange() {
 	var es = "Naranja";
 	var fr = "Orange";
 
-	substituteLanguageControl("uiOrange", en, de, es, fr);
+	substituteLanguage("uiOrange", en, de, es, fr);
 }
 
 function setUIBrown() {
@@ -1764,7 +1969,7 @@ function setUIBrown() {
 	var es = "Marrón";
 	var fr = "Brun";
 
-	substituteLanguageControl("uiBrown", en, de, es, fr);
+	substituteLanguage("uiBrown", en, de, es, fr);
 }
 
 function setUIPink() {
@@ -1773,7 +1978,7 @@ function setUIPink() {
 	var es = "Rosa";
 	var fr = "Rose";
 
-	substituteLanguageControl("uiPink", en, de, es, fr);
+	substituteLanguage("uiPink", en, de, es, fr);
 }
 
 function setUIGray() {
@@ -1782,7 +1987,7 @@ function setUIGray() {
 	var es = "Gris";
 	var fr = "Gris";
 
-	substituteLanguageControl("uiGray", en, de, es, fr);
+	substituteLanguage("uiGray", en, de, es, fr);
 }
 
 function setUIWhite() {
@@ -1791,7 +1996,7 @@ function setUIWhite() {
 	var es = "Blanco";
 	var fr = "Blanc";
 
-	substituteLanguageControl("uiWhite", en, de, es, fr);
+	substituteLanguage("uiWhite", en, de, es, fr);
 }
 
 function setUIBlack() {
@@ -1800,7 +2005,7 @@ function setUIBlack() {
 	var es = "Negro";
 	var fr = "Noir";
 
-	substituteLanguageControl("uiBlack", en, de, es, fr);
+	substituteLanguage("uiBlack", en, de, es, fr);
 }
 
 function setUIClassicBlue() {
@@ -1809,7 +2014,7 @@ function setUIClassicBlue() {
 	var es = "Azul Clásico";
 	var fr = "Bleu Classique";
 
-	substituteLanguageControl("uiClassicBlue", en, de, es, fr);
+	substituteLanguage("uiClassicBlue", en, de, es, fr);
 }
 
 function setUIClassicRed() {
@@ -1818,7 +2023,7 @@ function setUIClassicRed() {
 	var es = "Rojo Clásico";
 	var fr = "Rouge Classique";
 
-	substituteLanguageControl("uiClassicRed", en, de, es, fr);
+	substituteLanguage("uiClassicRed", en, de, es, fr);
 }
 
 function setUIClassicGreen() {
@@ -1827,7 +2032,7 @@ function setUIClassicGreen() {
 	var es = "Verde Clásico";
 	var fr = "Vert Classique";
 
-	substituteLanguageControl("uiClassicGreen", en, de, es, fr);
+	substituteLanguage("uiClassicGreen", en, de, es, fr);
 }
 
 function setUIClassicPurple() {
@@ -1836,7 +2041,7 @@ function setUIClassicPurple() {
 	var es = "Púrpura Clásico";
 	var fr = "Violet Classique";
 
-	substituteLanguageControl("uiClassicPurple", en, de, es, fr);
+	substituteLanguage("uiClassicPurple", en, de, es, fr);
 }
 
 function setUIClassicYellow() {
@@ -1845,7 +2050,7 @@ function setUIClassicYellow() {
 	var es = "Amarillo Clásico";
 	var fr = "Jaune Classique";
 
-	substituteLanguageControl("uiClassicYellow", en, de, es, fr);
+	substituteLanguage("uiClassicYellow", en, de, es, fr);
 }
 
 function setUIHeaderSection(){
@@ -1861,7 +2066,7 @@ function setUITitle() {
 	var es = "Título";
 	var fr = "Titre";
 
-	substituteLanguageControl("uiTitle", en, de, es, fr);
+	substituteLanguage("uiTitle", en, de, es, fr);
 }
 
 function setUISubTitle() {
@@ -1870,7 +2075,7 @@ function setUISubTitle() {
 	var es = "Subtitular";
 	var fr = "Sous-titre";
 
-	substituteLanguageControl("uiSubTitle", en, de, es, fr);
+	substituteLanguage("uiSubTitle", en, de, es, fr);
 }
 
 function setUIMove() {
@@ -1879,7 +2084,7 @@ function setUIMove() {
 	var es = "Mover";
 	var fr = "Se déplacer";
 
-	substituteLanguageControl("uiMove", en, de, es, fr);
+	substituteLanguage("uiMove", en, de, es, fr);
 }
 
 function setUIActions() {
@@ -1888,7 +2093,7 @@ function setUIActions() {
 	var es = "Comportamiento";
 	var fr = "Actions";
 
-	substituteLanguageControl("uiAction", en, de, es, fr);
+	substituteLanguage("uiAction", en, de, es, fr);
 }
 
 function setUIImageSection(){
@@ -1904,7 +2109,7 @@ function setUIBackground() {
 	var es = "Fondo";
 	var fr = "Arrière-plan";
 
-	substituteLanguageControl("uiBackground", en, de, es, fr);
+	substituteLanguage("uiBackground", en, de, es, fr);
 }
 
 function setUIBackgroundList(){
@@ -1923,7 +2128,7 @@ function setUITransparent() {
 	var es = "Transparente";
 	var fr = "Transparent";
 
-	substituteLanguageControl("uiTransparent", en, de, es, fr);
+	substituteLanguage("uiTransparent", en, de, es, fr);
 }
 
 function setUIAvatar() {
@@ -1932,7 +2137,7 @@ function setUIAvatar() {
 	var es = "Avatar";
 	var fr = "Avatar";
 
-	substituteLanguageControl("uiAvatar", en, de, es, fr);
+	substituteLanguage("uiAvatar", en, de, es, fr);
 }
 
 function setUIAvatarList(){
@@ -1947,7 +2152,7 @@ function setUIDefault() {
 	var es = "Por defecto";
 	var fr = "Défaut";
 
-	substituteLanguageControl("uiDefault", en, de, es, fr);
+	substituteLanguage("uiDefault", en, de, es, fr);
 }
 
 function setUIRemote() {
@@ -1956,7 +2161,7 @@ function setUIRemote() {
 	var es = "Remoto";
 	var fr = "Télécommande";
 
-	substituteLanguageControl("uiRemote", en, de, es, fr);
+	substituteLanguage("uiRemote", en, de, es, fr);
 }
 
 function setUILocal() {
@@ -1965,37 +2170,14 @@ function setUILocal() {
 	var es = "Local";
 	var fr = "Local";
 
-	substituteLanguageControl("uiLocal", en, de, es, fr);
+	substituteLanguage("uiLocal", en, de, es, fr);
 }
 
 function setUIStatsSection(){
-	setUIStatsHelp();
-	setUIStats();
+	setUIStatsGroup();
 }
 
-function setUIStatsHelp(){
-	
-	setUIDiceTypes();
-	setUILanguageControlStar();
-	setUILanguageControlBlue();
-	setUILanguageControlRed();
-	setUILanguageControlGreen();
-	setUILanguageControlOrange();
-	setUILanguageControlPurple();
-	
-	setUIModifiers();
-	setUILanguageControlMelee();
-	setUILanguageControlMissile();
-	setUILanguageControlMagic();
-	setUILanguageControlRange();
-	setUILanguageControlAction();
-	setUILanguageControlMove();
-	setUILanguageControlShield();
-	setUILanguageControlHeart();
-	setUILanguageControlPotion();
-}
-
-function setUIStats(){
+function setUIStatsGroup(){
 	setUILanguageControlSTR();
 	setUILanguageControlARM();
 	setUILanguageControlRNG();
@@ -2008,166 +2190,13 @@ function setUIStats(){
 	setUILanguageControlPetCost();
 }
 
-function setUIDiceTypes() {
-	var en = "Dice Types";
-	var de = "Würfeltypen";
-	var es = "Tipos de dados";
-	var fr = "Types de dés";
-
-	substituteLanguageControl("uiDiceTypes", en, de, es, fr);
-}
-
-function setUILanguageControlStar() {
-	var en = "Star: 1ST";
-	var de = "Star: 1ST";
-	var es = "Estrella: 1ES";
-	var fr = "Star: 1ST";
-
-	substituteLanguageControl("controlStar", en, de, es, fr);
-}
-
-function setUILanguageControlBlue() {
-	var en = "Blue: 1B";
-	var de = "Blue: 1B";
-	var es = "Azul: 1A";
-	var fr = "Blue: 1B";
-
-	substituteLanguageControl("controlBlue", en, de, es, fr);
-}
-
-function setUILanguageControlRed() {
-	var en = "Red: 1R";
-	var de = "Red: 1R";
-	var es = "Rojo: 1R";
-	var fr = "Red: 1R";
-
-	substituteLanguageControl("controlRed", en, de, es, fr);
-}
-
-function setUILanguageControlGreen() {
-	var en = "Green: 1G";
-	var de = "Green: 1G";
-	var es = "Verde: 1V";
-	var fr = "Green: 1G";
-
-	substituteLanguageControl("controlGreen", en, de, es, fr);
-}
-
-function setUILanguageControlOrange() {
-	var en = "Orange: 1O";
-	var de = "Orange: 1O";
-	var es = "Naranja: 1N";
-	var fr = "Orange: 1O";
-
-	substituteLanguageControl("controlOrange", en, de, es, fr);
-}
-
-function setUILanguageControlPurple() {
-	var en = "Purple: 1P";
-	var de = "Purple: 1P";
-	var es = "Morado: 1M";
-	var fr = "Purple: 1P";
-
-	substituteLanguageControl("controlPurple", en, de, es, fr);
-}
-
-function setUIModifiers() {
-	var en = "Modifiers";
-	var de = "Modifikatoren";
-	var es = "Modificadores";
-	var fr = "Modificateurs";
-
-	substituteLanguageControl("uiModifiers", en, de, es, fr);
-}
-
-function setUILanguageControlMelee() {
-	var en = "Melee: 1SW";
-	var de = "Melee: 1SW";
-	var es = "Cuerpo a Cuerpo: 1CC";
-	var fr = "Melee: 1SW";
-
-	substituteLanguageControl("controlMelee", en, de, es, fr);
-}
-
-function setUILanguageControlMissile() {
-	var en = "Missile: 1MI";
-	var de = "Missile: 1MI";
-	var es = "Distancia: 1DI";
-	var fr = "Missile: 1MI";
-
-	substituteLanguageControl("controlMissile", en, de, es, fr);
-}
-
-function setUILanguageControlMagic() {
-	var en = "Magic: 1MA";
-	var de = "Magic: 1MA";
-	var es = "Magico: 1MA";
-	var fr = "Magic: 1MA";
-
-	substituteLanguageControl("controlMagic", en, de, es, fr);
-}
-
-function setUILanguageControlRange() {
-	var en = "Range: 1RG";
-	var de = "Range: 1RG";
-	var es = "Alcance: 1AL";
-	var fr = "Range: 1RG";
-
-	substituteLanguageControl("controlRange", en, de, es, fr);
-}
-
-function setUILanguageControlAction() {
-	var en = "Action: 1AC";
-	var de = "Action: 1AC";
-	var es = "Accion: 1AC";
-	var fr = "Action: 1AC";
-
-	substituteLanguageControl("controlAction", en, de, es, fr);
-}
-
-function setUILanguageControlMove() {
-	var en = "Move: 1MO";
-	var de = "Move: 1MO";
-	var es = "Movimiento: 1MO";
-	var fr = "Move: 1MO";
-
-	substituteLanguageControl("controlMove", en, de, es, fr);
-}
-
-function setUILanguageControlShield() {
-	var en = "Shield: 0SH";
-	var de = "Shield: 0SH";
-	var es = "Escudo: 0EC";
-	var fr = "Shield: 0SH";
-
-	substituteLanguageControl("controlShield", en, de, es, fr);
-}
-
-function setUILanguageControlHeart() {
-	var en = "Heart: 1HE";
-	var de = "Heart: 1HE";
-	var es = "Herida: 1HE";
-	var fr = "Heart: 1HE";
-
-	substituteLanguageControl("controlHeart", en, de, es, fr);
-}
-
-function setUILanguageControlPotion() {
-	var en = "Potion: 1PO";
-	var de = "Potion: 1PO";
-	var es = "Pocion: 1PO";
-	var fr = "Potion: 1PO";
-
-	substituteLanguageControl("controlPotion", en, de, es, fr);
-}
-
 function setUILanguageControlSTR() {
 	var en = "STR ";
 	var de = "STR ";
 	var es = "FUE ";
 	var fr = "STR ";
 
-	substituteLanguageControl("controlSTR", en, de, es, fr);
+	substituteLanguage("controlSTR", en, de, es, fr);
 }
 
 function setUILanguageControlARM() {
@@ -2176,7 +2205,7 @@ function setUILanguageControlARM() {
 	var es = "ARM ";
 	var fr = "ARM ";
 
-	substituteLanguageControl("controlARM", en, de, es, fr);
+	substituteLanguage("controlARM", en, de, es, fr);
 }
 
 function setUILanguageControlRNG() {
@@ -2185,7 +2214,7 @@ function setUILanguageControlRNG() {
 	var es = "AL ";
 	var fr = "RNG ";
 
-	substituteLanguageControl("controlRNG", en, de, es, fr);
+	substituteLanguage("controlRNG", en, de, es, fr);
 }
 
 function setUILanguageControlWILL() {
@@ -2194,7 +2223,7 @@ function setUILanguageControlWILL() {
 	var es = "VOL ";
 	var fr = "WILL ";
 
-	substituteLanguageControl("controlWILL", en, de, es, fr);
+	substituteLanguage("controlWILL", en, de, es, fr);
 }
 
 function setUILanguageControlDEX() {
@@ -2203,7 +2232,7 @@ function setUILanguageControlDEX() {
 	var es = "DES ";
 	var fr = "DEX ";
 
-	substituteLanguageControl("controlDEX", en, de, es, fr);
+	substituteLanguage("controlDEX", en, de, es, fr);
 }
 
 function setUILanguageControlWounds() {
@@ -2212,7 +2241,7 @@ function setUILanguageControlWounds() {
 	var es = "Heridas ";
 	var fr = "Wounds ";
 
-	substituteLanguageControl("controlWounds", en, de, es, fr);
+	substituteLanguage("controlWounds", en, de, es, fr);
 }
 
 function setUILanguageControlSkullPoints() {
@@ -2221,7 +2250,7 @@ function setUILanguageControlSkullPoints() {
 	var es = "Puntos del Cráneo ";
 	var fr = "Skull Points ";
 
-	substituteLanguageControl("controlSkullPoints", en, de, es, fr);
+	substituteLanguage("controlSkullPoints", en, de, es, fr);
 }
 
 function setUILanguageControlPotions() {
@@ -2230,7 +2259,7 @@ function setUILanguageControlPotions() {
 	var es = "Pociones ";
 	var fr = "Potions ";
 
-	substituteLanguageControl("controlPotions", en, de, es, fr);
+	substituteLanguage("controlPotions", en, de, es, fr);
 }
 
 function setUILanguageControlPetCost() {
@@ -2239,7 +2268,7 @@ function setUILanguageControlPetCost() {
 	var es = "Costo de Mascota ";
 	var fr = "Pet Cost ";
 
-	substituteLanguageControl("controlPetCost", en, de, es, fr);
+	substituteLanguage("controlPetCost", en, de, es, fr);
 }
 
 function setUIKeywordSection(){
@@ -2254,7 +2283,7 @@ function setUIAffinity() {
 	var es = "Afinidad";
 	var fr = "Affinité";
 
-	substituteLanguageControl("uiAffinity", en, de, es, fr);
+	substituteLanguage("uiAffinity", en, de, es, fr);
 }
 
 function setUIAffinityList(){
@@ -2300,7 +2329,7 @@ function setUIAmethyst() {
 	var es = "Amatista";
 	var fr = "Amethyst";
 
-	substituteLanguageControl("uiAmethyst", en, de, es, fr);
+	substituteLanguage("uiAmethyst", en, de, es, fr);
 }
 
 function setUIAmethystCitrine() {
@@ -2309,7 +2338,7 @@ function setUIAmethystCitrine() {
 	var es = "Amatista Citrino";
 	var fr = "Amethyst Citrine";
 
-	substituteLanguageControl("uiAmethystCitrine", en, de, es, fr);
+	substituteLanguage("uiAmethystCitrine", en, de, es, fr);
 }
 
 function setUIAmethystEmerald() {
@@ -2318,7 +2347,7 @@ function setUIAmethystEmerald() {
 	var es = "Amatista Esmeralda";
 	var fr = "Amethyst Emerald";
 
-	substituteLanguageControl("uiAmethystEmerald", en, de, es, fr);
+	substituteLanguage("uiAmethystEmerald", en, de, es, fr);
 }
 
 function setUIAmethystRuby() {
@@ -2327,7 +2356,7 @@ function setUIAmethystRuby() {
 	var es = "Amatista Rubi";
 	var fr = "Amethyst Ruby";
 
-	substituteLanguageControl("uiAmethystRuby", en, de, es, fr);
+	substituteLanguage("uiAmethystRuby", en, de, es, fr);
 }
 
 function setUIAmethystSapphire() {
@@ -2336,7 +2365,7 @@ function setUIAmethystSapphire() {
 	var es = "Amatista Zafiro";
 	var fr = "Amethyst Sapphire";
 
-	substituteLanguageControl("uiAmethystSapphire", en, de, es, fr);
+	substituteLanguage("uiAmethystSapphire", en, de, es, fr);
 }
 
 function setUICitrine() {
@@ -2345,7 +2374,7 @@ function setUICitrine() {
 	var es = "Citrino";
 	var fr = "Citrine";
 
-	substituteLanguageControl("uiCitrine", en, de, es, fr);
+	substituteLanguage("uiCitrine", en, de, es, fr);
 }
 
 function setUICitrineAmethyst() {
@@ -2354,7 +2383,7 @@ function setUICitrineAmethyst() {
 	var es = "Citrino Amatista";
 	var fr = "Citrine Amethyst";
 
-	substituteLanguageControl("uiCitrineAmethyst", en, de, es, fr);
+	substituteLanguage("uiCitrineAmethyst", en, de, es, fr);
 }
 
 function setUICitrineEmerald() {
@@ -2363,7 +2392,7 @@ function setUICitrineEmerald() {
 	var es = "Citrino Esmeralda";
 	var fr = "Citrine Emerald";
 
-	substituteLanguageControl("uiCitrineEmerald", en, de, es, fr);
+	substituteLanguage("uiCitrineEmerald", en, de, es, fr);
 }
 
 function setUICitrineRuby() {
@@ -2372,7 +2401,7 @@ function setUICitrineRuby() {
 	var es = "Citrino Rubi";
 	var fr = "Citrine Ruby";
 
-	substituteLanguageControl("uiCitrineRuby", en, de, es, fr);
+	substituteLanguage("uiCitrineRuby", en, de, es, fr);
 }
 
 function setUICitrineSapphire() {
@@ -2381,7 +2410,7 @@ function setUICitrineSapphire() {
 	var es = "Citrino Zafiro";
 	var fr = "Citrine Sapphire";
 
-	substituteLanguageControl("uiCitrineSapphire", en, de, es, fr);
+	substituteLanguage("uiCitrineSapphire", en, de, es, fr);
 }
 
 function setUIEmerald() {
@@ -2390,7 +2419,7 @@ function setUIEmerald() {
 	var es = "Esmeralda";
 	var fr = "Emerald";
 
-	substituteLanguageControl("uiEmerald", en, de, es, fr);
+	substituteLanguage("uiEmerald", en, de, es, fr);
 }
 
 function setUIEmeraldAmethyst() {
@@ -2399,7 +2428,7 @@ function setUIEmeraldAmethyst() {
 	var es = "Esmeralda Amatista";
 	var fr = "Emerald Amethyst";
 
-	substituteLanguageControl("uiEmeraldAmethyst", en, de, es, fr);
+	substituteLanguage("uiEmeraldAmethyst", en, de, es, fr);
 }
 
 function setUIEmeraldCitrine() {
@@ -2408,7 +2437,7 @@ function setUIEmeraldCitrine() {
 	var es = "Esmeralda Citrino";
 	var fr = "Emerald Citrine";
 
-	substituteLanguageControl("uiEmeraldCitrine", en, de, es, fr);
+	substituteLanguage("uiEmeraldCitrine", en, de, es, fr);
 }
 
 function setUIEmeraldRuby() {
@@ -2417,7 +2446,7 @@ function setUIEmeraldRuby() {
 	var es = "Esmeralda Rubi";
 	var fr = "Emerald Ruby";
 
-	substituteLanguageControl("uiEmeraldRuby", en, de, es, fr);
+	substituteLanguage("uiEmeraldRuby", en, de, es, fr);
 }
 
 function setUIEmeraldSapphire() {
@@ -2426,7 +2455,7 @@ function setUIEmeraldSapphire() {
 	var es = "Esmeralda Zafiro";
 	var fr = "Emerald Sapphire";
 
-	substituteLanguageControl("uiEmeraldSapphire", en, de, es, fr);
+	substituteLanguage("uiEmeraldSapphire", en, de, es, fr);
 }
 
 function setUIRuby() {
@@ -2435,7 +2464,7 @@ function setUIRuby() {
 	var es = "Rubi";
 	var fr = "Ruby";
 
-	substituteLanguageControl("uiRuby", en, de, es, fr);
+	substituteLanguage("uiRuby", en, de, es, fr);
 }
 
 function setUIRubyAmethyst() {
@@ -2444,7 +2473,7 @@ function setUIRubyAmethyst() {
 	var es = "Rubi Amatista";
 	var fr = "Ruby Amethyst";
 
-	substituteLanguageControl("uiRubyAmethyst", en, de, es, fr);
+	substituteLanguage("uiRubyAmethyst", en, de, es, fr);
 }
 
 function setUIRubyCitrine() {
@@ -2453,7 +2482,7 @@ function setUIRubyCitrine() {
 	var es = "Rubi Citrino";
 	var fr = "Ruby Citrine";
 
-	substituteLanguageControl("uiRubyCitrine", en, de, es, fr);
+	substituteLanguage("uiRubyCitrine", en, de, es, fr);
 }
 
 function setUIRubyEmerald() {
@@ -2462,7 +2491,7 @@ function setUIRubyEmerald() {
 	var es = "Rubi Esmeralda";
 	var fr = "Ruby Emerald";
 
-	substituteLanguageControl("uiRubyEmerald", en, de, es, fr);
+	substituteLanguage("uiRubyEmerald", en, de, es, fr);
 }
 
 function setUIRubySapphire() {
@@ -2471,7 +2500,7 @@ function setUIRubySapphire() {
 	var es = "Rubi Zafiro";
 	var fr = "Ruby Sapphire";
 
-	substituteLanguageControl("uiRubySapphire", en, de, es, fr);
+	substituteLanguage("uiRubySapphire", en, de, es, fr);
 }
 
 function setUISapphire() {
@@ -2480,7 +2509,7 @@ function setUISapphire() {
 	var es = "Zafiro";
 	var fr = "Sapphire";
 
-	substituteLanguageControl("uiSapphire", en, de, es, fr);
+	substituteLanguage("uiSapphire", en, de, es, fr);
 }
 
 function setUISapphireAmethyst() {
@@ -2489,7 +2518,7 @@ function setUISapphireAmethyst() {
 	var es = "Zafiro Amatista";
 	var fr = "Sapphire Amethyst";
 
-	substituteLanguageControl("uiSapphireAmethyst", en, de, es, fr);
+	substituteLanguage("uiSapphireAmethyst", en, de, es, fr);
 }
 
 function setUISapphireCitrine() {
@@ -2498,7 +2527,7 @@ function setUISapphireCitrine() {
 	var es = "Zafiro Citrino";
 	var fr = "Sapphire Citrine";
 
-	substituteLanguageControl("uiSapphireCitrine", en, de, es, fr);
+	substituteLanguage("uiSapphireCitrine", en, de, es, fr);
 }
 
 function setUISapphireEmerald() {
@@ -2507,7 +2536,7 @@ function setUISapphireEmerald() {
 	var es = "Zafiro Esmeralda";
 	var fr = "Sapphire Emerald";
 
-	substituteLanguageControl("uiSapphireEmerald", en, de, es, fr);
+	substituteLanguage("uiSapphireEmerald", en, de, es, fr);
 }
 
 function setUISapphireRuby() {
@@ -2516,7 +2545,7 @@ function setUISapphireRuby() {
 	var es = "Zafiro Rubi";
 	var fr = "Sapphire Ruby";
 
-	substituteLanguageControl("uiSapphireRuby", en, de, es, fr);
+	substituteLanguage("uiSapphireRuby", en, de, es, fr);
 }
 
 function setUIAllAffinity() {
@@ -2525,7 +2554,7 @@ function setUIAllAffinity() {
 	var es = "Toda la afinidad";
 	var fr = "Toute Affinité";
 
-	substituteLanguageControl("uiAllAffinity", en, de, es, fr);
+	substituteLanguage("uiAllAffinity", en, de, es, fr);
 }
 
 function setUIAll() {
@@ -2534,7 +2563,7 @@ function setUIAll() {
 	var es = "Todo";
 	var fr = "Tout";
 
-	substituteLanguageControl("uiAll", en, de, es, fr);
+	substituteLanguage("uiAll", en, de, es, fr);
 }
 
 function setUINone() {
@@ -2543,7 +2572,7 @@ function setUINone() {
 	var es = "Ninguno";
 	var fr = "Aucun";
 
-	substituteLanguageControl("uiNone", en, de, es, fr);
+	substituteLanguage("uiNone", en, de, es, fr);
 }
 
 function setUIKeywords() {
@@ -2552,7 +2581,7 @@ function setUIKeywords() {
 	var es = "Palabras clave";
 	var fr = "Mots clés";
 
-	substituteLanguageControl("uiKeywords", en, de, es, fr);
+	substituteLanguage("uiKeywords", en, de, es, fr);
 }
 
 function setUIAbilitySection() {
@@ -2579,7 +2608,7 @@ function setUILanguageControlStrengthSTR() {
 	var es = "Fuerza: FUE";
 	var fr = "Strength: STR";
 
-	substituteLanguageControl("controlStrengthSTR", en, de, es, fr);
+	substituteLanguage("controlStrengthSTR", en, de, es, fr);
 }
 
 function setUILanguageControlArmorARM() {
@@ -2588,7 +2617,7 @@ function setUILanguageControlArmorARM() {
 	var es = "Armadura: ARM";
 	var fr = "Armor: ARM";
 
-	substituteLanguageControl("controlArmorARM", en, de, es, fr);
+	substituteLanguage("controlArmorARM", en, de, es, fr);
 }
 
 function setUILanguageControlWillpowerWILL() {
@@ -2597,7 +2626,7 @@ function setUILanguageControlWillpowerWILL() {
 	var es = "Fuerza de Voluntad: VOL";
 	var fr = "Willpower: WILL";
 
-	substituteLanguageControl("controlWillpowerWILL", en, de, es, fr);
+	substituteLanguage("controlWillpowerWILL", en, de, es, fr);
 }
 
 function setUILanguageControlDexterityDEX() {
@@ -2606,7 +2635,7 @@ function setUILanguageControlDexterityDEX() {
 	var es = "Destreza: DES";
 	var fr = "Dexterity: DEX";
 
-	substituteLanguageControl("controlDexterityDEX", en, de, es, fr);
+	substituteLanguage("controlDexterityDEX", en, de, es, fr);
 }
 
 function setUIAbilityTypeList() {
@@ -2630,7 +2659,7 @@ function setUIAttack() {
 	var es = "Ataque";
 	var fr = "Attaque";
 
-	substituteLanguageControl("uiAttack", en, de, es, fr);
+	substituteLanguage("uiAttack", en, de, es, fr);
 }
 
 function setUISupport() {
@@ -2639,7 +2668,7 @@ function setUISupport() {
 	var es = "Apoyo";
 	var fr = "Soutien";
 
-	substituteLanguageControl("uiSupport", en, de, es, fr);
+	substituteLanguage("uiSupport", en, de, es, fr);
 }
 
 function setUIOffensivePotion() {
@@ -2648,7 +2677,7 @@ function setUIOffensivePotion() {
 	var es = "Poción ofensiva";
 	var fr = "Potion offensive";
 
-	substituteLanguageControl("uiOffensivePotion", en, de, es, fr);
+	substituteLanguage("uiOffensivePotion", en, de, es, fr);
 }
 
 function setUISupportPotion() {
@@ -2657,7 +2686,7 @@ function setUISupportPotion() {
 	var es = "Poción de apoyo";
 	var fr = "Potion de soutien";
 
-	substituteLanguageControl("uiSupportPotion", en, de, es, fr);
+	substituteLanguage("uiSupportPotion", en, de, es, fr);
 }
 
 function setUIEmergencyPotion() {
@@ -2666,7 +2695,7 @@ function setUIEmergencyPotion() {
 	var es = "Poción de emergencia";
 	var fr = "Potion d'urgence";
 
-	substituteLanguageControl("uiEmergencyPotion", en, de, es, fr);
+	substituteLanguage("uiEmergencyPotion", en, de, es, fr);
 }
 
 function setUISpecial() {
@@ -2675,7 +2704,7 @@ function setUISpecial() {
 	var es = "Especial";
 	var fr = "Spécial";
 
-	substituteLanguageControl("uiSpecial", en, de, es, fr);
+	substituteLanguage("uiSpecial", en, de, es, fr);
 }
 
 function setUIListArcade() {
@@ -2684,7 +2713,7 @@ function setUIListArcade() {
 	var es = "---Arcada---";
 	var fr = "---Arcade---";
 
-	substituteLanguageControl("uiListArcade", en, de, es, fr);
+	substituteLanguage("uiListArcade", en, de, es, fr);
 }
 
 function setUISignatureAttack() {
@@ -2693,7 +2722,7 @@ function setUISignatureAttack() {
 	var es = "Ataque característico";
 	var fr = "Attaque de signature";
 
-	substituteLanguageControl("uiSignatureAttack", en, de, es, fr);
+	substituteLanguage("uiSignatureAttack", en, de, es, fr);
 }
 
 function setUISignatureSupport() {
@@ -2702,7 +2731,7 @@ function setUISignatureSupport() {
 	var es = "Soporte de firma";
 	var fr = "Prise en charge des signatures";
 
-	substituteLanguageControl("uiSignatureSupport", en, de, es, fr);
+	substituteLanguage("uiSignatureSupport", en, de, es, fr);
 }
 
 function setUIOverchargeAttack() {
@@ -2711,7 +2740,7 @@ function setUIOverchargeAttack() {
 	var es = "Ataque de sobrecarga";
 	var fr = "Attaque de surcharge";
 
-	substituteLanguageControl("uiOverchargeAttack", en, de, es, fr);
+	substituteLanguage("uiOverchargeAttack", en, de, es, fr);
 }
 
 function setUIOverchargeSupport() {
@@ -2720,7 +2749,7 @@ function setUIOverchargeSupport() {
 	var es = "Soporte de sobrecarga";
 	var fr = "Prise en charge des surcharges";
 
-	substituteLanguageControl("uiOverchargeSupport", en, de, es, fr);
+	substituteLanguage("uiOverchargeSupport", en, de, es, fr);
 }
 
 function setUICost() {
@@ -2729,7 +2758,7 @@ function setUICost() {
 	var es = "Costo";
 	var fr = "Coût";
 
-	substituteLanguageControl("uiCost", en, de, es, fr);
+	substituteLanguage("uiCost", en, de, es, fr);
 }
 
 function setUIName() {
@@ -2738,7 +2767,7 @@ function setUIName() {
 	var es = "Nombre";
 	var fr = "Nom";
 
-	substituteLanguageControl("uiName", en, de, es, fr);
+	substituteLanguage("uiName", en, de, es, fr);
 }
 
 function setUIDefinition() {
@@ -2747,7 +2776,7 @@ function setUIDefinition() {
 	var es = "Definición";
 	var fr = "Définition";
 
-	substituteLanguageControl("uiDefinition", en, de, es, fr);
+	substituteLanguage("uiDefinition", en, de, es, fr);
 }
 
 function setUIAddAbility() {
@@ -2756,7 +2785,7 @@ function setUIAddAbility() {
 	var es = "Agregar habilidad";
 	var fr = "Ajouter une capacité";
 
-	substituteLanguageControl("uiAddAbility", en, de, es, fr);
+	substituteLanguage("uiAddAbility", en, de, es, fr);
 }
 
 //function setUIFlavorTextSection(){}
@@ -2774,7 +2803,7 @@ function setUIDuplicateCard() {
 	var es = "Duplicar Carte";
 	var fr = "Carte en double";
 
-	substituteLanguageControl("uiDuplicateCard", en, de, es, fr);
+	substituteLanguage("uiDuplicateCard", en, de, es, fr);
 }
 
 function setUIMoveCardUp() {
@@ -2783,7 +2812,7 @@ function setUIMoveCardUp() {
 	var es = "Mover tarjeta hacia arriba";
 	var fr = "Mover tarjeta hacia arriba";
 
-	substituteLanguageControl("uiMoveCardUp", en, de, es, fr);
+	substituteLanguage("uiMoveCardUp", en, de, es, fr);
 }
 
 function setUIMoveCardDown() {
@@ -2792,7 +2821,7 @@ function setUIMoveCardDown() {
 	var es = "Mover tarjeta hacia abajo";
 	var fr = "Déplacer la carte vers le bas";
 
-	substituteLanguageControl("uiMoveCardDown", en, de, es, fr);
+	substituteLanguage("uiMoveCardDown", en, de, es, fr);
 }
 
 function setUIDeleteCard() {
@@ -2801,10 +2830,710 @@ function setUIDeleteCard() {
 	var es = "Eliminar tarjeta";
 	var fr = "Supprimer la carte";
 
-	substituteLanguageControl("uiDeleteCard", en, de, es, fr);
+	substituteLanguage("uiDeleteCard", en, de, es, fr);
 }
 
-function substituteLanguageControl(className, en, de, es, fr) {
+function setUILegendSection() {
+	setUILegend();	
+	setUIDiceTypesGroup();
+	setUIModifiersGroup();
+	setUIStatusesGroup();
+	setUIImmunitiesGroup();
+	setUIAffinitiesGroup();
+}
+
+function setUILegend() {
+	var en = "Legend";
+	var de = "Legend";
+	var es = "Leyenda";
+	var fr = "Legend";
+
+	substituteLanguage("uiLegend", en, de, es, fr);
+}
+
+function setUIDiceTypesGroup(){
+	setUIDiceTypes();
+	setUILanguageLegendStar();
+	setUILanguageLegendBlue();
+	setUILanguageLegendRed();
+	setUILanguageLegendGreen();
+	setUILanguageLegendOrange();
+	setUILanguageLegendPurple();	
+}
+
+function setUIDiceTypes() {
+	var en = "Dice Types";
+	var de = "Würfeltypen";
+	var es = "Tipos de dados";
+	var fr = "Types de dés";
+
+	substituteLanguage("uiDiceTypes", en, de, es, fr);
+}
+
+function setUILanguageLegendStar() {
+	var en = "Star: 1ST";
+	var de = "Star: 1ST";
+	var es = "Estrella: 1ES";
+	var fr = "Star: 1ST";
+
+	substituteLanguage("legendStar", en, de, es, fr);
+}
+
+function setUILanguageLegendBlue() {
+	var en = "Blue: 1B";
+	var de = "Blue: 1B";
+	var es = "Azul: 1A";
+	var fr = "Blue: 1B";
+
+	substituteLanguage("legendBlue", en, de, es, fr);
+}
+
+function setUILanguageLegendRed() {
+	var en = "Red: 1R";
+	var de = "Red: 1R";
+	var es = "Rojo: 1R";
+	var fr = "Red: 1R";
+
+	substituteLanguage("legendRed", en, de, es, fr);
+}
+
+function setUILanguageLegendGreen() {
+	var en = "Green: 1G";
+	var de = "Green: 1G";
+	var es = "Verde: 1V";
+	var fr = "Green: 1G";
+
+	substituteLanguage("legendGreen", en, de, es, fr);
+}
+
+function setUILanguageLegendOrange() {
+	var en = "Orange: 1O";
+	var de = "Orange: 1O";
+	var es = "Naranja: 1N";
+	var fr = "Orange: 1O";
+
+	substituteLanguage("legendOrange", en, de, es, fr);
+}
+
+function setUILanguageLegendPurple() {
+	var en = "Purple: 1P";
+	var de = "Purple: 1P";
+	var es = "Morado: 1M";
+	var fr = "Purple: 1P";
+
+	substituteLanguage("legendPurple", en, de, es, fr);
+}
+
+function setUIModifiersGroup(){
+	setUIModifiers();
+	setUILanguageLegendMelee();
+	setUILanguageLegendMissile();
+	setUILanguageLegendMagic();
+	setUILanguageLegendRange();
+	setUILanguageLegendAction();
+	setUILanguageLegendMove();
+	setUILanguageLegendShield();
+	setUILanguageLegendHeart();
+	setUILanguageLegendPotion();
+}
+
+function setUIModifiers() {
+	var en = "Modifiers";
+	var de = "Modifikatoren";
+	var es = "Modificadores";
+	var fr = "Modificateurs";
+
+	substituteLanguage("uiModifiers", en, de, es, fr);
+}
+
+function setUILanguageLegendMelee() {
+	var en = "Melee: 1SW";
+	var de = "Melee: 1SW";
+	var es = "Cuerpo a Cuerpo: 1CC";
+	var fr = "Melee: 1SW";
+
+	substituteLanguage("legendMelee", en, de, es, fr);
+}
+
+function setUILanguageLegendMissile() {
+	var en = "Missile: 1MI";
+	var de = "Missile: 1MI";
+	var es = "Distancia: 1DI";
+	var fr = "Missile: 1MI";
+
+	substituteLanguage("legendMissile", en, de, es, fr);
+}
+
+function setUILanguageLegendMagic() {
+	var en = "Magic: 1MA";
+	var de = "Magic: 1MA";
+	var es = "Magico: 1MA";
+	var fr = "Magic: 1MA";
+
+	substituteLanguage("legendMagic", en, de, es, fr);
+}
+
+function setUILanguageLegendRange() {
+	var en = "Range: 1RG";
+	var de = "Range: 1RG";
+	var es = "Alcance: 1AL";
+	var fr = "Range: 1RG";
+
+	substituteLanguage("legendRange", en, de, es, fr);
+}
+
+function setUILanguageLegendAction() {
+	var en = "Action: 1AC";
+	var de = "Action: 1AC";
+	var es = "Accion: 1AC";
+	var fr = "Action: 1AC";
+
+	substituteLanguage("legendAction", en, de, es, fr);
+}
+
+function setUILanguageLegendMove() {
+	var en = "Move: 1MO";
+	var de = "Move: 1MO";
+	var es = "Movimiento: 1MO";
+	var fr = "Move: 1MO";
+
+	substituteLanguage("legendMove", en, de, es, fr);
+}
+
+function setUILanguageLegendShield() {
+	var en = "Shield: 0SH";
+	var de = "Shield: 0SH";
+	var es = "Escudo: 0EC";
+	var fr = "Shield: 0SH";
+
+	substituteLanguage("legendShield", en, de, es, fr);
+}
+
+function setUILanguageLegendHeart() {
+	var en = "Heart: 1HE";
+	var de = "Heart: 1HE";
+	var es = "Herida: 1HE";
+	var fr = "Heart: 1HE";
+
+	substituteLanguage("legendHeart", en, de, es, fr);
+}
+
+function setUILanguageLegendPotion() {
+	var en = "Potion: 1PO";
+	var de = "Potion: 1PO";
+	var es = "Pocion: 1PO";
+	var fr = "Potion: 1PO";
+
+	substituteLanguage("legendPotion", en, de, es, fr);
+}
+
+function setUIStatusesGroup(){
+	setUIStatuses();
+	setUILanguageLegendAugment();
+	setUILanguageLegendDangerous();
+	setUILanguageLegendBane();
+	setUILanguageLegendHex();
+	setUILanguageLegendFire();
+	setUILanguageLegendKnockdown();
+	setUILanguageLegendIce();
+	setUILanguageLegendImmobile();
+	setUILanguageLegendPoison();
+	setUILanguageLegendSlow();
+	setUILanguageLegendAll();
+}
+
+function setUIStatuses() {
+	var en = "Statuses";
+	var de = "Statuses";
+	var es = "Estados";
+	var fr = "Statuses";
+
+	substituteLanguage("uiStatuses", en, de, es, fr);
+}
+
+function setUILanguageLegendAugment() {
+	var en = "Augment: AUGMENT";
+	var de = "Augment: AUGMENT";
+	var es = "Aumento: AUMENTO";
+	var fr = "Augment: AUGMENT";
+
+	substituteLanguage("legendAugment", en, de, es, fr);
+}
+
+function setUILanguageLegendDangerous() {
+	var en = "Dangerous: DANGEROUS";
+	var de = "Dangerous: DANGEROUS";
+	var es = "Peligroso: PELIGROSO";
+	var fr = "Dangerous: DANGEROUS";
+
+	substituteLanguage("legendDangerous", en, de, es, fr);
+}
+
+function setUILanguageLegendBane() {
+	var en = "Bane: BANE";
+	var de = "Bane: BANE";
+	var es = "Estrago: ESTRAGO";
+	var fr = "Bane: BANE";
+
+	substituteLanguage("legendBane", en, de, es, fr);
+}
+
+function setUILanguageLegendHex() {
+	var en = "Hex: HEX";
+	var de = "Hex: HEX";
+	var es = "Maleficio: MALEFICIO";
+	var fr = "Hex: HEX";
+
+	substituteLanguage("legendHex", en, de, es, fr);
+}
+
+function setUILanguageLegendFire() {
+	var en = "Fire: FIRE";
+	var de = "Fire: FIRE";
+	var es = "Fuego: FUEGO";
+	var fr = "Fire: FIRE";
+
+	substituteLanguage("legendFire", en, de, es, fr);
+}
+
+function setUILanguageLegendKnockdown() {
+	var en = "Knockdown: KNOCKDOWN";
+	var de = "Knockdown: KNOCKDOWN";
+	var es = "Derribo: DERRIBO";
+	var fr = "Knockdown: KNOCKDOWN";
+
+	substituteLanguage("legendKnockdown", en, de, es, fr);
+}
+
+function setUILanguageLegendIce() {
+	var en = "Ice: ICE";
+	var de = "Ice: ICE";
+	var es = "Hielo: HIELO";
+	var fr = "Ice: ICE";
+
+	substituteLanguage("legendIce", en, de, es, fr);
+}
+
+function setUILanguageLegendImmobile() {
+	var en = "Immobile: IMMOBILE";
+	var de = "Immobile: IMMOBILE";
+	var es = "Inmovil: INMOVIL";
+	var fr = "Immobile: IMMOBILE";
+
+	substituteLanguage("legendImmobile", en, de, es, fr);
+}
+
+function setUILanguageLegendPoison() {
+	var en = "Poison: POISON";
+	var de = "Poison: POISON";
+	var es = "Venemo: VENENO";
+	var fr = "Poison: POISON";
+
+	substituteLanguage("legendPoison", en, de, es, fr);
+}
+
+function setUILanguageLegendSlow() {
+	var en = "Slow: SLOW";
+	var de = "Slow: SLOW";
+	var es = "Ralentizar: RALENTIZAR";
+	var fr = "Slow: SLOW";
+
+	substituteLanguage("legendSlow", en, de, es, fr);
+}
+
+function setUILanguageLegendAll() {
+	var en = "ALL: All";
+	var de = "ALL: All";
+	var es = "Todo: TODO";
+	var fr = "ALL: All";
+
+	substituteLanguage("legendAll", en, de, es, fr);
+}
+
+function setUIImmunitiesGroup(){
+	setUIImmunities();
+	
+	setUILanguageLegendImmuneBane();
+	setUILanguageLegendImmuneHex();
+	setUILanguageLegendImmuneFire();
+	setUILanguageLegendImmuneKnockdown();
+	setUILanguageLegendImmuneIce();
+	setUILanguageLegendImmuneImmobile();
+	setUILanguageLegendImmunePoison();
+	setUILanguageLegendImmuneSlow();
+	setUILanguageLegendImmuneAll();
+}
+
+function setUIImmunities() {
+	var en = "Immunities";
+	var de = "Immunities";
+	var es = "inmunidades";
+	var fr = "Immunities";
+
+	substituteLanguage("uiImmunities", en, de, es, fr);
+}
+
+function setUILanguageLegendImmuneBane() {
+	var en = "Immune Bane: IMMUNEBANE";
+	var de = "Immune Bane: IMMUNEBANE";
+	var es = "Inmune A Estrago: INMUNEAESTRAGO";
+	var fr = "Immune Bane: IMMUNEBANE";
+
+	substituteLanguage("legendImmuneBane", en, de, es, fr);
+}
+
+function setUILanguageLegendImmuneHex() {
+	var en = "Immune Hex: IMMUNEHEX";
+	var de = "Immune Hex: IMMUNEHEX";
+	var es = "Inmune A Maleficio: INMUNEAMALEFICIO";
+	var fr = "Immune Hex: IMMUNEHEX";
+
+	substituteLanguage("legendImmuneHex", en, de, es, fr);
+}
+
+function setUILanguageLegendImmuneFire() {
+	var en = "Immune Fire: IMMUNEFIRE";
+	var de = "Immune Fire: IMMUNEFIRE";
+	var es = "Inmune A Fuego: INMUNEAFUEGO";
+	var fr = "Immune Fire: IMMUNEFIRE";
+
+	substituteLanguage("legendImmuneFire", en, de, es, fr);
+}
+
+function setUILanguageLegendImmuneKnockdown() {
+	var en = "Immune Knockdown: IMMUNEKNOCKDOWN";
+	var de = "Immune Knockdown: IMMUNEKNOCKDOWN";
+	var es = "Inmune A Aderribo: INMUNEADERRIBO";
+	var fr = "Immune Knockdown: IMMUNEKNOCKDOWN";
+
+	substituteLanguage("legendImmuneKnockdown", en, de, es, fr);
+}
+
+function setUILanguageLegendImmuneIce() {
+	var en = "Immune Ice: IMMUNEICE";
+	var de = "Immune Ice: IMMUNEICE";
+	var es = "Inmune A Hielo: INMUNEAHIELO";
+	var fr = "Immune Ice: IMMUNEICE";
+
+	substituteLanguage("legendImmuneIce", en, de, es, fr);
+}
+
+function setUILanguageLegendImmuneImmobile() {
+	var en = "Immune Immobile: IMMUNEIMMOBILE";
+	var de = "Immune Immobile: IMMUNEIMMOBILE";
+	var es = "Inmune A Inmovil: INMUNEAINMOVIL";
+	var fr = "Immune Immobile: IMMUNEIMMOBILE";
+
+	substituteLanguage("legendImmuneImmobile", en, de, es, fr);
+}
+
+function setUILanguageLegendImmunePoison() {
+	var en = "Immune Poison: IMMUNEPOISON";
+	var de = "Immune Poison: IMMUNEPOISON";
+	var es = "Inmune A Venemo: INMUNEAVENENO";
+	var fr = "Immune Poison: IMMUNEPOISON";
+
+	substituteLanguage("legendImmunePoison", en, de, es, fr);
+}
+
+function setUILanguageLegendImmuneSlow() {
+	var en = "Immune Slow: IMMUNESLOW";
+	var de = "Immune Slow: IMMUNESLOW";
+	var es = "Inmune A Ralentizar: INMUNEAVENENO";
+	var fr = "Immune Slow: IMMUNESLOW";
+
+	substituteLanguage("legendImmuneSlow", en, de, es, fr);
+}
+
+function setUILanguageLegendImmuneAll() {
+	var en = "Immune All: IMMUNEALL";
+	var de = "Immune All: IMMUNEALL";
+	var es = "Inmune A Todo: INMUNEATODO";
+	var fr = "Immune All: IMMUNEALL";
+
+	substituteLanguage("legendImmuneAll", en, de, es, fr);
+}
+
+function setUIAffinitiesGroup(){
+	setUIAffinities();
+	
+	setUILanguageLegendAllAffinity();
+	
+	setUILanguageLegendAmethyst();
+	setUILanguageLegendAmethystCitrine();
+	setUILanguageLegendAmethystEmerald();
+	setUILanguageLegendAmethystRuby();
+	setUILanguageLegendAmethystSapphire();
+	
+	setUILanguageLegendCitrine();
+	setUILanguageLegendCitrineAmethyst();
+	setUILanguageLegendCitrineEmerald();
+	setUILanguageLegendCitrineRuby();
+	setUILanguageLegendCitrineSapphire();
+	
+	setUILanguageLegendEmerald();
+	setUILanguageLegendEmeraldAmethyst();
+	setUILanguageLegendEmeraldCitrine();
+	setUILanguageLegendEmeraldRuby();
+	setUILanguageLegendEmeraldSapphire();
+	
+	setUILanguageLegendRuby();
+	setUILanguageLegendRubyAmethyst();
+	setUILanguageLegendRubyCitrine();
+	setUILanguageLegendRubyEmerald();
+	setUILanguageLegendRubySapphire();
+	
+	setUILanguageLegendSapphire();
+	setUILanguageLegendSapphireAmethyst();
+	setUILanguageLegendSapphireCitrine();
+	setUILanguageLegendSapphireEmerald();
+	setUILanguageLegendSapphireRuby();
+}
+
+function setUIAffinities() {
+	var en = "Affinities";
+	var de = "Affinities";
+	var es = "Afinidades";
+	var fr = "Affinities";
+
+	substituteLanguage("uiAffinities", en, de, es, fr);
+}
+
+function setUILanguageLegendAllAffinity() {
+	var en = "All Affinity: ALLAFFINITY";
+	var de = "All Affinity: ALLAFFINITY";
+	var es = "Toda la afinidad: TODALAAFINIDAD";
+	var fr = "All Affinity: ALLAFFINITY";
+
+	substituteLanguage("legendAllAffinity", en, de, es, fr);
+}
+
+function setUILanguageLegendAmethyst() {
+	var en = "Amethyst: AMETHYST";
+	var de = "Amethyst: AMETHYST";
+	var es = "Amatista: AMATISTA";
+	var fr = "Amethyst: AMETHYST";
+
+	substituteLanguage("legendAmethyst", en, de, es, fr);
+}
+
+function setUILanguageLegendAmethystCitrine() {
+	var en = "Amethyst Citrine: AMETHYSTCITRINE";
+	var de = "Amethyst Citrine: AMETHYSTCITRINE";
+	var es = "Amatista Citrino: AMATISTACITRINO";
+	var fr = "Amethyst Citrine: AMETHYSTCITRINE";
+
+	substituteLanguage("legendAmethystCitrine", en, de, es, fr);
+}
+
+function setUILanguageLegendAmethystEmerald() {
+	var en = "Amethyst Emerald: AMETHYSTEMERALD";
+	var de = "Amethyst Emerald: AMETHYSTEMERALD";
+	var es = "Amatista Esmeralda: AMATISTAESMERALDA";
+	var fr = "Amethyst Emerald: AMETHYSTEMERALD";
+
+	substituteLanguage("legendAmethystEmerald", en, de, es, fr);
+}
+
+function setUILanguageLegendAmethystRuby() {
+	var en = "Amethyst Ruby: AMETHYSTRUBY";
+	var de = "Amethyst Ruby: AMETHYSTRUBY";
+	var es = "Amatista Rubi: AMATISTARUBI";
+	var fr = "Amethyst Ruby: AMETHYSTRUBY";
+
+	substituteLanguage("legendAmethystRuby", en, de, es, fr);
+}
+
+function setUILanguageLegendAmethystSapphire() {
+	var en = "Amethyst Sapphire: AMETHYSTSAPPHIRE";
+	var de = "Amethyst Sapphire: AMETHYSTSAPPHIRE";
+	var es = "Amatista Zafiro: AMATISTAZAFIRO";
+	var fr = "Amethyst Sapphire: AMETHYSTSAPPHIRE";
+
+	substituteLanguage("legendAmethystSapphire", en, de, es, fr);
+}
+
+function setUILanguageLegendCitrine() {
+	var en = "Citrine: CITRINE";
+	var de = "Citrine: CITRINE";
+	var es = "Citrino: CITRINO";
+	var fr = "Citrine: CITRINE";
+
+	substituteLanguage("legendCitrine", en, de, es, fr);
+}
+
+function setUILanguageLegendCitrineAmethyst() {
+	var en = "Citrine Amethyst: CITRINEAMETHYST";
+	var de = "Citrine Amethyst: CITRINEAMETHYST";
+	var es = "Citrino Amatista: CITRINOAMATISTA";
+	var fr = "Citrine Amethyst: CITRINEAMETHYST";
+
+	substituteLanguage("legendCitrineAmethyst", en, de, es, fr);
+}
+
+function setUILanguageLegendCitrineEmerald() {
+	var en = "Citrine Emerald: CITRINEEMERALD";
+	var de = "Citrine Emerald: CITRINEEMERALD";
+	var es = "Citrino Esmeralda: CITRINOESMERALDA";
+	var fr = "Citrine Emerald: CITRINEEMERALD";
+
+	substituteLanguage("legendCitrineEmerald", en, de, es, fr);
+}
+
+function setUILanguageLegendCitrineRuby() {
+	var en = "Citrine Ruby: CITRINERUBY";
+	var de = "Citrine Ruby: CITRINERUBY";
+	var es = "Citrino Rubi: CITRINORUBI";
+	var fr = "Citrine Ruby: CITRINERUBY";
+
+	substituteLanguage("legendCitrineRuby", en, de, es, fr);
+}
+
+function setUILanguageLegendCitrineSapphire() {
+	var en = "Citrine Sapphire: CITRINESAPPHIRE";
+	var de = "Citrine Sapphire: CITRINESAPPHIRE";
+	var es = "Citrino Zafiro: CITRINOZAFIRO";
+	var fr = "Citrine Sapphire: CITRINESAPPHIRE";
+
+	substituteLanguage("legendCitrineSapphire", en, de, es, fr);
+}
+
+function setUILanguageLegendEmerald() {
+	var en = "Emerald: EMERALD";
+	var de = "Emerald: EMERALD";
+	var es = "Esmeralda: ESMERALDA";
+	var fr = "Emerald: EMERALD";
+
+	substituteLanguage("legendEmerald", en, de, es, fr);
+}
+
+function setUILanguageLegendEmeraldAmethyst() {
+	var en = "Emerald Amethyst: EMERALDAMETHYST";
+	var de = "Emerald Amethyst: EMERALDAMETHYST";
+	var es = "Esmeralda Amatista: ESMERALDAAMATISTA";
+	var fr = "Emerald Amethyst: EMERALDAMETHYST";
+
+	substituteLanguage("legendEmeraldAmethyst", en, de, es, fr);
+}
+
+function setUILanguageLegendEmeraldCitrine() {
+	var en = "Emerald Citrine: EMERALDCITRINE";
+	var de = "Emerald Citrine: EMERALDCITRINE";
+	var es = "Esmeralda Citrino: ESMERALDACITRINO";
+	var fr = "Emerald Citrine: EMERALDCITRINE";
+
+	substituteLanguage("legendEmeraldCitrine", en, de, es, fr);
+}
+
+function setUILanguageLegendEmeraldRuby() {
+	var en = "Emerald Ruby: EMERALDRUBY";
+	var de = "Emerald Ruby: EMERALDRUBY";
+	var es = "Esmeralda Rubi: ESMERALDARUBI";
+	var fr = "Emerald Ruby: EMERALDRUBY";
+
+	substituteLanguage("legendEmeraldRuby", en, de, es, fr);
+}
+
+function setUILanguageLegendEmeraldSapphire() {
+	var en = "Emerald Sapphire: EMERALDSAPPHIRE";
+	var de = "Emerald Sapphire: EMERALDSAPPHIRE";
+	var es = "Esmeralda Zafiro: ESMERALDAZAFIRO";
+	var fr = "Emerald Sapphire: EMERALDSAPPHIRE";
+
+	substituteLanguage("legendEmeraldSapphire", en, de, es, fr);
+}
+
+function setUILanguageLegendRuby() {
+	var en = "Ruby: RUBY";
+	var de = "Ruby: RUBY";
+	var es = "Rubi: RUBI";
+	var fr = "Ruby: RUBY";
+
+	substituteLanguage("legendRuby", en, de, es, fr);
+}
+
+function setUILanguageLegendRubyAmethyst() {
+	var en = "Ruby Amethyst: RUBYAMETHYST";
+	var de = "Ruby Amethyst: RUBYAMETHYST";
+	var es = "Rubi Amatista: RUBIAMATISTA";
+	var fr = "Ruby Amethyst: RUBYAMETHYST";
+
+	substituteLanguage("legendRubyAmethyst", en, de, es, fr);
+}
+
+function setUILanguageLegendRubyCitrine() {
+	var en = "Ruby Citrine: RUBYCITRINE";
+	var de = "Ruby Citrine: RUBYCITRINE";
+	var es = "Rubi Citrino: RUBICITRINO";
+	var fr = "Ruby Citrine: RUBYCITRINE";
+
+	substituteLanguage("legendRubyCitrine", en, de, es, fr);
+}
+
+function setUILanguageLegendRubyEmerald() {
+	var en = "Ruby Emerald: RUBYEMERALD";
+	var de = "Ruby Emerald: RUBYEMERALD";
+	var es = "Rubi Esmeralda: RUBIESMERALDA";
+	var fr = "Ruby Emerald: RUBYEMERALD";
+
+	substituteLanguage("legendRubyEmerald", en, de, es, fr);
+}
+
+function setUILanguageLegendRubySapphire() {
+	var en = "Ruby Sapphire: RUBYSAPPHIRE";
+	var de = "Ruby Sapphire: RUBYSAPPHIRE";
+	var es = "Rubi Zafiro: RUBIZAFIRO";
+	var fr = "Ruby Sapphire: RUBYSAPPHIRE";
+
+	substituteLanguage("legendRubySapphire", en, de, es, fr);
+}
+
+function setUILanguageLegendSapphire() {
+	var en = "Sapphire: SAPPHIRE";
+	var de = "Sapphire: SAPPHIRE";
+	var es = "Zafiro: ZAFIRO";
+	var fr = "Sapphire: SAPPHIRE";
+
+	substituteLanguage("legendSapphire", en, de, es, fr);
+}
+
+function setUILanguageLegendSapphireAmethyst() {
+	var en = "Sapphire Amethyst: SAPPHIREAMETHYST";
+	var de = "Sapphire Amethyst: SAPPHIREAMETHYST";
+	var es = "Zafiro Amatista: ZAFIROAMATISTA";
+	var fr = "Sapphire Amethyst: SAPPHIREAMETHYST";
+
+	substituteLanguage("legendSapphireAmethyst", en, de, es, fr);
+}
+
+function setUILanguageLegendSapphireCitrine() {
+	var en = "Sapphire Citrine: SAPPHIRECITRINE";
+	var de = "Sapphire Citrine: SAPPHIRECITRINE";
+	var es = "Zafiro Citrino: ZAFIROCITRINO";
+	var fr = "Sapphire Citrine: SAPPHIRECITRINE";
+
+	substituteLanguage("legendSapphireCitrine", en, de, es, fr);
+}
+
+function setUILanguageLegendSapphireEmerald() {
+	var en = "Sapphire Emerald: SAPPHIREEMERALD";
+	var de = "Sapphire Emerald: SAPPHIREEMERALD";
+	var es = "Zafiro Esmeralda: ZAFIROESMERALDA";
+	var fr = "Sapphire Emerald: SAPPHIREEMERALD";
+
+	substituteLanguage("legendSapphireEmerald", en, de, es, fr);
+}
+
+function setUILanguageLegendSapphireRuby() {
+	var en = "Sapphire Ruby: SAPPHIRERUBY";
+	var de = "Sapphire Ruby: SAPPHIRERUBY";
+	var es = "Zafiro Rubi: ZAFIRORUBI";
+	var fr = "Sapphire Ruby: SAPPHIRERUBY";
+
+	substituteLanguage("legendSapphireRuby", en, de, es, fr);
+}
+
+function substituteLanguage(className, en, de, es, fr) {
 	var elements = document.getElementsByClassName(className);
 	for(var x=0; x < elements.length; x++) {
 		var element = elements[x];
@@ -2821,6 +3550,18 @@ function substituteLanguageControl(className, en, de, es, fr) {
 		} else {
 			element.innerText = en;
 		}
+	}
+}
+
+function updatebox(){
+	var elements = document.getElementsByName("definition");
+	for(var x = 0; x < elements.length; x++) {
+		var element = elements[x];
+		
+		//element.value += ' ';
+		element.value = element.value;
+		//element.change();
+		//element.get(0).change();
 	}
 }
 
