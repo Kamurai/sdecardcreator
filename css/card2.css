@@ -564,6 +564,11 @@ cursor:move;
 	background-size:40px 40px;
 }
 
+span.dice.star{
+	background:url('image/dice/white-star.png') no-repeat;
+	background-size:15px 15px;
+}
+
 .card span.dice,
 .card span.offense,
 .card span.actionMod,
