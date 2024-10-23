@@ -348,7 +348,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  "AUMENTO": {
+  "Aumento": {
     "description": "Las acciones con AUMENTO solamente pueden afectar o designar como objetivos a miniaturas aliadas.",
     "version": 1.0,
     "hasErrata": "false",
@@ -1463,7 +1463,7 @@
     "errata": []
   },
   "Forma fija-A": {
-    "description": " Un Cambiaformas con Forma fija no puede volver a transformarse en su forma original.",
+    "description": "Un Cambiaformas con Forma fija no puede volver a transformarse en su forma original.",
     "version": 1.991,
     "hasErrata": "false",
     "errata": []
