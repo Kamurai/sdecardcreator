@@ -372,7 +372,8 @@ function addKeyword(displayKey,data) {
 		var keyClass = resolveKeyClass(displayKey);
 
 		//check to see if the keyword is already added, and if the display flag does not equal false
-		if( data.displayBack !== false && data.displayBack !== 'false'  && $('.cardGroup.selected .card .keywords .'+keyClass.toUpperCase()).length ===0){
+		if( data.displayBack !== false && data.displayBack !== 'false'  
+		&& keyClass != null && keyClass != '' && $('.cardGroup.selected .card .keywords .'+keyClass.toUpperCase()).length ===0){
 		  //console.log(displayKey,data);
 
 		  var description = data.description;//data.get(keyClass.toUpperCase()).description;
@@ -396,13 +397,13 @@ function addKeyword(displayKey,data) {
 			}
 			
 			if(parsedDescription != "" && parsedDescription != undefined){
-				var backTemplate = '<div class="keyword definedKeyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCase(displayKey)+'">'+
+				var backTemplate = '<div class="keyword definedKeyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCaseLoop(displayKey)+'">'+
 				'<span class="keyword '+translateToEnglish(keyClass.toUpperCase())+'"></span>'+
 				'<span class="name">'+displayKey+'</span>:'+
 				'<span class="description">'+parsedDescription+'</span>'+
 				'</div>';
 
-				var itemTemplate = '<div class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCase(displayKey)+'">'+
+				var itemTemplate = '<div class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCaseLoop(displayKey)+'">'+
 				'<span class="keyword '+translateToEnglish(keyClass.toUpperCase())+'"></span>'+
 				'<span class="name">'+displayKey+'</span> '+
 				'<span class="description">'+parsedDescription+'</span>'+
@@ -789,7 +790,7 @@ function resolveKeyClass(key) {
 	text = text.replace(this.re,function(match){
 		var displayKey = this.lookup[match.toLowerCase()];
 		var keyClass = this.resolveKeyClass(displayKey);
-		return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCase(dataKey)+'">'+displayKey+'</span>';
+		return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCaseLoop(dataKey)+'">'+displayKey+'</span>';
     }.bind(this));
 	*/
 	return text;
@@ -797,7 +798,7 @@ function resolveKeyClass(key) {
     
   function replaceEnglishSymbols(secondaryRe, text) {
 	return text.replace(secondaryRe,function(match){
-		var result = '<span class="keyword '+match.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+match.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		
 		return result;
     }.bind(this));
@@ -828,7 +829,7 @@ function replaceDeutchSymbols(secondaryRe, text) {
 			translation = 'DANGEROUS';
 		}
 		
-		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		
 		return result;
     }.bind(this));
@@ -859,7 +860,7 @@ function replaceEspanolSymbols(secondaryRe, text) {
 			translation = 'DANGEROUS';
 		}
 		
-		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		
 		return result;
     }.bind(this));
@@ -890,7 +891,7 @@ function replaceFrancaisSymbols(secondaryRe, text) {
 			translation = 'DANGEROUS';
 		}
 		
-		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		
 		return result;
     }.bind(this));
@@ -926,7 +927,7 @@ function findImmunities(text){
 	text = text.replace(this.re,function(match){
 		var displayKey = this.lookup[match.toLowerCase()];
 		var keyClass = this.resolveKeyClass(displayKey);
-		return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCase(dataKey)+'">'+displayKey+'</span>';
+		return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCaseLoop(dataKey)+'">'+displayKey+'</span>';
     }.bind(this));
 	*/
 	return text;
@@ -934,7 +935,7 @@ function findImmunities(text){
   
   function replaceEnglishImmunities(secondaryRe, text) {
 	return text.replace(secondaryRe,function(match){
-		var result = '<span class="keyword '+match.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+match.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		
 		return result;
     }.bind(this));
@@ -965,7 +966,7 @@ function replaceDeutchImmunities(secondaryRe, text) {
 			translation = 'IMMUNEALL';
 		}
 		
-		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		
 		return result;
     }.bind(this));
@@ -996,7 +997,7 @@ function replaceEspanolImmunities(secondaryRe, text) {
 			translation = 'IMMUNEALL';
 		}
 		
-		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		
 		return result;
     }.bind(this));
@@ -1027,7 +1028,7 @@ function replaceFrancaisImmunities(secondaryRe, text) {
 			translation = 'IMMUNEALL';
 		}
 		
-		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		
 		return result;
     }.bind(this));
@@ -1062,7 +1063,7 @@ this.findAffinities=function(description){
   
 this.replaceEnglishAffinities=function(re, description){
 	return description.replace(re,function(match){
-		return '<span class="affinity '+match.toUpperCase()+'" title="'+toCamelCase(match)+'"></span>';
+		return '<span class="affinity '+match.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></span>';
     });
 }
   
@@ -1123,7 +1124,7 @@ this.replaceDeutchAffinities=function(re, description){
 			translation = 'SAPPHIRERUBY';
 		}
 		
-		return '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
+		return '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
     });
 }
 
@@ -1184,7 +1185,7 @@ this.replaceEspanolAffinities=function(re, description){
 			translation = 'SAPPHIRERUBY';
 		}
 		
-		return '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
+		return '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
     });
 }
   
@@ -1245,7 +1246,7 @@ this.replaceFrancaisAffinities=function(re, description){
 			translation = 'SAPPHIRERUBY';
 		}
 		
-		return '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCase(match)+'"></div>';
+		return '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
     });
 }
 
@@ -1438,7 +1439,7 @@ function replaceFrancaisStats(re, text) {
 }
 
 function replace1(match){
-	var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCase(match)+'">'+toCamelCase(match)+'</span>';
+	var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		
 	return result;
  }
@@ -1446,7 +1447,7 @@ function replace1(match){
  function replace2(match){
 	var displayKey = this.lookup[match.toLowerCase()];
 	var keyClass = this.resolveKeyClass(displayKey);
-	return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCase(dataKey)+'">'+displayKey+'</span>';
+	return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCaseLoop(dataKey)+'">'+displayKey+'</span>';
  }
 
 function applyLanguageToDescriptions() {
@@ -3563,6 +3564,22 @@ function updatebox(){
 		//element.change();
 		//element.get(0).change();
 	}
+}
+
+function toCamelCaseLoop(input) {
+	var result = '';
+	var parts = input.split(' ');
+	
+	for(var x = 0; x < parts.length; x++) {
+		result += toCamelCase(parts[x]);
+		
+		if(x != parts.length-1){
+			result += ' ';
+		}
+		
+	}
+	
+	return result;
 }
 
 function toCamelCase(input) {

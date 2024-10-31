@@ -58,7 +58,7 @@ function KeywordStore(keywords){
         raw.push(key);
         rawOrder.push(key);
         //this.lookup[key.toLowerCase()]=key;
-        this.lookup[toCamelCase(key)]=key;
+        this.lookup[toCamelCaseLoop(key)]=key;
       }
     }
 
@@ -111,9 +111,9 @@ function KeywordStore(keywords){
    */
   this.findKeywords=function(text){
     text = text.replace(this.re,function(match){
-      var key = this.lookup[toCamelCase(match)];
+      var key = this.lookup[toCamelCaseLoop(match)];
       var keyClass = this.resolveKeyClass(key);
-      return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCase(key)+'">'+toCamelCase(key)+'</span>';
+      return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCaseLoop(key)+'">'+toCamelCaseLoop(key)+'</span>';
     }.bind(this));
     return text;
   };
@@ -124,7 +124,7 @@ function KeywordStore(keywords){
       var dataKey = this.resolveNKey(key);
       var keyClass = this.resolveKeyClass(key);
 
-      return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCase(dataKey)+'">'+toCamelCase(key)+' '+number+'</span>';
+      return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCaseLoop(dataKey)+'">'+toCamelCaseLoop(key)+' '+number+'</span>';
     }.bind(this));
     return text;
   };
