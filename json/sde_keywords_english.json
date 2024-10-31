@@ -850,7 +850,20 @@
     "hasErrata": "false",
     "errata": []
   },
-  "Feed Me": {
+  "Feed Me-A": {
+    "description": "During upkeep, if a model with Feed Me is suffering any wounds, destroy one minion within two squares of the model and remove one wound token.",
+    "version": 1.99,
+    "hasErrata": "true",
+    "errata": [
+      {
+        "description": "During upkeep, if a monster with Feed Me is suffering any wounds, destroy one minion within two squares of the model and remove one would token.",
+        "version": 2.0,
+        "source": "",
+        "sourceDescription": "King Sprout and Volcanic Sprout 2.0."
+      }
+    ]
+  },
+  "Feed Me-E": {
     "description": "Eat one friendly model within melee range to heal one wound.",
     "version": 1.99,
     "hasErrata": "true",
@@ -860,6 +873,12 @@
         "version": 1.991,
         "source": "",
         "sourceDescription": "Forgotten King Updated keyword."
+      },
+	  {
+        "description": "Once per activation, a model with Feed Me may remove one friendly model within melee range from play to remove one wound or one status effect token.",
+        "version": 2.0,
+        "source": "",
+        "sourceDescription": "King Sprout and Volcanic Sprout 2.0."
       }
     ]
   },
@@ -907,7 +926,13 @@
     "hasErrata": "false",
     "errata": []
   },
-  "Fixed Form": {
+  "Fixed Form-A": {
+    "description": "A shapeshift with Fixed Form may not shapeshift into its original form during a unique command.",
+    "version": 1.99,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Fixed Form-E": {
     "description": "Once shapeshifted into X form it may not shapeshift back to its original form.",
     "version": 1.99,
     "hasErrata": "true",
@@ -1541,7 +1566,13 @@
     "hasErrata": "false",
     "errata": []
   },
-  "Kitty Claws": {
+  "Kitty Claws-A": {
+    "description": "Beatrix immediately makes one Basic Attack against any enemy model that moves into a square adjacent to Beatrix during its activation.",
+    "version": 1.99,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Kitty Claws-E": {
     "description": "Beatrix immediately makes one Melee Attack against any model that moves into a square adjacent to Beatrix During it’s activation.",
     "version": 1.99,
     "hasErrata": "true",
@@ -2718,6 +2749,18 @@
     "errata": []
   },
   "Spongy": {
+    "description": "When a model with Spongy is targeted by an action, after the action has been resolved, move the model that targeted it one square using the rules for Push. Resolve Spongy even if the model with Spongy was destroyed.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Spongy-A": {
+    "description": "When a model with Spongy is targeted by an action, Push the model that targeted them 1 square, after the action is resolved.",
+    "version": 1.99,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Spongy-E": {
     "description": "Anytime a model makes an offensive action against the Kinoshroom. The model is pushed one square away.",
     "version": 1.99,
     "hasErrata": "true",
@@ -3099,7 +3142,13 @@
     "hasErrata": "false",
     "errata": []
   },
-  "Virulent": {
+  "Virulent-A": {
+    "description": "+1ST STR, if target model is suffering Poison.",
+    "version": 1.99,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Virulent-E": {
     "description": "Adds +1B dice to any offense roll they make if their target is suffering Poison.",
     "version": 1.0,
     "hasErrata": "true",
