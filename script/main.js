@@ -368,14 +368,12 @@ function createKeywordStore(){
 
 function addKeyword(displayKey,data) {
 	if(data != undefined){
-		//var lKey = displayKey.toLowerCase();
 		var keyClass = resolveKeyClass(displayKey);
 
 		//check to see if the keyword is already added, and if the display flag does not equal false
 		if( data.displayBack !== false && data.displayBack !== 'false'  
 		&& keyClass != null && keyClass != '' && $('.cardGroup.selected .card .keywords .'+keyClass.toUpperCase()).length ===0){
-		  //console.log(displayKey,data);
-
+		
 		  var description = data.description;//data.get(keyClass.toUpperCase()).description;
 
 		  if(data.selectedVersion !== undefined){
@@ -786,13 +784,7 @@ function resolveKeyClass(key) {
 		secondaryRe = en;
 		text = replaceEnglishSymbols(secondaryRe, text);
 	}
-	/*
-	text = text.replace(this.re,function(match){
-		var displayKey = this.lookup[match.toLowerCase()];
-		var keyClass = this.resolveKeyClass(displayKey);
-		return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCaseLoop(dataKey)+'">'+displayKey+'</span>';
-    }.bind(this));
-	*/
+	
 	return text;
   }
     
@@ -923,13 +915,7 @@ function findImmunities(text){
 		secondaryRe = en;
 		text = replaceEnglishImmunities(secondaryRe, text);
 	}
-	/*
-	text = text.replace(this.re,function(match){
-		var displayKey = this.lookup[match.toLowerCase()];
-		var keyClass = this.resolveKeyClass(displayKey);
-		return '<span class="keyword '+keyClass.toUpperCase()+'" data-key="'+toCamelCaseLoop(dataKey)+'">'+displayKey+'</span>';
-    }.bind(this));
-	*/
+	
 	return text;
   };
   
@@ -3568,13 +3554,30 @@ function updatebox(){
 
 function toCamelCaseLoop(input) {
 	var result = '';
-	var parts = input.split(' ');
 	
-	for(var x = 0; x < parts.length; x++) {
-		result += toCamelCase(parts[x]);
+	if(isNotEmpty(input)) {
+		var parts = input.split(' ');
+		for(var x = 0; x < parts.length; x++) {
+			result += toCamelCase(parts[x]);
+			result += ' ';		
+		}
+	}
+	return result.trim();
+}
+
+function toCamelCase(input) {
+	var result = '';
+	var first = '';
+	
+	if(isNotEmpty(input)) {
+		first = input.toString().substring(0,1); //get first character
+		first = first.toUpperCase();
 		
-		if(x != parts.length-1){
-			result += ' ';
+		result = input.toString().substring(1, input.length).toLowerCase();
+		result = first + result;
+		
+		if(checkForSuffix(result)){
+			result = upperCaseSuffix(result);
 		}
 		
 	}
@@ -3582,16 +3585,48 @@ function toCamelCaseLoop(input) {
 	return result;
 }
 
-function toCamelCase(input) {
-	var result = '';
-	var first = '';
+function checkForSuffix(input) {
+	var result = false;
+	var potentialSuffix = '';
 	
-	if(input != undefined && input.length > 0) {
-		first = input.toString().substring(0,1); //get first character
-		first = first.toUpperCase();
+	if(input.length > 1) {
+		potentialSuffix = input.toString().substring(input.length-2, input.length);
 		
-		result = input.toString().substring(1, input.length).toLowerCase();;
-		result = first + result;		
+		if(potentialSuffix === '-e' || potentialSuffix === '-a') {
+			result = true;
+		}
+	}
+	
+	return result;
+}
+
+function upperCaseSuffix(input) {
+	var result = input;
+	var potentialSuffix = '';
+	var suffix = '';
+	
+	if(input.length > 1) {
+		result = input.toString().substring(0, input.length-2);
+		potentialSuffix = input.toString().substring(input.length-2, input.length);
+	
+		if(potentialSuffix === '-e') {
+			suffix = '-E';
+		} else if(potentialSuffix === '-a') {
+			suffix = '-A';
+		}
+		result += suffix;
+	}
+		
+	return result;
+}
+
+function isNotEmpty(input) {
+	var result = false;
+	
+	if(input == undefined || input.trim() === "") {
+		result = false;
+	} else {
+		result = true;
 	}
 	
 	return result;
