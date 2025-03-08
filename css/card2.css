@@ -1005,7 +1005,7 @@ span.dice.star{
 	background: radial-gradient(ellipse at center,  green 23%,  darkgreen 79%, rgb(0,0,0) 100%);
 }
 
-.card.hero.purple, .card.pet.purple, .card.monster.purple , .card.arcadeSolo, .card.arcadeGang, .card.command, .purple{
+.card.hero.purple, .card.pet.purple, .card.monster.purple , .card.arcadeSolo.purple, .card.arcadeGang.purple, .card.command.purple, .purple{
 	background: radial-gradient(ellipse at center, purple 23%,  indigo 79%, rgb(0,0,0) 100%);
 }
 
