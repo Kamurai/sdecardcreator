@@ -430,7 +430,7 @@ function stripStatsFromKeywordsEnglish() {
 }
 
 function translateToEnglish(nonEnglish){
-	const result = '';
+	var result = '';
 	
 	if(languageChoice == LANGUAGE_ENGLISH) {
 		result = nonEnglish;
