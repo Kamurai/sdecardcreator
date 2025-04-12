@@ -3271,7 +3271,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  " ": {
+  "You've Been Naughty": {
     "description": "After an enemy model rolls a critical success against a model with You've Been Naughty, the enemy model Shapeshifts into a Naughtie (regardless of the number of wounds dealt by the critical).  The Consul selects one Naughtie shapeshift card that is not already being used by a Hero.  If all Naughtie shapeshift cards are in play, this ability has no effect.  Heroes on Kringle's Nice List may not be shapeshifted in this way.",
     "version": 2.0,
     "hasErrata": "false",
