@@ -111,7 +111,7 @@ function KeywordStore(keywords){
    */
   this.findKeywords=function(text){
 	var resultA = text;
-	var newText = //!!! I have no idea why this must be, but it must.
+	var newText = 
 	//text = 
 	text.replace(this.re,function(match){
 		var resultB = '';
