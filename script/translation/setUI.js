@@ -1665,7 +1665,7 @@ function setUILanguageLegendImmuneBane() {
 	var en = UI_LEGEND_IMMUNE_BANE_ENGLISH;
 	var de = UI_LEGEND_IMMUNE_BANE_DEUTCH;
 	var es = UI_LEGEND_IMMUNE_BANE_ESPANOL;
-	var fr = SYMBOL_IMMUNE_BANE_FRANCAIS;
+	var fr = UI_LEGEND_IMMUNE_BANE_FRANCAIS;
 
 	substituteLanguage("legendImmuneBane", en, de, es, fr);
 }
