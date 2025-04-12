@@ -215,7 +215,7 @@ function Card(animate,appendAfter){
 
   this.initFirstCard=function(){
     //hero
-    var data = {"name":"Ability 1","costType":"attack","cost":1,"definition":"+1R -2B 3G 4O 5P 1ST 0MI 1MA 2SW 3RG STR WILL DEX ARM 1AC 2MO 2PO 0SH +1HE ALLAFFINITY AMETHYST AMETHYSTCITRINE CITRINE CITRINEEMERALD EMERALD EMERALDRUBY RUBY RUBYSAPPHIRE SAPPHIRE SAPPHIRECITRINE AUGMENT DANGEROUS BANE HEX FIRE KNOCKDOWN ICE IMMOBILE POISON SLOW ALL IMMUNEBANE IMMUNEHEX IMMUNEFIRE IMMUNEKNOCKDOWN IMMUNEICE IMMUNEIMMOBILE IMMUNEPOISON IMMUNESLOW IMMUNEALL"};
+    var data = {"name":"Ability 1","costType":"attack","cost":1,"definition":"+1R -2B 3G 4O 5P 1ST 0MI 1MA 2SW 3RG STR WILL DEX ARM 1AC 2MO 2PO 0SH +1HE ALLAFFINITY AMETHYST AMETHYSTCITRINE CITRINE CITRINEEMERALD EMERALD EMERALDRUBY RUBY RUBYSAPPHIRE SAPPHIRE SAPPHIRECITRINE AUGMENT DANGEROUS BANE HEX FIRE KNOCKDOWN ICE IMMOBILE POISON SLOW IMMUNE: BANE IMMUNE: HEX IMMUNE: FIRE IMMUNE: KNOCKDOWN IMMUNE: ICE IMMUNE: IMMOBILE IMMUNE: POISON IMMUNE: SLOW IMMUNE: ALL"};
 
     //griefer
     //data = {"cardType": "command","title": "Griefer","imageSource": "default","remoteAvatar": "","abilities": [{"costType": "special","cost": "1","name": "Bully","definition": "All Commands target Hero with the least wrath."}, {"costType": "nameOnly","cost": "1","name": "Move x1","definition": ""}, {"costType": "nameOnly","cost": "1","name": "Fight x1","definition": ""}],"customKeywords": {}};

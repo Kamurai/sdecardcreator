@@ -61,32 +61,29 @@ function LegendControl(){
 					'<h3><span class="uiStatuses">'+UI_STATUSES_ENGLISH+'</span></h3>'+
 					'<ul>'+
 						'<li class="legendAugment">'+UI_LEGEND_AUGMENT_ENGLISH+'</li>'+
-						'<li class="legendDangerous">'+UI_LEGEND_DANGEROUS_ENGLISH+'</li>'+
 						'<li class="legendBane">'+UI_LEGEND_BANE_ENGLISH+'</li>'+
-						'<li class="legendHex">'+UI_LEGEND_HEX_ENGLISH+'</li>'+
+						'<li class="legendDangerous">'+UI_LEGEND_DANGEROUS_ENGLISH+'</li>'+
 						'<li class="legendFire">'+UI_LEGEND_FIRE_ENGLISH+'</li>'+
-						'<li class="legendKnockdown">'+UI_LEGEND_KNOCKDOWN_ENGLISH+'</li>'+
+						'<li class="legendHex">'+UI_LEGEND_HEX_ENGLISH+'</li>'+
 						'<li class="legendIce">'+UI_LEGEND_ICE_ENGLISH+'</li>'+
 						'<li class="legendImmobile">'+UI_LEGEND_IMMOBILE_ENGLISH+'</li>'+
+						'<li class="legendKnockdown">'+UI_LEGEND_KNOCKDOWN_ENGLISH+'</li>'+
 						'<li class="legendPoison">'+UI_LEGEND_POISON_ENGLISH+'</li>'+
 						'<li class="legendSlow">'+UI_LEGEND_SLOW_ENGLISH+'</li>'+
-						'<li class="legendAll">'+UI_LEGEND_ALL_ENGLISH+'</li>'+
-						
 					'</ul>'+
 				'</div>'+
 				'<div class="helpUnit">'+
 					'<h3><span class="uiImmunities">'+UI_IMMUNITIES_ENGLISH+'</span></h3>'+
 					'<ul>'+
+						'<li class="legendImmuneAll">'+UI_LEGEND_IMMUNE_ALL_ENGLISH+'</li>'+
 						'<li class="legendImmuneBane">'+UI_LEGEND_IMMUNE_BANE_ENGLISH+'</li>'+
-						'<li class="legendImmuneHex">'+UI_LEGEND_IMMUNE_HEX_ENGLISH+'</li>'+
 						'<li class="legendImmuneFire">'+UI_LEGEND_IMMUNE_FIRE_ENGLISH+'</li>'+
-						'<li class="legendImmuneKnockdown">'+UI_LEGEND_IMMUNE_KNOCKDOWN_ENGLISH+'</li>'+
+						'<li class="legendImmuneHex">'+UI_LEGEND_IMMUNE_HEX_ENGLISH+'</li>'+
 						'<li class="legendImmuneIce">'+UI_LEGEND_IMMUNE_ICE_ENGLISH+'</li>'+
 						'<li class="legendImmuneImmobile">'+UI_LEGEND_IMMUNE_IMMOBILE_ENGLISH+'</li>'+
+						'<li class="legendImmuneKnockdown">'+UI_LEGEND_IMMUNE_KNOCKDOWN_ENGLISH+'</li>'+
 						'<li class="legendImmunePoison">'+UI_LEGEND_IMMUNE_POISON_ENGLISH+'</li>'+
 						'<li class="legendImmuneSlow">'+UI_LEGEND_IMMUNE_SLOW_ENGLISH+'</li>'+
-						'<li class="legendImmuneAll">'+UI_LEGEND_IMMUNE_ALL_ENGLISH+'</li>'+
-						
 					'</ul>'+
 				'</div>'+
 				'<div class="helpUnit">'+
