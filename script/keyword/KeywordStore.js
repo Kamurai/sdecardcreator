@@ -205,25 +205,7 @@ function KeywordStore(keywords){
    *
    */
   this.resolveKeyClass=function(key){
-    var parts = '';
-    var returner ='';
-	
-	if(key != undefined) {
-		parts = key.split(' ');
-		for(var i=0,item;(item=parts[i]);i++){
-		  if(i==0){
-			//item = item.toLowerCase();
-			item = item.replace('\'','');
-
-			if($.isNumeric(item[0])){
-			  item="key-"+item;
-			}
-		  }
-
-		  returner+=item;
-		}
-	}
-    return returner;
+    return resolveKeyClass(key);
   };
 
 

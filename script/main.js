@@ -345,21 +345,25 @@ function addKeyword(displayKey,data) {
 }
 
 function resolveKeyClass(key) {
-	var parts = key.split(' ');
+	var parts = '';
     var returner ='';
+	
+	if(key != undefined) {
+		parts = key.split(' ');
+		for(var i=0,item;(item=parts[i]);i++){
+		  if(i==0){
+			//item = item.toLowerCase();
+			item = item.replace('\'','');
+			item = item.replace(':','');
 
-    for(var i=0,item;(item=parts[i]);i++){
-      if(i==0){
-        //item = item.toLowerCase();
-        item = item.replace('\'','');
+			if($.isNumeric(item[0])){
+			  item="key-"+item;
+			}
+		  }
 
-        if($.isNumeric(item[0])){
-          item="key-"+item;
-        }
-      }
-
-      returner+=item;
-    }
+		  returner+=item;
+		}
+	}
     return returner;
 }
 
