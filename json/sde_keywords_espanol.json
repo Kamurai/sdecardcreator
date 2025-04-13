@@ -1797,9 +1797,57 @@
       }
     ]
   },
-  "Inmune": {
-    "description": "Una miniatura con Inmune ignora e inmediatamente elimina todos los contadores o efectos de la habilidad marcado como X.",
-    "version": 1.0,
+  "Inmune a Todo": {
+    "description": "Una miniatura con \"Inmune a Todo\" ignora e inmediatamente elimina todos los contadores o efectos de cualquier estado.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Inmune a Estrago": {
+    "description": "Una miniatura con \"Inmune a Estrago\" ignora e inmediatamente elimina todos los contadores o efectos de Estrago.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Inmune a Fuego": {
+    "description": "Una miniatura con \"Inmune a Fuego\" ignora e inmediatamente elimina todos los contadores o efectos de Fuego.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Inmune a Maleficio": {
+    "description": "Una miniatura con \"Inmune a Maleficio\" ignora e inmediatamente elimina todos los contadores o efectos de Maleficio.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Inmune a Hielo": {
+    "description": "Una miniatura con \"Inmune a Hielo\" ignora e inmediatamente elimina todos los contadores o efectos de Hielo.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Inmune a Inmovil": {
+    "description": "Una miniatura con \"Inmune a Inmovil\" ignora e inmediatamente elimina todos los contadores o efectos de Inmovil.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Inmune a Derribo": {
+    "description": "Una miniatura con \"Inmune a Derribo\" ignora e inmediatamente elimina todos los contadores o efectos de Derribo.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Inmune a Venemo": {
+    "description": "Una miniatura con \"Inmune a Venemo\" ignora e inmediatamente elimina todos los contadores o efectos de Venemo.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Inmune a Ralentizar": {
+    "description": "Una miniatura con \"Inmune a Ralentizar\" ignora e inmediatamente elimina todos los contadores o efectos de Ralentizar.",
+    "version": 2.0,
     "hasErrata": "false",
     "errata": []
   },

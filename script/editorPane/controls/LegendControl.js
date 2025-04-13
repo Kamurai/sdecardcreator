@@ -30,98 +30,95 @@ function LegendControl(){
 			'<div>'+
 				'<div>'+
 					'<div class="helpUnit">'+
-						'<h3><span class="uiDiceTypes">Dice Types</span></h3>'+
+						'<h3><span class="uiDiceTypes">'+UI_DICE_TYPES_ENGLISH+'</span></h3>'+
 						'<ul>'+
 							//'<span class="dice star">1</span>' +
 	
-							'<li class="legendStar">Star: 1ST</li>'+
-							'<li class="legendBlue">Blue: 1B</li>'+
-							'<li class="legendRed">Red: 1R</li>'+
-							'<li class="legendGreen">Green: 1G</li>'+
-							'<li class="legendOrange">Orange: 1O</li>'+
-							'<li class="legendPurple">Purple: 1P</li>'+
+							'<li class="legendStar">'+UI_LEGEND_STAR_ENGLISH+'</li>'+
+							'<li class="legendBlue">'+UI_LEGEND_BLUE_ENGLISH+'</li>'+
+							'<li class="legendRed">'+UI_LEGEND_RED_ENGLISH+'</li>'+
+							'<li class="legendGreen">'+UI_LEGEND_GREEN_ENGLISH+'</li>'+
+							'<li class="legendOrange">'+UI_LEGEND_ORANGE_ENGLISH+'</li>'+
+							'<li class="legendPurple">'+UI_LEGEND_PURPLE_ENGLISH+'</li>'+
 						'</ul>'+
 					'</div>'+
 					'<div class="helpUnit">'+
-						'<h3><span class="uiModifiers">Modifiers</span></h3>'+
+						'<h3><span class="uiModifiers">'+UI_MODIFIERS_ENGLISH+'</span></h3>'+
 						'<ul>'+
-							'<li class="legendMelee">Melee: 1SW</li>'+
-							'<li class="legendMissile">Missile: 1MI</li>'+
-							'<li class="legendMagic">Magic: 1MA</li>'+
-							'<li class="legendRange">Range: 1RG</li>'+
-							'<li class="legendAction">Action: 1AC</li>'+
-							'<li class="legendMove">Move: 1MO</li>'+
-							'<li class="legendShield">Shield: 0SH</li>'+
-							'<li class="legendHeart">Heart: 1HE</li>'+
-							'<li class="legendPotion">Potion: 1PO</li>'+
+							'<li class="legendMelee">'+UI_LEGEND_MELEE_ENGLISH+'</li>'+
+							'<li class="legendMissile">'+UI_LEGEND_MISSILE_ENGLISH+'</li>'+
+							'<li class="legendMagic">'+UI_LEGEND_MAGIC_ENGLISH+'</li>'+
+							'<li class="legendRange">'+UI_LEGEND_RANGE_ENGLISH+'</li>'+
+							'<li class="legendAction">'+UI_LEGEND_ACTION_ENGLISH+'</li>'+
+							'<li class="legendMove">'+UI_LEGEND_MOVEMENT_ENGLISH+'</li>'+
+							'<li class="legendShield">'+UI_LEGEND_SHIELD_ENGLISH+'</li>'+
+							'<li class="legendHeart">'+UI_LEGEND_HEART_ENGLISH+'</li>'+
+							'<li class="legendPotion">'+UI_LEGEND_POTION_ENGLISH+'</li>'+
 						'</ul>'+
 					'</div>'+
 				'</div>'+
 				'<div class="helpUnit">'+
-					'<h3><span class="uiStatuses">Statuses</span></h3>'+
+					'<h3><span class="uiStatuses">'+UI_STATUSES_ENGLISH+'</span></h3>'+
 					'<ul>'+
-						'<li class="legendAugment">Augment: AUGMENT</li>'+
-						'<li class="legendDangerous">Dangerous: DANGEROUS</li>'+
-						'<li class="legendBane">Bane: BANE</li>'+
-						'<li class="legendHex">Hex: HEX</li>'+
-						'<li class="legendFire">Fire: FIRE</li>'+
-						'<li class="legendKnockdown">Knockdown: KNOCKDOWN</li>'+
-						'<li class="legendIce">Ice: ICE</li>'+
-						'<li class="legendImmobile">Immobile: IMMOBILE</li>'+
-						'<li class="legendPoison">Poison: POISON</li>'+
-						'<li class="legendSlow">Slow: SLOW</li>'+
-						'<li class="legendAll">All: ALL</li>'+
-						
+						'<li class="legendAugment">'+UI_LEGEND_AUGMENT_ENGLISH+'</li>'+
+						'<li class="legendBane">'+UI_LEGEND_BANE_ENGLISH+'</li>'+
+						'<li class="legendDangerous">'+UI_LEGEND_DANGEROUS_ENGLISH+'</li>'+
+						'<li class="legendFire">'+UI_LEGEND_FIRE_ENGLISH+'</li>'+
+						'<li class="legendHex">'+UI_LEGEND_HEX_ENGLISH+'</li>'+
+						'<li class="legendIce">'+UI_LEGEND_ICE_ENGLISH+'</li>'+
+						'<li class="legendImmobile">'+UI_LEGEND_IMMOBILE_ENGLISH+'</li>'+
+						'<li class="legendKnockdown">'+UI_LEGEND_KNOCKDOWN_ENGLISH+'</li>'+
+						'<li class="legendPoison">'+UI_LEGEND_POISON_ENGLISH+'</li>'+
+						'<li class="legendSlow">'+UI_LEGEND_SLOW_ENGLISH+'</li>'+
 					'</ul>'+
 				'</div>'+
 				'<div class="helpUnit">'+
-					'<h3><span class="uiImmunities">Immunities</span></h3>'+
+					'<h3><span class="uiImmunities">'+UI_IMMUNITIES_ENGLISH+'</span></h3>'+
 					'<ul>'+
-						'<li class="legendImmuneBane">Immune Bane: IMMUNEBANE</li>'+
-						'<li class="legendImmuneHex">Immune Hex: IMMUNEHEX</li>'+
-						'<li class="legendImmuneFire">Immune Fire: IMMUNEFIRE</li>'+
-						'<li class="legendImmuneKnockdown">Immune Knockdown: IMMUNEKNOCKDOWN</li>'+
-						'<li class="legendImmuneIce">Immune Ice: IMMUNEICE</li>'+
-						'<li class="legendImmuneImmobile">Immune Immobile: IMMUNEIMMOBILE</li>'+
-						'<li class="legendImmunePoison">Immune Poison: IMMUNEPOISON</li>'+
-						'<li class="legendImmuneSlow">Immune Slow: IMMUNESLOW</li>'+
-						'<li class="legendImmuneAll">Immune All: IMMUNEALL</li>'+
-						
+						'<li class="legendImmuneAll">'+UI_LEGEND_IMMUNE_ALL_ENGLISH+'</li>'+
+						'<li class="legendImmuneBane">'+UI_LEGEND_IMMUNE_BANE_ENGLISH+'</li>'+
+						'<li class="legendImmuneFire">'+UI_LEGEND_IMMUNE_FIRE_ENGLISH+'</li>'+
+						'<li class="legendImmuneHex">'+UI_LEGEND_IMMUNE_HEX_ENGLISH+'</li>'+
+						'<li class="legendImmuneIce">'+UI_LEGEND_IMMUNE_ICE_ENGLISH+'</li>'+
+						'<li class="legendImmuneImmobile">'+UI_LEGEND_IMMUNE_IMMOBILE_ENGLISH+'</li>'+
+						'<li class="legendImmuneKnockdown">'+UI_LEGEND_IMMUNE_KNOCKDOWN_ENGLISH+'</li>'+
+						'<li class="legendImmunePoison">'+UI_LEGEND_IMMUNE_POISON_ENGLISH+'</li>'+
+						'<li class="legendImmuneSlow">'+UI_LEGEND_IMMUNE_SLOW_ENGLISH+'</li>'+
 					'</ul>'+
 				'</div>'+
 				'<div class="helpUnit">'+
-					'<h3><span class="uiAffinities">Affinities</span></h3>'+
+					'<h3><span class="uiAffinities">'+UI_AFFINITIES_ENGLISH+'</span></h3>'+
 					'<ul>'+
-						'<li class="legendAllAffinity">All Affinity: ALLAFFINITY</li>'+
-						'<li class="legendAmethyst">Amethyst: AMETHYST</li>'+
-						'<li class="legendAmethystCitrine">Amethyst Citrine: AMETHYSTCITRINE</li>'+
-						'<li class="legendAmethystEmerald">Amethyst Emerald: AMETHYSTEMERALD</li>'+
-						'<li class="legendAmethystRuby">Amethyst Ruby: AMETHYSTRUBY</li>'+
-						'<li class="legendAmethystSapphire">Amethyst Sapphire: AMETHYSTSAPPHIRE</li>'+
+						'<li class="legendAllAffinity">'+UI_LEGEND_AFFINITY_ALL_ENGLISH+'</li>'+
+						'<li class="legendAmethyst">'+UI_LEGEND_AMETHYST_ENGLISH+'</li>'+
+						'<li class="legendAmethystCitrine">'+UI_LEGEND_AMETHYST_CITRINE_ENGLISH+'</li>'+
+						'<li class="legendAmethystEmerald">'+UI_LEGEND_AMETHYST_EMERALD_ENGLISH+'</li>'+
+						'<li class="legendAmethystRuby">'+UI_LEGEND_AMETHYST_RUBY_ENGLISH+'</li>'+
+						'<li class="legendAmethystSapphire">'+UI_LEGEND_AMETHYST_SAPPHIRE_ENGLISH+'</li>'+
 						
-						'<li class="legendCitrine">Citrine: CITRINE</li>'+
-						'<li class="legendCitrineAmethyst">Citrine Amethyst: CITRINEAMETHYST</li>'+
-						'<li class="legendCitrineEmerald">Citrine Emerald: CITRINEEMERALD</li>'+
-						'<li class="legendCitrineRuby">Citrine Ruby: CITRINERUBY</li>'+
-						'<li class="legendCitrineSapphire">Citrine Sapphire: CITRINESAPPHIRE</li>'+
+						'<li class="legendCitrine">'+UI_LEGEND_CITRINE_ENGLISH+'</li>'+
+						'<li class="legendCitrineAmethyst">'+UI_LEGEND_CITRINE_AMETHYST_ENGLISH+'</li>'+
+						'<li class="legendCitrineEmerald">'+UI_LEGEND_CITRINE_EMERALD_ENGLISH+'</li>'+
+						'<li class="legendCitrineRuby">'+UI_LEGEND_CITRINE_RUBY_ENGLISH+'</li>'+
+						'<li class="legendCitrineSapphire">'+UI_LEGEND_CITRINE_SAPPHIRE_ENGLISH+'</li>'+
 						
-						'<li class="legendEmerald">Emerald: EMERALD</li>'+
-						'<li class="legendEmeraldAmethyst">Emerald Amethyst: EMERALDAMETHYST</li>'+
-						'<li class="legendEmeraldCitrine">Emerald Citrine: EMERALDCITRINE</li>'+
-						'<li class="legendEmeraldRuby">Emerald Ruby: EMERALDRUBY</li>'+
-						'<li class="legendEmeraldSapphire">Emerald Sapphire: EMERALDSAPPHIRE</li>'+
+						'<li class="legendEmerald">'+UI_LEGEND_EMERALD_ENGLISH+'</li>'+
+						'<li class="legendEmeraldAmethyst">'+UI_LEGEND_EMERALD_AMETHYST_ENGLISH+'</li>'+
+						'<li class="legendEmeraldCitrine">'+UI_LEGEND_EMERALD_CITRINE_ENGLISH+'</li>'+
+						'<li class="legendEmeraldRuby">'+UI_LEGEND_EMERALD_RUBY_ENGLISH+'</li>'+
+						'<li class="legendEmeraldSapphire">'+UI_LEGEND_EMERALD_SAPPHIRE_ENGLISH+'</li>'+
 						
-						'<li class="legendRuby">Ruby: RUBY</li>'+
-						'<li class="legendRubyAmethyst">Ruby Amethyst: RUBYAMETHYST</li>'+
-						'<li class="legendRubyCitrine">Ruby Citrine: RUBYCITRINE</li>'+
-						'<li class="legendRubyEmerald">Ruby Emerald: RUBYEMERALD</li>'+
-						'<li class="legendRubySapphire">Ruby Sapphire: RUBYSAPPHIRE</li>'+
+						'<li class="legendRuby">'+UI_LEGEND_RUBY_ENGLISH+'</li>'+
+						'<li class="legendRubyAmethyst">'+UI_LEGEND_RUBY_AMETHYST_ENGLISH+'</li>'+
+						'<li class="legendRubyCitrine">'+UI_LEGEND_RUBY_CITRINE_ENGLISH+'</li>'+
+						'<li class="legendRubyEmerald">'+UI_LEGEND_RUBY_EMERALD_ENGLISH+'</li>'+
+						'<li class="legendRubySapphire">'+UI_LEGEND_RUBY_SAPPHIRE_ENGLISH+'</li>'+
 						
-						'<li class="legendSapphire">Sapphire: SAPPHIRE</li>'+
-						'<li class="legendSapphireAmethyst">Sapphire Amethyst: SAPPHIREAMETHYST</li>'+
-						'<li class="legendSapphireCitrine">Sapphire Citrine: SAPPHIRECITRINE</li>'+
-						'<li class="legendSapphireEmerald">Sapphire Emerald: SAPPHIREEMERALD</li>'+
-						'<li class="legendSapphireRuby">Sapphire Ruby: SAPPHIRERUBY</li>'+
+						'<li class="legendSapphire">'+UI_LEGEND_SAPPHIRE_ENGLISH+'</li>'+
+						'<li class="legendSapphireAmethyst">'+UI_LEGEND_SAPPHIRE_AMETHYST_ENGLISH+'</li>'+
+						'<li class="legendSapphireCitrine">'+UI_LEGEND_SAPPHIRE_CITRINE_ENGLISH+'</li>'+
+						'<li class="legendSapphireEmerald">'+UI_LEGEND_SAPPHIRE_EMERALD_ENGLISH+'</li>'+
+						'<li class="legendSapphireRuby">'+UI_LEGEND_SAPPHIRE_RUBY_ENGLISH+'</li>'+
 					'</ul>'+
 				'</div>'+
 			'</div>'+
