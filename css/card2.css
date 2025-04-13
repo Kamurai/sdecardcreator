@@ -325,19 +325,19 @@
 .keywordsList span.keyword.POISON{
 	background:url('image/status/30_Poison.png') no-repeat 0px;
 	color:rgba(0, 0, 0, 0.0);
-	background-size: 30px;
+	background-size: 20px;
 	height:30px;
 	position: relative;
-	top: 0px;
+	top: -5px;
 }
 
 .keywordsList span.keyword.IMMUNEPOISON{
 	background:url('image/status/30_Poison_Immune.png') no-repeat 0px;
 	color:rgba(0, 0, 0, 0.0);
-	background-size: 30px;
+	background-size: 20px;
 	height:30px;
 	position: relative;
-	top: 0px;
+	top: -5px;
 }
 
 .keywordsList span.keyword.ICE{
