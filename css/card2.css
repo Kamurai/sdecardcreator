@@ -225,7 +225,167 @@
 	vertical-align:middle;
 }
 
-.card span.keyword.line{
+.keywordsList span.keyword.ALL{
+	background:url('image/status/30_All.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	padding-top:4px;
+	vertical-align:middle;
+}
+
+.keywordsList span.keyword.IMMUNEALL{
+	background:url('image/status/30_All_Immune.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 20px;
+	vertical-align:middle;
+	height:20px;
+	width:20px;
+}
+
+.keywordsList span.keyword.BANE{
+	background:url('image/status/30_Bane.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	padding-top: 3px;
+	vertical-align:middle;
+}
+
+.keywordsList span.keyword.IMMUNEBANE{
+	background:url('image/status/30_Bane_Immune.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	padding-top: 3px;
+	vertical-align:middle;
+}
+
+.keywordsList span.keyword.FIRE{
+	background:url('image/status/30_Fire.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	padding-top:4px;
+	vertical-align:middle;
+}
+
+.keywordsList span.keyword.IMMUNEFIRE{
+	background:url('image/status/30_Fire_Immune.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	padding-top:4px;
+	vertical-align:middle;
+}
+
+.keywordsList span.keyword.HEX{
+	background:url('image/status/30_Hex.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	padding-top: 3px;
+	vertical-align:middle;
+}
+
+.keywordsList span.keyword.IMMUNEHEX{
+	background:url('image/status/30_Hex_Immune.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	padding-top: 3px;
+	vertical-align:middle;
+}
+
+.keywordsList span.keyword.KNOCKDOWN{
+	background:url('image/status/30_Knockdown.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+}
+
+.keywordsList span.keyword.IMMUNEKNOCKDOWN{
+	background:url('image/status/30_Knockdown_Immune.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+}
+
+.keywordsList span.keyword.POISON{
+	background:url('image/status/30_Poison.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	height:35px;
+	bottom:5px;
+}
+
+.keywordsList span.keyword.IMMUNEPOISON{
+	background:url('image/status/30_Poison_Immune.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	height:35px;
+	bottom:5px;
+}
+
+.keywordsList span.keyword.ICE{
+	background:url('image/status/30_Ice.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+}
+
+.keywordsList span.keyword.IMMUNEICE{
+	background:url('image/status/30_Ice_Immune.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+}
+
+.keywordsList span.keyword.IMMOBILE{
+	background:url('image/status/30_Immobile.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	width:40px;
+	height:40px;
+	vertical-align: middle;
+}
+
+.keywordsList span.keyword.IMMUNEIMMOBILE{
+	background:url('image/status/30_Immobile_Immune.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	width:40px;
+	height:40px;
+	vertical-align: middle;
+}
+
+.keywordsList span.keyword.SLOW{
+	background:url('image/status/30_Slow.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+}
+
+
+.keywordsList span.keyword.IMMUNESLOW{
+	background:url('image/status/30_Slow_Immune.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+}
+
+
+.keywordsList span.keyword.DANGEROUS{
+	background:url('image/status/30_Dangerous.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	vertical-align:middle;
+}
+
+
+.keywordsList span.keyword.IMMUNEDANGEROUS{
+	background:url('image/status/30_Dangerous_Immune.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	vertical-align:middle;
+}
+
+
+.keywordsList span.keyword.AUGMENT{
+	background:url('image/status/30_Augment.png') no-repeat 0px;
+	color:rgba(0, 0, 0, 0.0);
+	background-size: 30px;
+	vertical-align:middle;
+}
+
+.keywordsList span.keyword.line{
 	background:url('image/trap/line.png') no-repeat 0px;
 	color:rgba(0, 0, 0, 0.0);
 	background-size: 20px 60px;
@@ -234,7 +394,7 @@
 	width:20px;
 }
 
-.card span.keyword.area{
+.keywordsList span.keyword.area{
 	background:url('image/trap/area.png') no-repeat 0px;
 	color:rgba(0, 0, 0, 0.0);
 	background-size: 40px;
@@ -242,7 +402,7 @@
 	height:40px
 }
 
-.card span.keyword.scatter{
+.keywordsList span.keyword.scatter{
 	background:url('image/trap/scatter.png') no-repeat 0px;
 	color:rgba(0, 0, 0, 0.0);
 	background-size: 40px;
