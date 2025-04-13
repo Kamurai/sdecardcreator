@@ -1456,9 +1456,57 @@
       }
     ]
   },
-  "Immune": {
-    "description": "A model with immune ignores and imediately removes all counter or affects of the abilty listed as X.",
-    "version": 1.0,
+  "Immune: All": {
+    "description": "A model with \"Immune: All\" ignores and imediately removes all counter or affects of any status.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Immune: Bane": {
+    "description": "A model with \"Immune: Bane\" ignores and imediately removes all counter or affects of Bane.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Immune: Fire": {
+    "description": "A model with \"Immune: Fire\" ignores and imediately removes all counter or affects of Fire.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Immune: Hex": {
+    "description": "A model with \"Immune: Hex\" ignores and imediately removes all counter or affects of Hex.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Immune: Ice": {
+    "description": "A model with \"Immune: Ice\" ignores and imediately removes all counter or affects of Ice.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Immune: Immobile": {
+    "description": "A model with \"Immune: Immobile\" ignores and imediately removes all counter or affects of Immobile.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Immune: Knockdown": {
+    "description": "A model with \"Immune: Knockdown\" ignores and imediately removes all counter or affects of Knockdown.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Immune: Poison": {
+    "description": "A model with \"Immune: Poison\" ignores and imediately removes all counter or affects of Poison.",
+    "version": 2.0,
+    "hasErrata": "false",
+    "errata": []
+  },
+  "Immune: Slow": {
+    "description": "A model with \"Immune: Slow\" ignores and imediately removes all counter or affects of Slow.",
+    "version": 2.0,
     "hasErrata": "false",
     "errata": []
   },
@@ -3271,7 +3319,7 @@
     "hasErrata": "false",
     "errata": []
   },
-  " ": {
+  "You've Been Naughty": {
     "description": "After an enemy model rolls a critical success against a model with You've Been Naughty, the enemy model Shapeshifts into a Naughtie (regardless of the number of wounds dealt by the critical).  The Consul selects one Naughtie shapeshift card that is not already being used by a Hero.  If all Naughtie shapeshift cards are in play, this ability has no effect.  Heroes on Kringle's Nice List may not be shapeshifted in this way.",
     "version": 2.0,
     "hasErrata": "false",
