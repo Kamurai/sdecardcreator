@@ -130,19 +130,20 @@
 
   <script>
   $(document).ready(function(){
+    var attempts = 0;
+    var maxAttempts = 100;
+
     var checkInit = setInterval(function(){
+      attempts++;
       if ($('.page').data('keywordStore')) {
         clearInterval(checkInit);
         QUnit.start();
-      }
-    }, 50);
-
-    setTimeout(function(){
-      if (!QUnit.config.started) {
-        console.warn('App init timed out — starting QUnit anyway');
+      } else if (attempts >= maxAttempts) {
+        clearInterval(checkInit);
+        console.error('App init failed: keywordStore not set after ' + (maxAttempts * 50) + 'ms');
         QUnit.start();
       }
-    }, 5000);
+    }, 50);
   });
   </script>
 </head>

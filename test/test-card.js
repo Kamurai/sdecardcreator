@@ -70,9 +70,7 @@ QUnit.module('Card — Data Model', function() {
     assert.equal(card.abilities.length, 1, 'ability loaded');
     assert.equal(card.abilities[0].data.name, 'Flame Breath', 'ability name loaded');
 
-    card.node.remove();
-    var firstCard = $('.cardGroup').first().data('node');
-    cardContainer.selectCard(firstCard);
+    cardContainer.deleteSelectedCard();
   });
 });
 
@@ -119,8 +117,7 @@ QUnit.module('Card — Multi-Card', function() {
     assert.equal(formTitle, card1.data.title, 'form synced to selected card');
 
     cardContainer.selectCard(card2);
-    card2.node.remove();
-    cardContainer.selectCard(card1);
+    cardContainer.deleteSelectedCard();
   });
 });
 
@@ -144,7 +141,6 @@ QUnit.module('Card — Save/Load Round-Trip', function() {
     assert.equal(roundTrippedData.ARM, originalData.ARM, 'ARM survives round-trip');
     assert.equal(roundTrippedData.abilities.length, originalData.abilities.length, 'ability count survives round-trip');
 
-    newCard.node.remove();
-    cardContainer.selectCard(card);
+    cardContainer.deleteSelectedCard();
   });
 });

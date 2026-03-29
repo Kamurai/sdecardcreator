@@ -131,15 +131,12 @@ QUnit.module('Ability — Lifecycle', function() {
     restoredAbility.formNode.find('input[name="name"]').val('Edited After Reselect').trigger('input');
     assert.equal(restoredAbility.data.name, 'Edited After Reselect', 'ability is still editable after reselect');
 
-    card2.node.remove();
-    cardContainer.selectCard(card1);
+    cardContainer.selectCard(card2);
+    cardContainer.deleteSelectedCard();
   });
-});
 
 
-QUnit.module('Ability — removeAbility bug', function() {
-
-  QUnit.test('removeAbility should remove the correct ability, not always the first', function(assert) {
+  QUnit.test('removeAbility removes the targeted ability, not the first', function(assert) {
     var card = $('.cardGroup.selected').data('node');
     var editForm = $('.editForm').data('node');
 
@@ -168,11 +165,11 @@ QUnit.module('Ability — removeAbility bug', function() {
 
     assert.ok(
       remainingNames.indexOf('Second') === -1,
-      'KNOWN BUG: removed ability "Second" should not be in remaining abilities — ' +
-      'got [' + remainingNames.join(', ') + ']'
+      'removed ability "Second" is not in remaining abilities — got [' + remainingNames.join(', ') + ']'
     );
 
     ability1.closeAbility();
     ability3.closeAbility();
   });
 });
+
