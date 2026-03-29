@@ -21,6 +21,17 @@ python -m http.server
 
 
 
+## Running Tests
+Tests use [QUnit](https://qunitjs.com/) and run in the browser.
+
+1. Start a local web server (see above)
+2. Open **http://localhost:8000/test/runner.html**
+
+Test files are in the `test/` directory:
+* `test-card.js` — Card data model, multi-card management, save/load round-trip
+* `test-ability.js` — Ability add/edit/remove lifecycle and form event binding
+
+
 ## Libraries
 This Application uses:
 * [jQuery](https://jquery.com/)

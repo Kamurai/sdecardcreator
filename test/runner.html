@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <base href="../" />
+  <title>SDE Card Creator — QUnit Tests</title>
+
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.0.css" />
+  <script src="https://code.jquery.com/qunit/qunit-2.20.0.js"></script>
+  <script>
+  QUnit.config.autostart = false;
+  QUnit.config.reorder = false;
+  </script>
+
+  <link href="//cdn.jsdelivr.net/animatecss/3.5.1/animate.min.css" type="text/css" rel="stylesheet" />
+  <link href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+  <link href="script/mjs/css/hamburgerMenu.css" rel="stylesheet" />
+  <link href="script/mjs/css/dialog.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/form.css" rel="stylesheet" />
+  <link href="css/card2.css" rel="stylesheet" />
+  <link href="css/cardModel.css" rel="stylesheet" />
+  <link href="css/cardItem.css" rel="stylesheet" />
+  <link href="css/cardExplore.css" rel="stylesheet" />
+  <link href="css/cardCommand.css" rel="stylesheet" />
+  <link href="css/cardTimeout.css" rel="stylesheet" />
+  <link href="css/cardArcade.css" rel="stylesheet" />
+  <link href="css/keywordSettings.css" rel="stylesheet" />
+  <link href="css/loadSubMenu.css" rel="stylesheet" />
+  <link href="css/editorPane.css" rel="stylesheet" />
+  <link href="css/cardContainer.css" rel="stylesheet" />
+
+  <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.5.2/dom-to-image.min.js"></script>
+
+  <script src="script/translation/baseCommon.js"></script>
+  <script src="script/translation/baseEnglish.js"></script>
+  <script src="script/translation/baseDeutch.js"></script>
+  <script src="script/translation/baseEspanol.js"></script>
+  <script src="script/translation/baseFrancais.js"></script>
+  <script src="script/translation/translator.js"></script>
+  <script src="script/translation/setUI.js"></script>
+
+  <script src="script/mjs/script/InfoDialog.js"></script>
+  <script src="script/mjs/script/hamburgerMenu.js"></script>
+  <script src="script/mjs/script/Core.js"></script>
+  <script src="script/mjs/script/mixin/HasOpenMenuButtons.js"></script>
+
+  <script src="script/menuBar/mixin/HasLoadMenu.js"></script>
+  <script src="script/menuBar/mixin/HasSaveMenu.js"></script>
+  <script src="script/menuBar/mixin/HasAddCardButton.js"></script>
+  <script src="script/menuBar/MainMenu.js"></script>
+
+  <script src="script/keyword/KeywordStore.js"></script>
+  <script src="script/keyword/KeywordSettings.js"></script>
+
+  <script src="script/ability/mixin/HasAbilityCardNode.js"></script>
+  <script src="script/ability/mixin/HasAbilityFormNode.js"></script>
+  <script src="script/ability/Ability.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasToggleDisplay.js"></script>
+  <script src="script/editorPane/controls/mixin/HasHelpButton.js"></script>
+  <script src="script/editorPane/controls/mixin/HasSetTypeDisplay.js"></script>
+  <script src="script/editorPane/controls/BaseControl.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasCardTypeControl.js"></script>
+  <script src="script/editorPane/controls/mixin/HasScaleControl.js"></script>
+  <script src="script/editorPane/controls/mixin/HasRegionControl.js"></script>
+  <script src="script/editorPane/controls/mixin/HasOrientationControl.js"></script>
+  <script src="script/editorPane/controls/CardControl.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasTitleControl.js"></script>
+  <script src="script/editorPane/controls/mixin/HasSubTitleControl.js"></script>
+  <script src="script/editorPane/controls/mixin/HasMoveControl.js"></script>
+  <script src="script/editorPane/controls/mixin/HasActionsControl.js"></script>
+  <script src="script/editorPane/controls/HeaderControl.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasImageSourceControl.js"></script>
+  <script src="script/editorPane/controls/mixin/HasBackgroundControl.js"></script>
+  <script src="script/editorPane/controls/ImageControl.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasItemStatsControl.js"></script>
+  <script src="script/editorPane/controls/ItemStatsControl.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasStatsControl.js"></script>
+  <script src="script/editorPane/controls/StatsControl.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasAffinityControl.js"></script>
+  <script src="script/editorPane/controls/mixin/HasKeywordListControl.js"></script>
+  <script src="script/editorPane/controls/KeywordControl.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasAddAbilityControl.js"></script>
+  <script src="script/editorPane/controls/AbilityControl.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasMonsterBitControl.js"></script>
+  <script src="script/editorPane/controls/BitControl.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasFlavorTextControl.js"></script>
+  <script src="script/editorPane/controls/FlavorTextControl.js"></script>
+  <script src="script/editorPane/EditForm.js"></script>
+  <script src="script/editorPane/EditorPane.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasCardModifierControl.js"></script>
+  <script src="script/editorPane/controls/CardModifierControl.js"></script>
+
+  <script src="script/editorPane/controls/mixin/HasLegendControl.js"></script>
+  <script src="script/editorPane/controls/LegendControl.js"></script>
+
+  <script src="script/cardContainer/card/mixin/HasCardSelect.js"></script>
+  <script src="script/cardContainer/card/mixin/HasCardTypeControls.js"></script>
+  <script src="script/cardContainer/card/mixin/HasCardHeader.js"></script>
+  <script src="script/cardContainer/card/mixin/HasCardImage.js"></script>
+  <script src="script/cardContainer/card/mixin/HasItemStats.js"></script>
+  <script src="script/cardContainer/card/mixin/HasStats.js"></script>
+  <script src="script/cardContainer/card/mixin/HasFlavorText.js"></script>
+  <script src="script/cardContainer/card/mixin/HasBit.js"></script>
+  <script src="script/cardContainer/card/mixin/HasAffinity.js"></script>
+  <script src="script/cardContainer/card/mixin/HasAbilities.js"></script>
+  <script src="script/cardContainer/card/mixin/HasKeywords.js"></script>
+  <script src="script/cardContainer/card/Stat.js"></script>
+  <script src="script/cardContainer/card/Card.js"></script>
+  <script src="script/cardContainer/CardContainer.js"></script>
+
+  <script src="script/main.js"></script>
+
+  <script src="test/test-card.js"></script>
+  <script src="test/test-ability.js"></script>
+
+  <script>
+  $(document).ready(function(){
+    var checkInit = setInterval(function(){
+      if ($('.page').data('keywordStore')) {
+        clearInterval(checkInit);
+        QUnit.start();
+      }
+    }, 50);
+
+    setTimeout(function(){
+      if (!QUnit.config.started) {
+        console.warn('App init timed out — starting QUnit anyway');
+        QUnit.start();
+      }
+    }, 5000);
+  });
+  </script>
+</head>
+
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+
+  <div class="page" style="display:none;">
+    <div class="pageHeader header menuBar sdccBar">
+      <h1>SDE Card Creator</h1>
+      <a href="" class="openMenuButton" data-menu="save">Save</a>
+      <a href="" class="openMenuButton" data-menu="load">Load</a>
+      <a href="" class="shareButton">Share</a>
+      <a href="" class="addCard">Add Card</a>
+      <a href="" class="openMenuButton" data-menu="help">Help</a>
+      <select id="languageSelection" name="languageSelection" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="de">Deutch</option>
+        <option value="es">Espanol</option>
+        <option value="fr">Francais</option>
+      </select>
+    </div>
+
+    <div class="hamburger menu">
+      <div class="save subMenu">
+        <a href="" class="closeMenuButton">&gt;&gt;</a>
+        <a href="" class="saveAsImage">Image</a>
+        <a href="" class="saveAsJson">JSON</a>
+      </div>
+      <div class="load subMenu">
+        <a href="" class="closeMenuButton">&gt;&gt;</a>
+        Load Append Card <input type="checkbox" name="loadAppend" />
+        <input type="file" class="importFile" />
+      </div>
+      <div class="help subMenu">
+        <a href="" class="closeMenuButton">&gt;&gt;</a>
+      </div>
+    </div>
+
+    <div class="pageContent">
+      <div class="editorPane"></div>
+      <div class="cardContainer"></div>
+    </div>
+  </div>
+</body>
+</html>
