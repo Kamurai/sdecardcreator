@@ -99,8 +99,9 @@ QUnit.module('Keyword — Custom Keywords', function() {
 
 QUnit.module('Keyword — Save/Load Custom Keywords', function() {
 
-  QUnit.test('custom keywords are included in gatherData output', function(assert) {
+  QUnit.test('custom keywords are included in document-level save', function(assert) {
     var keywordStore = $('.page').data('keywordStore');
+    var mainMenu = $.data($('.menuBar')[0], 'coreNode');
 
     keywordStore.setCustomKey({
       name: 'Flame Shield',
@@ -110,13 +111,11 @@ QUnit.module('Keyword — Save/Load Custom Keywords', function() {
       displayBack: true
     });
 
-    var card = $('.cardGroup.selected').data('node');
-    var data = card.gatherData();
+    var saved = mainMenu.gatherData();
 
-    assert.ok(
-      data.customKeywords !== undefined,
-      'BUG: gatherData() should include customKeywords — currently missing'
-    );
+    assert.ok(saved.customKeywords !== undefined, 'document JSON includes customKeywords');
+    assert.ok(saved.customKeywords['Flame Shield'], 'Flame Shield is in customKeywords');
+    assert.ok(saved.cards, 'cards array still present');
 
     delete keywordStore.data['Flame Shield'];
     delete keywordStore.customKeywords['Flame Shield'];
@@ -126,6 +125,7 @@ QUnit.module('Keyword — Save/Load Custom Keywords', function() {
 
   QUnit.test('custom keywords survive a save/load round-trip', function(assert) {
     var keywordStore = $('.page').data('keywordStore');
+    var mainMenu = $.data($('.menuBar')[0], 'coreNode');
 
     keywordStore.setCustomKey({
       name: 'Flame Shield',
@@ -135,40 +135,36 @@ QUnit.module('Keyword — Save/Load Custom Keywords', function() {
       displayBack: true
     });
 
-    var card = $('.cardGroup.selected').data('node');
-    var savedData = card.gatherData();
+    // Simulate save: serialize to JSON string then parse back (as real file save/load does)
+    var saved = JSON.parse(JSON.stringify(mainMenu.gatherData()));
 
     // Simulate clearing custom keywords (as happens on fresh page load)
     delete keywordStore.data['Flame Shield'];
     delete keywordStore.customKeywords['Flame Shield'];
     keywordStore._setup(keywordStore.data);
 
-    // Load the saved data into a new card
-    var cardContainer = $('.cardContainer').data('node');
-    cardContainer.addCard(false);
-    var newCard = $('.cardGroup.selected').data('node');
-    newCard.loadData(savedData);
+    assert.ok(keywordStore.data['Flame Shield'] === undefined, 'keyword cleared from store');
+
+    // Simulate load via the v2 path
+    mainMenu.loadData(saved);
 
     assert.ok(
       keywordStore.data['Flame Shield'] !== undefined,
-      'BUG: custom keyword should be restored to store after load — currently lost'
+      'custom keyword restored to store after load'
     );
 
-    // Verify it still works in ability text matching
-    if (keywordStore.data['Flame Shield']) {
-      var result = keywordStore.findKeywords('Flame Shield');
-      assert.ok(result.indexOf('<span') !== -1, 'restored keyword is matchable');
-    }
+    var result = keywordStore.findKeywords('Flame Shield');
+    assert.ok(result.indexOf('<span') !== -1, 'restored keyword is matchable');
 
     delete keywordStore.data['Flame Shield'];
     delete keywordStore.customKeywords['Flame Shield'];
     keywordStore._setup(keywordStore.data);
-    cardContainer.deleteSelectedCard();
   });
 
 
   QUnit.test('custom keyword with spaces and apostrophe survives round-trip', function(assert) {
     var keywordStore = $('.page').data('keywordStore');
+    var mainMenu = $.data($('.menuBar')[0], 'coreNode');
 
     keywordStore.setCustomKey({
       name: "Dragon's Rage",
@@ -178,26 +174,21 @@ QUnit.module('Keyword — Save/Load Custom Keywords', function() {
       displayBack: true
     });
 
-    var card = $('.cardGroup.selected').data('node');
-    var savedData = card.gatherData();
+    var saved = JSON.parse(JSON.stringify(mainMenu.gatherData()));
 
     delete keywordStore.data["Dragon's Rage"];
     delete keywordStore.customKeywords["Dragon's Rage"];
     keywordStore._setup(keywordStore.data);
 
-    var cardContainer = $('.cardContainer').data('node');
-    cardContainer.addCard(false);
-    var newCard = $('.cardGroup.selected').data('node');
-    newCard.loadData(savedData);
+    mainMenu.loadData(saved);
 
     assert.ok(
       keywordStore.data["Dragon's Rage"] !== undefined,
-      'BUG: custom keyword with apostrophe should survive round-trip — currently lost'
+      'custom keyword with apostrophe survives round-trip'
     );
 
     delete keywordStore.data["Dragon's Rage"];
     delete keywordStore.customKeywords["Dragon's Rage"];
     keywordStore._setup(keywordStore.data);
-    cardContainer.deleteSelectedCard();
   });
 });

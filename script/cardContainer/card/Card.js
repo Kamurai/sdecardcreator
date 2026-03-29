@@ -192,12 +192,6 @@ function Card(animate,appendAfter){
         data.abilities.push(ability.gatherData());
       }
     }
-
-    var keywordStore = $('.page').data('keywordStore');
-    if(keywordStore && keywordStore.customKeywords && Object.keys(keywordStore.customKeywords).length > 0){
-      data.customKeywords = JSON.parse(JSON.stringify(keywordStore.customKeywords));
-    }
-
     return data;
   };
 
@@ -217,13 +211,6 @@ function Card(animate,appendAfter){
     this.loadAbilities(data);
     this.loadCardFlavorText(data);
     this.loadCardBit(data);
-
-    if(data.customKeywords){
-      var keywordStore = $('.page').data('keywordStore');
-      if(keywordStore){
-        keywordStore.setCustomKeywords(data.customKeywords);
-      }
-    }
   };
 
   this.initFirstCard=function(){
