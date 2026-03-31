@@ -21,6 +21,35 @@ python -m http.server
 
 
 
+## Running Tests
+Tests use [QUnit](https://qunitjs.com/) and run in the browser.
+
+**In the browser:**
+
+1. Start a local web server (see above)
+2. Open **http://localhost:8000/test/runner.html**
+
+**Headless (requires Node.js and Playwright):**
+
+```
+npx playwright install chromium
+bin/run-tests
+```
+
+This starts a temporary HTTP server, runs the tests in headless Chromium, and exits with 0 on success or 1 on failure.
+
+Test files are in the `test/` directory:
+* `test-card.js` — Card data model, multi-card management, save/load round-trip
+* `test-card-types.js` — All 11 card types, author, region, orientation
+* `test-header.js` — Title, subtitle, move, actions
+* `test-stats.js` — STR/ARM/WILL/DEX dice rendering, wounds, potions, skulls
+* `test-ability.js` — Ability add/edit/remove lifecycle and form event binding
+* `test-keyword.js` — Keyword store, custom keywords, save/load round-trip
+* `test-editor-sync.js` — Form-to-card and card-to-form sync
+* `test-save-load.js` — v1/v2 JSON formats, multi-card, abilities, card operations
+* `test-translation.js` — Dice/stat/affinity parsing, utility functions
+
+
 ## Libraries
 This Application uses:
 * [jQuery](https://jquery.com/)

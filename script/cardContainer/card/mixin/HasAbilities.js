@@ -39,10 +39,10 @@ function HasAbilities(){
    * @param {Ability} ability - Ability instance.
    */
   this.removeAbility=function(ability){
-	  //console.warn('implement removeAbility');
-	  var cardNode = $('.cardGroup.selected').data('node');
-    
-	  delete cardNode.abilities[0];
+	  var idx = this.abilities.indexOf(ability);
+	  if (idx !== -1) {
+		  this.abilities.splice(idx, 1);
+	  }
   };
 
 
