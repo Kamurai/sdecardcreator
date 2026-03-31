@@ -48,6 +48,12 @@ function HasSaveMenu(){
     var data = {};
     data.versionSpec = "2.0";
     data.cards = $('.cardContainer').data('node').gatherData();
+
+    var keywordStore = $('.page').data('keywordStore');
+    if(keywordStore && keywordStore.customKeywords && Object.keys(keywordStore.customKeywords).length > 0){
+      data.customKeywords = JSON.parse(JSON.stringify(keywordStore.customKeywords));
+    }
+
     return data;
   };
 

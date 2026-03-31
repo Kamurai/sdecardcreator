@@ -66,6 +66,13 @@ function HasLoadMenu(){
    *
    */
   this.loadDataVersion1=function(data){
+    if(data.customKeywords){
+      var keywordStore = $('.page').data('keywordStore');
+      if(keywordStore){
+        keywordStore.setCustomKeywords(data.customKeywords);
+      }
+    }
+
     var cardContainer = $('.cardContainer').data('node');
     cardContainer.loadCard(data);
   };
@@ -75,6 +82,13 @@ function HasLoadMenu(){
    *
    */
   this.loadDataVersion2=function(data){
+    if(data.customKeywords){
+      var keywordStore = $('.page').data('keywordStore');
+      if(keywordStore){
+        keywordStore.setCustomKeywords(data.customKeywords);
+      }
+    }
+
     var cardContainer = $('.cardContainer').data('node');
     cardContainer.loadData(data);
   };
