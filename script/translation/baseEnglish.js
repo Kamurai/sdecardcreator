@@ -467,16 +467,26 @@ function replaceEnglishStats(re, text) {
       var c="";
       //var v = p3.toLowerCase();
 
-      if(p3===DIE_RED_ENGLISH){
-        c+="dice red";
-      }else if(p3===DIE_BLUE_ENGLISH){
+      if(p3===DIE_BLUE_ENGLISH){
         c+="dice blue";
+      }else if(p3===DIE_RED_ENGLISH){
+        c+="dice red";
       }else if(p3===DIE_GREEN_ENGLISH){
         c+="dice green";
-      }else if(p3===DIE_ORANGE_ENGLISH){
-        c+="dice orange";
+      }else if(p3===DIE_YELLOW_ENGLISH){
+        c+="dice yellow";
       }else if(p3===DIE_PURPLE_ENGLISH){
         c+="dice purple";
+      }else if(p3===DIE_ORANGE_ENGLISH){
+        c+="dice orange";
+      }else if(p3===DIE_BLACK_ENGLISH){
+        c+="dice black";
+      }else if(p3===DIE_BROWN_ENGLISH){
+        c+="dice brown";
+      }else if(p3===DIE_PINK_ENGLISH){
+        c+="dice pink";
+      }else if(p3===DIE_WHITE_ENGLISH){
+        c+="dice white";
       }else if(p3===DIE_STAR_ENGLISH){
         c+="dice star";
       }else if(p3===SYMBOL_MAGIC_ENGLISH){
