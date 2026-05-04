@@ -1,4 +1,4 @@
-const LANGUAGE_ESPANOL		= "es";
+const LANGUAGE_ESPANOL			= "es";
 const LANGUAGE_FILE_ESPANOL 	= "sde_keywords_espanol.json";
 
 const IMMUNE_ESPANOL				= "INMUNEA";
@@ -6,37 +6,42 @@ const UI_SYMBOL_IMMUNE_ESPANOL		= "INMUNE A";
 
 const STAT_STR_ESPANOL 	= 'FUE';
 const STAT_ARM_ESPANOL 	= 'ARM';
-const STAT_WILL_ESPANOL 	= 'VOL';
+const STAT_WILL_ESPANOL = 'VOL';
 const STAT_DEX_ESPANOL 	= 'DES';
 const STAT_RNG_ESPANOL 	= "AL";
 
-const DIE_STAR_ESPANOL	= "ES";
-const DIE_BLUE_ESPANOL	= "A";
+const DIE_STAR_ESPANOL		= "ES";
+const DIE_BLUE_ESPANOL		= "A";
 const DIE_RED_ESPANOL		= "R";
-const DIE_GREEN_ESPANOL	= "V";
-const DIE_ORANGE_ESPANOL	= "N";
+const DIE_GREEN_ESPANOL		= "V";
+const DIE_YELLOW_ESPANOL	= "I";
 const DIE_PURPLE_ESPANOL	= "M";
+const DIE_ORANGE_ESPANOL	= "N";
+const DIE_BLACK_ESPANOL		= "G";
+const DIE_BROWN_ESPANOL		= "O";
+const DIE_PINK_ESPANOL		= "S";
+const DIE_WHITE_ESPANOL		= "L";
 
-const SYMBOL_SWORD_ESPANOL	= "CC";
-const SYMBOL_ARMOR_ESPANOL	= "AC";
-const SYMBOL_MAGIC_ESPANOL	= "MA";
+const SYMBOL_SWORD_ESPANOL		= "CC";
+const SYMBOL_ARMOR_ESPANOL		= "AC";
+const SYMBOL_MAGIC_ESPANOL		= "MA";
 const SYMBOL_MISSILE_ESPANOL	= "DI";
-const SYMBOL_RANGE_ESPANOL	= "AL";
+const SYMBOL_RANGE_ESPANOL		= "AL";
 const SYMBOL_MOVEMENT_ESPANOL	= "MO";
-const SYMBOL_ACTION_ESPANOL	= "AC";
-const SYMBOL_HEART_ESPANOL	= "HE";
-const SYMBOL_SHIELD_ESPANOL	= "EC";
-const SYMBOL_POTION_ESPANOL	= "PO";
+const SYMBOL_ACTION_ESPANOL		= "AC";
+const SYMBOL_HEART_ESPANOL		= "HE";
+const SYMBOL_SHIELD_ESPANOL		= "EC";
+const SYMBOL_POTION_ESPANOL		= "PO";
 
 const SYMBOL_AUGMENT_ESPANOL		= "AUMENTO";
-const SYMBOL_DANGEROUS_ESPANOL	= "PELIGROSO";
+const SYMBOL_DANGEROUS_ESPANOL		= "PELIGROSO";
 const SYMBOL_BANE_ESPANOL			= "ESTRAGO";
 const SYMBOL_HEX_ESPANOL			= "MALEFICIO";
 const SYMBOL_FIRE_ESPANOL			= "FUEGO";
-const SYMBOL_KNOCKDOWN_ESPANOL	= "DERRIBO";
+const SYMBOL_KNOCKDOWN_ESPANOL		= "DERRIBO";
 const SYMBOL_ICE_ESPANOL			= "HIELO";
 const SYMBOL_IMMOBILE_ESPANOL		= "INMOVIL";
-const SYMBOL_POISON_ESPANOL		= "VENENO";
+const SYMBOL_POISON_ESPANOL			= "VENENO";
 const SYMBOL_SLOW_ESPANOL			= "RALENTIZAR";
 const SYMBOL_ALL_ESPANOL			= "TODO";
 
@@ -98,7 +103,7 @@ const REG_EX_SYMBOL_ESPANOL 	= /\b(AUMENTO|ESTRAGO|MALEFICIO|FUEGO|DERRIBO|HIELO
 const REG_EX_IMMUNITY_ESPANOL = /\b(INMUNEAESTRAGO|INMUNEAMALEFICIO|INMUNEAFUEGO|INMUNEADERRIBO|INMUNEAHIELO|INMUNEAINMOVIL|INMUNEAVENENO|INMUNEARALENTIZAR|INMUNEATODO)\b/g;
 const REG_EX_AFFINITY_ESPANOL = /\b(AFINIDADATODO|AMATISTA|AMATISTACITRINO|AMATISTAESMERALDA|AMATISTARUBI|AMATISTAZAFIRO|CITRINO|CITRINOAMATISTA|CITRINOESMERALDA|CITRINORUBI|CITRINOZAFIRO|ESMERALDA|ESMERALDAAMATISTA|ESMERALDACITRINO|ESMERALDARUBI|ESMERALDAZAFIRO|RUBI|RUBIAMATISTA|RUBICITRINO|RUBIESMERALDA|RUBIZAFIRO|ZAFIRO|ZAFIROAMATISTA|ZAFIROCITRINO|ZAFIROESMERALDA|ZAFIRORUBI)\b/g;
 const REG_EX_STAT_ESPANOL 	= /\b(FUE|ARM|VOL|DES)\b/g;
-const REG_EX_DIE_ESPANOL 		= /(([+-]?[0-9]+)(AL|[RAVNM]|ES|CC|DI|MA|AC|MO|HE|EC|PO))\b/g;
+const REG_EX_DIE_ESPANOL 		= /(([+-]?[0-9]+)(AL|[ARVIMNGOSL]|ES|CC|DI|MA|AC|MO|HE|EC|PO))\b/g;
 
 const UI_SAVE_ESPANOL					= "Ahorrar";
 const UI_LOAD_ESPANOL					= "Carga";
@@ -371,98 +376,98 @@ function stripStatsFromKeywordsEspanol() {
 	stripStatFromKeywords(STAT_DEX_ESPANOL);
 }
 
-function translateToEnglishFromEspanol(nonEnglish){
+function translateToESPANOLFromEspanol(nonESPANOL){
 	var result = '';
 	
-	if(nonEnglish == 'AUMENTO') {
+	if(nonESPANOL == 'AUMENTO') {
 		result = 'AUGMENT';
-	} else if(nonEnglish == 'ESTRAGO') {
+	} else if(nonESPANOL == 'ESTRAGO') {
 		result = 'BANE';
-	} else if(nonEnglish == 'MALEFICIO') {
+	} else if(nonESPANOL == 'MALEFICIO') {
 		result = 'HEX';
-	} else if(nonEnglish == 'FUEGO') {
+	} else if(nonESPANOL == 'FUEGO') {
 		result = 'FIRE';
-	} else if(nonEnglish == 'DERRIBO') {
+	} else if(nonESPANOL == 'DERRIBO') {
 		result = 'KNOCKDOWN';
-	} else if(nonEnglish == 'HIELO') {
+	} else if(nonESPANOL == 'HIELO') {
 		result = 'ICE';
-	} else if(nonEnglish == 'INMOVIL') {
+	} else if(nonESPANOL == 'INMOVIL') {
 		result = 'IMMOBILE';
-	} else if(nonEnglish == 'VENENO') {
+	} else if(nonESPANOL == 'VENENO') {
 		result = 'POISON';
-	} else if(nonEnglish == 'RALENTIZAR') {
+	} else if(nonESPANOL == 'RALENTIZAR') {
 		result = 'SLOW';
-	} else if(nonEnglish == 'PELIGROSO') {
+	} else if(nonESPANOL == 'PELIGROSO') {
 		result = 'DANGEROUS';
-	} else if(nonEnglish == 'INMUNEAESTRAGO') {
+	} else if(nonESPANOL == 'INMUNEAESTRAGO') {
 		result = 'IMMUNEBANE';
-	} else if(nonEnglish == 'INMUNEAMALEFICIO') {
+	} else if(nonESPANOL == 'INMUNEAMALEFICIO') {
 		result = 'IMMUNEHEX';
-	} else if(nonEnglish == 'INMUNEAFUEGO') {
+	} else if(nonESPANOL == 'INMUNEAFUEGO') {
 		result = 'IMMUNEFIRE';
-	} else if(nonEnglish == 'INMUNEADERRIBO') {
+	} else if(nonESPANOL == 'INMUNEADERRIBO') {
 		result = 'IMMUNEKNOCKDOWN';
-	} else if(nonEnglish == 'INMUNEAHIELO') {
+	} else if(nonESPANOL == 'INMUNEAHIELO') {
 		result = 'IMMUNEICE';
-	} else if(nonEnglish == 'INMUNEAINMOVIL') {
+	} else if(nonESPANOL == 'INMUNEAINMOVIL') {
 		result = 'IMMUNEIMMOBILE';
-	} else if(nonEnglish == 'INMUNEAVENENO') {
+	} else if(nonESPANOL == 'INMUNEAVENENO') {
 		result = 'IMMUNEPOISON';
-	} else if(nonEnglish == 'INMUNEARALENTIZAR') {
+	} else if(nonESPANOL == 'INMUNEARALENTIZAR') {
 		result = 'IMMUNESLOW';
-	} else if(nonEnglish == 'INMUNEATODO') {
+	} else if(nonESPANOL == 'INMUNEATODO') {
 		result = 'IMMUNEALL';
-	} else if(nonEnglish == 'AFINIDADATODO') {
+	} else if(nonESPANOL == 'AFINIDADATODO') {
 		result = 'ALLAFFINITY';
-	} else if(nonEnglish == 'AMATISTA') {
+	} else if(nonESPANOL == 'AMATISTA') {
 		result = 'AMETHYST';
-	} else if(nonEnglish == 'AMATISTACITRINO') {
+	} else if(nonESPANOL == 'AMATISTACITRINO') {
 		result = 'AMETHYSTCITRINE';
-	} else if(nonEnglish == 'AMATISTAESMERALDA') {
+	} else if(nonESPANOL == 'AMATISTAESMERALDA') {
 		result = 'AMETHYSTEMERALD';
-	} else if(nonEnglish == 'AMATISTARUBI') {
+	} else if(nonESPANOL == 'AMATISTARUBI') {
 		result = 'AMETHYSTRUBY';
-	} else if(nonEnglish == 'AMATISTAZAFIRO') {
+	} else if(nonESPANOL == 'AMATISTAZAFIRO') {
 		result = 'AMETHYSTSAPPHIRE';
-	} else if(nonEnglish == 'CITRINO') {
+	} else if(nonESPANOL == 'CITRINO') {
 		result = 'CITRINE';
-	} else if(nonEnglish == 'CITRINOAMATISTA') {
+	} else if(nonESPANOL == 'CITRINOAMATISTA') {
 		result = 'CITRINEAMETHYST';
-	} else if(nonEnglish == 'CITRINOESMERALDA') {
+	} else if(nonESPANOL == 'CITRINOESMERALDA') {
 		result = 'CITRINEEMERALD';
-	} else if(nonEnglish == 'CITRINORUBI') {
+	} else if(nonESPANOL == 'CITRINORUBI') {
 		result = 'CITRINERUBY';
-	} else if(nonEnglish == 'CITRINOZAFIRO') {
+	} else if(nonESPANOL == 'CITRINOZAFIRO') {
 		result = 'CITRINESAPPHIRE';
-	} else if(nonEnglish == 'ESMERALDA') {
+	} else if(nonESPANOL == 'ESMERALDA') {
 		result = 'EMERALD';
-	} else if(nonEnglish == 'ESMERALDAAMATISTA') {
+	} else if(nonESPANOL == 'ESMERALDAAMATISTA') {
 		result = 'EMERALDAMETHYST';
-	} else if(nonEnglish == 'ESMERALDACITRINO') {
+	} else if(nonESPANOL == 'ESMERALDACITRINO') {
 		result = 'EMERALDCITRINE';
-	} else if(nonEnglish == 'ESMERALDARUBI') {
+	} else if(nonESPANOL == 'ESMERALDARUBI') {
 		result = 'EMERALDRUBY';
-	} else if(nonEnglish == 'ESMERALDAZAFIRO') {
+	} else if(nonESPANOL == 'ESMERALDAZAFIRO') {
 		result = 'EMERALDSAPPHIRE';
-	} else if(nonEnglish == 'RUBI') {
+	} else if(nonESPANOL == 'RUBI') {
 		result = 'RUBY';
-	} else if(nonEnglish == 'RUBIAMATISTA') {
+	} else if(nonESPANOL == 'RUBIAMATISTA') {
 		result = 'RUBYAMETHYST';
-	} else if(nonEnglish == 'RUBICITRINO') {
+	} else if(nonESPANOL == 'RUBICITRINO') {
 		result = 'RUBYCITRINE';
-	} else if(nonEnglish == 'RUBIESMERALDA') {
+	} else if(nonESPANOL == 'RUBIESMERALDA') {
 		result = 'RUBYEMERALD';
-	} else if(nonEnglish == 'RUBIZAFIRO') {
+	} else if(nonESPANOL == 'RUBIZAFIRO') {
 		result = 'RUBYSAPPHIRE';
-	} else if(nonEnglish == 'ZAFIRO') {
+	} else if(nonESPANOL == 'ZAFIRO') {
 		result = 'SAPPHIRE';
-	} else if(nonEnglish == 'ZAFIROAMATISTA') {
+	} else if(nonESPANOL == 'ZAFIROAMATISTA') {
 		result = 'SAPPHIREAMETHYST';
-	} else if(nonEnglish == 'ZAFIROCITRINO') {
+	} else if(nonESPANOL == 'ZAFIROCITRINO') {
 		result = 'SAPPHIRECITRINE';
-	} else if(nonEnglish == 'ZAFIROESMERALDA') {
+	} else if(nonESPANOL == 'ZAFIROESMERALDA') {
 		result = 'SAPPHIREEMERALD';
-	} else if(nonEnglish == 'ZAFIRORUBI') {
+	} else if(nonESPANOL == 'ZAFIRORUBI') {
 		result = 'SAPPHIRERUBY';
 	}
 		
@@ -472,7 +477,7 @@ function translateToEnglishFromEspanol(nonEnglish){
 function replaceEspanolSymbols(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToESPANOLFromEspanol(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -482,7 +487,7 @@ function replaceEspanolSymbols(secondaryRe, text) {
 function replaceEspanolImmunities(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToESPANOLFromEspanol(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -492,7 +497,7 @@ function replaceEspanolImmunities(secondaryRe, text) {
 this.replaceEspanolAffinities=function(re, description){
 	var translation = '';
 	return description.replace(re,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToESPANOLFromEspanol(match);
 				
 		result = '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
 		return result;

@@ -753,8 +753,33 @@ cursor:move;
 	background-size:40px 40px;
 }
 
+.card .stats .stat .dice.yellow{
+	background:url('image/dice/yellow-dice.png');
+	background-size:40px 40px;
+}
+
 .card .stats .stat .dice.orange{
 	background:url('image/dice/orange-dice.png');
+	background-size:40px 40px;
+}
+
+.card .stats .stat .dice.black{
+	background:url('image/dice/black-dice.png');
+	background-size:40px 40px;
+}
+
+.card .stats .stat .dice.brown{
+	background:url('image/dice/brown-dice.png');
+	background-size:40px 40px;
+}
+
+.card .stats .stat .dice.pink{
+	background:url('image/dice/pink-dice.png');
+	background-size:40px 40px;
+}
+
+.card .stats .stat .dice.white{
+	background:url('image/dice/white-dice.png');
 	background-size:40px 40px;
 }
 
@@ -797,6 +822,11 @@ span.dice.star{
 	background-size:40px 40px;
 }
 
+.card span.dice.yellow{
+	background:url('image/dice/yellow-dice.png') no-repeat;
+	background-size:40px 40px;
+}
+
 .card span.dice.orange{
 	background:url('image/dice/orange-dice.png') no-repeat;
 	background-size:40px 40px;
@@ -804,6 +834,26 @@ span.dice.star{
 
 .card span.dice.purple{
 	background:url('image/dice/purple-dice.png') no-repeat;
+	background-size:40px 40px;
+}
+
+.card span.dice.black{
+	background:url('image/dice/black-dice.png') no-repeat;
+	background-size:40px 40px;
+}
+
+.card span.dice.brown{
+	background:url('image/dice/brown-dice.png') no-repeat;
+	background-size:40px 40px;
+}
+
+.card span.dice.pink{
+	background:url('image/dice/pink-dice.png') no-repeat;
+	background-size:40px 40px;
+}
+
+.card span.dice.white{
+	background:url('image/dice/white-dice.png') no-repeat;
 	background-size:40px 40px;
 }
 

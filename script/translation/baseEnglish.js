@@ -13,8 +13,13 @@ const DIE_STAR_ENGLISH		= "ST";
 const DIE_BLUE_ENGLISH		= "B";
 const DIE_RED_ENGLISH		= "R";
 const DIE_GREEN_ENGLISH		= "G";
-const DIE_ORANGE_ENGLISH	= "O";
+const DIE_YELLOW_ENGLISH	= "Y";
 const DIE_PURPLE_ENGLISH	= "P";
+const DIE_ORANGE_ENGLISH	= "O";
+const DIE_BLACK_ENGLISH		= "L";
+const DIE_BROWN_ENGLISH		= "N";
+const DIE_PINK_ENGLISH		= "I";
+const DIE_WHITE_ENGLISH		= "W";
 
 const SYMBOL_SWORD_ENGLISH		= "SW";
 const SYMBOL_ARMOR_ENGLISH		= "AC";
@@ -167,7 +172,7 @@ if(REG_EX_STAT_ENGLISH.pattern != REG_EX_STAT_ENGLISH2.pattern){
 	redFlag = true;
 }
 */
-const REG_EX_DIE_ENGLISH 		= /(([+-]?[0-9]+)(RG|[RBGOP]|ST|SW|MI|MA|AC|MO|HE|SH|PO))\b/g;
+const REG_EX_DIE_ENGLISH 		= /(([+-]?[0-9]+)(RG|[BRGYPOLNIW]|ST|SW|MI|MA|AC|MO|HE|SH|PO))\b/g;
 
 const UI_SAVE_ENGLISH					= "Save";
 const UI_LOAD_ENGLISH					= "Load";
