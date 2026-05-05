@@ -482,7 +482,7 @@ function translateToEnglishFromEspanol(nonESPANOL){
 function replaceEspanolSymbols(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToESPANOLFromEspanol(match);
+		translation = translateToEnglishFromEspanol(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -492,7 +492,7 @@ function replaceEspanolSymbols(secondaryRe, text) {
 function replaceEspanolImmunities(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToESPANOLFromEspanol(match);
+		translation = translateToEnglishFromEspanol(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -502,7 +502,7 @@ function replaceEspanolImmunities(secondaryRe, text) {
 this.replaceEspanolAffinities=function(re, description){
 	var translation = '';
 	return description.replace(re,function(match){
-		translation = translateToESPANOLFromEspanol(match);
+		translation = translateToEnglishFromEspanol(match);
 				
 		result = '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
 		return result;
