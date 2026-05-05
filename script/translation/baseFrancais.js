@@ -481,7 +481,7 @@ function translateToEnglishFromFrancais(nonFRANCAIS){
 function replaceFrancaisSymbols(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToFRANCAISFromFrancais(match);
+		translation = translateToEnglishFromFrancais(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -491,7 +491,7 @@ function replaceFrancaisSymbols(secondaryRe, text) {
 function replaceFrancaisImmunities(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToFRANCAISFromFrancais(match);
+		translation = translateToEnglishFromFrancais(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -501,7 +501,7 @@ function replaceFrancaisImmunities(secondaryRe, text) {
 this.replaceFrancaisAffinities=function(re, description){
 	var translation = '';
 	return description.replace(re,function(match){
-		translation = translateToFRANCAISFromFrancais(match);
+		translation = translateToEnglishFromFrancais(match);
 		
 		var result = '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
 		return result;
