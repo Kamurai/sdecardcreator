@@ -1400,10 +1400,10 @@ function setUILanguageLegendGreen() {
 }
 
 function setUILanguageLegendYellow() {
-	var en = UI_LEGEND_YELOW_ENGLISH;
-	var de = UI_LEGEND_YELOW_DEUTCH;
-	var es = UI_LEGEND_YELOW_ESPANOL;
-	var fr = UI_LEGEND_YELOW_FRANCAIS;
+	var en = UI_LEGEND_YELLOW_ENGLISH;
+	var de = UI_LEGEND_YELLOW_DEUTCH;
+	var es = UI_LEGEND_YELLOW_ESPANOL;
+	var fr = UI_LEGEND_YELLOW_FRANCAIS;
 
 	substituteLanguage("legendYellow", en, de, es, fr);
 }
