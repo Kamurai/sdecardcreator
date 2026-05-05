@@ -279,8 +279,13 @@ const UI_LEGEND_STAR_ESPANOL		= UI_STAR_ESPANOL	+ COLON_SPACE_ONE + DIE_STAR_ESP
 const UI_LEGEND_BLUE_ESPANOL		= UI_BLUE_ESPANOL	+ COLON_SPACE_ONE + DIE_BLUE_ESPANOL;
 const UI_LEGEND_RED_ESPANOL		= UI_RED_ESPANOL	+ COLON_SPACE_ONE + DIE_RED_ESPANOL;
 const UI_LEGEND_GREEN_ESPANOL		= UI_GREEN_ESPANOL	+ COLON_SPACE_ONE + DIE_GREEN_ESPANOL;
-const UI_LEGEND_ORANGE_ESPANOL	= UI_ORANGE_ESPANOL	+ COLON_SPACE_ONE + DIE_ORANGE_ESPANOL;
+const UI_LEGEND_YELLOW_ESPANOL	= UI_YELLOW_ESPANOL	+ COLON_SPACE_ONE + DIE_YELLOW_ESPANOL;
 const UI_LEGEND_PURPLE_ESPANOL	= UI_PURPLE_ESPANOL	+ COLON_SPACE_ONE + DIE_PURPLE_ESPANOL;
+const UI_LEGEND_ORANGE_ESPANOL	= UI_ORANGE_ESPANOL	+ COLON_SPACE_ONE + DIE_ORANGE_ESPANOL;
+const UI_LEGEND_BLACK_ESPANOL	= UI_BLACK_ESPANOL	+ COLON_SPACE_ONE + DIE_BLACK_ESPANOL;
+const UI_LEGEND_BROWN_ESPANOL	= UI_BROWN_ESPANOL	+ COLON_SPACE_ONE + DIE_BROWN_ESPANOL;
+const UI_LEGEND_PINK_ESPANOL	= UI_PINK_ESPANOL	+ COLON_SPACE_ONE + DIE_PINK_ESPANOL;
+const UI_LEGEND_WHITE_ESPANOL	= UI_WHITE_ESPANOL	+ COLON_SPACE_ONE + DIE_WHITE_ESPANOL;
 
 const UI_LEGEND_MELEE_ESPANOL		= UI_MELEE_ESPANOL		+ COLON_SPACE_ONE + SYMBOL_SWORD_ESPANOL;
 const UI_LEGEND_MISSILE_ESPANOL		= UI_MISSILE_ESPANOL	+ COLON_SPACE_ONE + SYMBOL_MISSILE_ESPANOL;
@@ -376,7 +381,7 @@ function stripStatsFromKeywordsEspanol() {
 	stripStatFromKeywords(STAT_DEX_ESPANOL);
 }
 
-function translateToEnglishFromEspanol(nonESPANOL){
+function translateToESPANOLFromEspanol(nonESPANOL){
 	var result = '';
 	
 	if(nonESPANOL == 'AUMENTO') {
@@ -477,7 +482,7 @@ function translateToEnglishFromEspanol(nonESPANOL){
 function replaceEspanolSymbols(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToESPANOLFromEspanol(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -487,7 +492,7 @@ function replaceEspanolSymbols(secondaryRe, text) {
 function replaceEspanolImmunities(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToESPANOLFromEspanol(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -497,7 +502,7 @@ function replaceEspanolImmunities(secondaryRe, text) {
 this.replaceEspanolAffinities=function(re, description){
 	var translation = '';
 	return description.replace(re,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToESPANOLFromEspanol(match);
 				
 		result = '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
 		return result;

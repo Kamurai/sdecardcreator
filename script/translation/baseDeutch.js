@@ -278,8 +278,13 @@ const UI_LEGEND_STAR_DEUTCH		= UI_STAR_DEUTCH	+ COLON_SPACE_ONE + DIE_STAR_DEUTC
 const UI_LEGEND_BLUE_DEUTCH		= UI_BLUE_DEUTCH	+ COLON_SPACE_ONE + DIE_BLUE_DEUTCH;
 const UI_LEGEND_RED_DEUTCH		= UI_RED_DEUTCH		+ COLON_SPACE_ONE + DIE_RED_DEUTCH;
 const UI_LEGEND_GREEN_DEUTCH		= UI_GREEN_DEUTCH	+ COLON_SPACE_ONE + DIE_GREEN_DEUTCH;
-const UI_LEGEND_ORANGE_DEUTCH		= UI_ORANGE_DEUTCH	+ COLON_SPACE_ONE + DIE_ORANGE_DEUTCH;
-const UI_LEGEND_PURPLE_DEUTCH		= UI_PURPLE_DEUTCH	+ COLON_SPACE_ONE + DIE_PURPLE_DEUTCH;
+const UI_LEGEND_YELLOW_DEUTCH	= UI_YELLOW_DEUTCH	+ COLON_SPACE_ONE + DIE_YELLOW_DEUTCH;
+const UI_LEGEND_PURPLE_DEUTCH	= UI_PURPLE_DEUTCH	+ COLON_SPACE_ONE + DIE_PURPLE_DEUTCH;
+const UI_LEGEND_ORANGE_DEUTCH	= UI_ORANGE_DEUTCH	+ COLON_SPACE_ONE + DIE_ORANGE_DEUTCH;
+const UI_LEGEND_BLACK_DEUTCH	= UI_BLACK_DEUTCH	+ COLON_SPACE_ONE + DIE_BLACK_DEUTCH;
+const UI_LEGEND_BROWN_DEUTCH	= UI_BROWN_DEUTCH	+ COLON_SPACE_ONE + DIE_BROWN_DEUTCH;
+const UI_LEGEND_PINK_DEUTCH	= UI_PINK_DEUTCH	+ COLON_SPACE_ONE + DIE_PINK_DEUTCH;
+const UI_LEGEND_WHITE_DEUTCH	= UI_WHITE_DEUTCH	+ COLON_SPACE_ONE + DIE_WHITE_DEUTCH;
 
 const UI_LEGEND_MELEE_DEUTCH		= UI_MELEE_DEUTCH		+ COLON_SPACE_ONE + SYMBOL_SWORD_DEUTCH;
 const UI_LEGEND_MISSILE_DEUTCH	= UI_MISSILE_DEUTCH		+ COLON_SPACE_ONE + SYMBOL_MISSILE_DEUTCH;
@@ -374,7 +379,7 @@ function stripStatsFromKeywordsDeutch() {
 	stripStatFromKeywords(STAT_DEX_DEUTCH);
 }
 
-function translateToEnglishFromDeutch(nonDEUTCH){
+function translateToDEUTCHFromDeutch(nonDEUTCH){
 	var result = '';
 	
 	if(nonDEUTCH == 'AUGMENT') {
@@ -475,7 +480,7 @@ function translateToEnglishFromDeutch(nonDEUTCH){
 function replaceDeutchSymbols(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromDeutch(match);
+		translation = translateToDEUTCHFromDeutch(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -485,7 +490,7 @@ function replaceDeutchSymbols(secondaryRe, text) {
 function replaceDeutchImmunities(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromDeutch(match);
+		translation = translateToDEUTCHFromDeutch(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -495,7 +500,7 @@ function replaceDeutchImmunities(secondaryRe, text) {
 this.replaceDeutchAffinities=function(re, description){
 	var translation = '';
 	return description.replace(re,function(match){
-		translation = translateToEnglishFromDeutch(match);
+		translation = translateToDEUTCHFromDeutch(match);
 		
 		var result = '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
 		return result;

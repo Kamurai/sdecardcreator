@@ -278,8 +278,13 @@ const UI_LEGEND_STAR_FRANCAIS		= UI_STAR_FRANCAIS		+ COLON_SPACE_ONE + DIE_STAR_
 const UI_LEGEND_BLUE_FRANCAIS		= UI_BLUE_FRANCAIS		+ COLON_SPACE_ONE + DIE_BLUE_FRANCAIS;
 const UI_LEGEND_RED_FRANCAIS		= UI_RED_FRANCAIS		+ COLON_SPACE_ONE + DIE_RED_FRANCAIS;
 const UI_LEGEND_GREEN_FRANCAIS	= UI_GREEN_FRANCAIS		+ COLON_SPACE_ONE + DIE_GREEN_FRANCAIS;
-const UI_LEGEND_ORANGE_FRANCAIS	= UI_ORANGE_FRANCAIS	+ COLON_SPACE_ONE + DIE_ORANGE_FRANCAIS;
+const UI_LEGEND_YELLOW_FRANCAIS	= UI_YELLOW_FRANCAIS	+ COLON_SPACE_ONE + DIE_YELLOW_FRANCAIS;
 const UI_LEGEND_PURPLE_FRANCAIS	= UI_PURPLE_FRANCAIS	+ COLON_SPACE_ONE + DIE_PURPLE_FRANCAIS;
+const UI_LEGEND_ORANGE_FRANCAIS	= UI_ORANGE_FRANCAIS	+ COLON_SPACE_ONE + DIE_ORANGE_FRANCAIS;
+const UI_LEGEND_BLACK_FRANCAIS	= UI_BLACK_FRANCAIS	+ COLON_SPACE_ONE + DIE_BLACK_FRANCAIS;
+const UI_LEGEND_BROWN_FRANCAIS	= UI_BROWN_FRANCAIS	+ COLON_SPACE_ONE + DIE_BROWN_FRANCAIS;
+const UI_LEGEND_PINK_FRANCAIS	= UI_PINK_FRANCAIS	+ COLON_SPACE_ONE + DIE_PINK_FRANCAIS;
+const UI_LEGEND_WHITE_FRANCAIS	= UI_WHITE_FRANCAIS	+ COLON_SPACE_ONE + DIE_WHITE_FRANCAIS;
 
 const UI_LEGEND_MELEE_FRANCAIS	= UI_MELEE_FRANCAIS		+ COLON_SPACE_ONE + SYMBOL_SWORD_FRANCAIS;
 const UI_LEGEND_MISSILE_FRANCAIS	= UI_MISSILE_FRANCAIS	+ COLON_SPACE_ONE + SYMBOL_MISSILE_FRANCAIS;
@@ -375,7 +380,7 @@ function stripStatsFromKeywordsFrancais() {
 	stripStatFromKeywords(STAT_DEX_FRANCAIS);
 }
 
-function translateToEnglishFromFrancais(nonFRANCAIS){
+function translateToFRANCAISFromFrancais(nonFRANCAIS){
 	var result = '';
 	
 	if(nonFRANCAIS == 'AUGMENT') {
@@ -476,7 +481,7 @@ function translateToEnglishFromFrancais(nonFRANCAIS){
 function replaceFrancaisSymbols(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromFrancais(match);
+		translation = translateToFRANCAISFromFrancais(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -486,7 +491,7 @@ function replaceFrancaisSymbols(secondaryRe, text) {
 function replaceFrancaisImmunities(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromFrancais(match);
+		translation = translateToFRANCAISFromFrancais(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -496,7 +501,7 @@ function replaceFrancaisImmunities(secondaryRe, text) {
 this.replaceFrancaisAffinities=function(re, description){
 	var translation = '';
 	return description.replace(re,function(match){
-		translation = translateToEnglishFromFrancais(match);
+		translation = translateToFRANCAISFromFrancais(match);
 		
 		var result = '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
 		return result;
