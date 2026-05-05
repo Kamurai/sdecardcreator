@@ -374,7 +374,7 @@ function stripStatsFromKeywordsDeutch() {
 	stripStatFromKeywords(STAT_DEX_DEUTCH);
 }
 
-function translateToDEUTCHFromDeutch(nonDEUTCH){
+function translateToEnglishFromDeutch(nonDEUTCH){
 	var result = '';
 	
 	if(nonDEUTCH == 'AUGMENT') {
@@ -475,7 +475,7 @@ function translateToDEUTCHFromDeutch(nonDEUTCH){
 function replaceDeutchSymbols(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToDEUTCHFromEspanol(match);
+		translation = translateToDEUTCHFromDeutch(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -485,7 +485,7 @@ function replaceDeutchSymbols(secondaryRe, text) {
 function replaceDeutchImmunities(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToDEUTCHFromEspanol(match);
+		translation = translateToDEUTCHFromDeutch(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -495,7 +495,7 @@ function replaceDeutchImmunities(secondaryRe, text) {
 this.replaceDeutchAffinities=function(re, description){
 	var translation = '';
 	return description.replace(re,function(match){
-		translation = translateToDEUTCHFromEspanol(match);
+		translation = translateToDEUTCHFromDeutch(match);
 		
 		var result = '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
 		return result;
