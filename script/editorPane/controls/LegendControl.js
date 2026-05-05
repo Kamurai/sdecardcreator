@@ -33,13 +33,17 @@ function LegendControl(){
 						'<h3><span class="uiDiceTypes">'+UI_DICE_TYPES_ENGLISH+'</span></h3>'+
 						'<ul>'+
 							//'<span class="dice star">1</span>' +
-	
 							'<li class="legendStar">'+UI_LEGEND_STAR_ENGLISH+'</li>'+
 							'<li class="legendBlue">'+UI_LEGEND_BLUE_ENGLISH+'</li>'+
 							'<li class="legendRed">'+UI_LEGEND_RED_ENGLISH+'</li>'+
 							'<li class="legendGreen">'+UI_LEGEND_GREEN_ENGLISH+'</li>'+
-							'<li class="legendOrange">'+UI_LEGEND_ORANGE_ENGLISH+'</li>'+
+							'<li class="legendYellow">'+UI_LEGEND_YELLOW_ENGLISH+'</li>'+
 							'<li class="legendPurple">'+UI_LEGEND_PURPLE_ENGLISH+'</li>'+
+							'<li class="legendOrange">'+UI_LEGEND_ORANGE_ENGLISH+'</li>'+
+							'<li class="legendBlack">'+UI_LEGEND_BLACK_ENGLISH+'</li>'+
+							'<li class="legendBrown">'+UI_LEGEND_BROWN_ENGLISH+'</li>'+
+							'<li class="legendPink">'+UI_LEGEND_PINK_ENGLISH+'</li>'+
+							'<li class="legendWhite">'+UI_LEGEND_WHITE_ENGLISH+'</li>'+
 						'</ul>'+
 					'</div>'+
 					'<div class="helpUnit">'+

@@ -1,4 +1,4 @@
-const LANGUAGE_FRANCAIS		= "fr";
+const LANGUAGE_FRANCAIS			= "fr";
 const LANGUAGE_FILE_FRANCAIS 	= "sde_keywords_francais.json";
 
 const IMMUNE_FRANCAIS		= "IMMUNITAIRE";
@@ -9,35 +9,40 @@ const STAT_WILL_FRANCAIS 	= 'VOL';
 const STAT_DEX_FRANCAIS 	= 'DEX';
 const STAT_RNG_FRANCAIS 	= "RNG";
 
-const DIE_STAR_FRANCAIS	= "ST";
-const DIE_BLUE_FRANCAIS	= "B";
-const DIE_RED_FRANCAIS	= "R";
-const DIE_GREEN_FRANCAIS	= "G";
+const DIE_STAR_FRANCAIS		= "ST";
+const DIE_BLUE_FRANCAIS		= "B";
+const DIE_RED_FRANCAIS		= "R";
+const DIE_GREEN_FRANCAIS	= "E";
+const DIE_YELLOW_FRANCAIS	= "J";
+const DIE_PURPLE_FRANCAIS	= "V";
 const DIE_ORANGE_FRANCAIS	= "O";
-const DIE_PURPLE_FRANCAIS	= "P";
+const DIE_BLACK_FRANCAIS	= "N";
+const DIE_BROWN_FRANCAIS	= "M";
+const DIE_PINK_FRANCAIS		= "S";
+const DIE_WHITE_FRANCAIS	= "L";
 
 const SYMBOL_SWORD_FRANCAIS		= "SW";
 const SYMBOL_ARMOR_FRANCAIS		= "AC";
 const SYMBOL_MAGIC_FRANCAIS		= "MA";
-const SYMBOL_MISSILE_FRANCAIS		= "MI";
+const SYMBOL_MISSILE_FRANCAIS	= "MI";
 const SYMBOL_RANGE_FRANCAIS		= "RG";
 const SYMBOL_MOVEMENT_FRANCAIS	= "MO";
-const SYMBOL_ACTION_FRANCAIS		= "AC";
+const SYMBOL_ACTION_FRANCAIS	= "AC";
 const SYMBOL_HEART_FRANCAIS		= "HE";
-const SYMBOL_SHIELD_FRANCAIS		= "SH";
-const SYMBOL_POTION_FRANCAIS		= "PO";
+const SYMBOL_SHIELD_FRANCAIS	= "SH";
+const SYMBOL_POTION_FRANCAIS	= "PO";
 
-const SYMBOL_AUGMENT_FRANCAIS		= "AUGMENTER";
+const SYMBOL_AUGMENT_FRANCAIS	= "AUGMENTER";
 const SYMBOL_DANGEROUS_FRANCAIS	= "DANGEREUX";
 const SYMBOL_BANE_FRANCAIS		= "FLÉAU";
-const SYMBOL_HEX_FRANCAIS			= "HEX";
+const SYMBOL_HEX_FRANCAIS		= "HEX";
 const SYMBOL_FIRE_FRANCAIS		= "FEU";
 const SYMBOL_KNOCKDOWN_FRANCAIS	= "ABATTRE";
-const SYMBOL_ICE_FRANCAIS			= "GLACE";
+const SYMBOL_ICE_FRANCAIS		= "GLACE";
 const SYMBOL_IMMOBILE_FRANCAIS	= "IMMOBILE";
-const SYMBOL_POISON_FRANCAIS		= "POISON";
+const SYMBOL_POISON_FRANCAIS	= "POISON";
 const SYMBOL_SLOW_FRANCAIS		= "LENT";
-const SYMBOL_ALL_FRANCAIS			= "TOUT";
+const SYMBOL_ALL_FRANCAIS		= "TOUT";
 
 const SYMBOL_IMMUNE_ALL_FRANCAIS		= IMMUNE_FRANCAIS + SYMBOL_ALL_FRANCAIS;
 const SYMBOL_IMMUNE_BANE_FRANCAIS		= IMMUNE_FRANCAIS + SYMBOL_BANE_FRANCAIS;
@@ -93,11 +98,11 @@ const SYMBOL_AFFINITY_SAPPHIRE_CITRINE_FRANCAIS	= SYMBOL_AFFINITY_SAPPHIRE_FRANC
 const SYMBOL_AFFINITY_SAPPHIRE_EMERALD_FRANCAIS	= SYMBOL_AFFINITY_SAPPHIRE_FRANCAIS + SYMBOL_AFFINITY_EMERALD_FRANCAIS;
 const SYMBOL_AFFINITY_SAPPHIRE_RUBY_FRANCAIS		= SYMBOL_AFFINITY_SAPPHIRE_FRANCAIS + SYMBOL_AFFINITY_RUBY_FRANCAIS;
 
-const REG_EX_SYMBOL_FRANCAIS 		= /\b(AUGMENT|BANE|HEX|FIRE|KNOCKDOWN|ICE|IMMOBILE|POISON|SLOW|DANGEROUS)\b/g;
+const REG_EX_SYMBOL_FRANCAIS 	= /\b(AUGMENT|BANE|HEX|FIRE|KNOCKDOWN|ICE|IMMOBILE|POISON|SLOW|DANGEROUS)\b/g;
 const REG_EX_IMMUNITY_FRANCAIS 	= /\b(IMMUNEBANE|IMMUNEHEX|IMMUNEFIRE|IMMUNEKNOCKDOWN|IMMUNEICE|IMMUNEIMMOBILE|IMMUNEPOISON|IMMUNESLOW|IMMUNEALL)\b/g;
 const REG_EX_AFFINITY_FRANCAIS 	= /\b(ALLAFFINITY|AMETHYST|AMETHYSTCITRINE|AMETHYSTEMERALD|AMETHYSTRUBY|AMETHYSTSAPPHIRE|CITRINE|CITRINEAMETHYST|CITRINEEMERALD|CITRINERUBY|CITRINESAPPHIRE|EMERALD|EMERALDAMETHYST|EMERALDCITRINE|EMERALDRUBY|EMERALDSAPPHIRE|RUBY|RUBYAMETHYST|RUBYCITRINE|RUBYEMERALD|RUBYSAPPHIRE|SAPPHIRE|SAPPHIREAMETHYST|SAPPHIRECITRINE|SAPPHIREEMERALD|SAPPHIRERUBY)\b/g;
 const REG_EX_STAT_FRANCAIS 		= /\b(FOR|ARM|VOL|DEX)\b/g;
-const REG_EX_DIE_FRANCAIS 		= /(([+-]?[0-9]+)(RG|[RBGOP]|ST|SW|MI|MA|AC|MO|HE|SH|PO))\b/g;
+const REG_EX_DIE_FRANCAIS 		= /(([+-]?[0-9]+)(RG|[BREJVONMSL]|ST|SW|MI|MA|AC|MO|HE|SH|PO))\b/g;
 
 const UI_SAVE_FRANCAIS				= "Sauvegarder";
 const UI_LOAD_FRANCAIS				= "Charger";
@@ -273,8 +278,13 @@ const UI_LEGEND_STAR_FRANCAIS		= UI_STAR_FRANCAIS		+ COLON_SPACE_ONE + DIE_STAR_
 const UI_LEGEND_BLUE_FRANCAIS		= UI_BLUE_FRANCAIS		+ COLON_SPACE_ONE + DIE_BLUE_FRANCAIS;
 const UI_LEGEND_RED_FRANCAIS		= UI_RED_FRANCAIS		+ COLON_SPACE_ONE + DIE_RED_FRANCAIS;
 const UI_LEGEND_GREEN_FRANCAIS	= UI_GREEN_FRANCAIS		+ COLON_SPACE_ONE + DIE_GREEN_FRANCAIS;
-const UI_LEGEND_ORANGE_FRANCAIS	= UI_ORANGE_FRANCAIS	+ COLON_SPACE_ONE + DIE_ORANGE_FRANCAIS;
+const UI_LEGEND_YELLOW_FRANCAIS	= UI_YELLOW_FRANCAIS	+ COLON_SPACE_ONE + DIE_YELLOW_FRANCAIS;
 const UI_LEGEND_PURPLE_FRANCAIS	= UI_PURPLE_FRANCAIS	+ COLON_SPACE_ONE + DIE_PURPLE_FRANCAIS;
+const UI_LEGEND_ORANGE_FRANCAIS	= UI_ORANGE_FRANCAIS	+ COLON_SPACE_ONE + DIE_ORANGE_FRANCAIS;
+const UI_LEGEND_BLACK_FRANCAIS	= UI_BLACK_FRANCAIS	+ COLON_SPACE_ONE + DIE_BLACK_FRANCAIS;
+const UI_LEGEND_BROWN_FRANCAIS	= UI_BROWN_FRANCAIS	+ COLON_SPACE_ONE + DIE_BROWN_FRANCAIS;
+const UI_LEGEND_PINK_FRANCAIS	= UI_PINK_FRANCAIS	+ COLON_SPACE_ONE + DIE_PINK_FRANCAIS;
+const UI_LEGEND_WHITE_FRANCAIS	= UI_WHITE_FRANCAIS	+ COLON_SPACE_ONE + DIE_WHITE_FRANCAIS;
 
 const UI_LEGEND_MELEE_FRANCAIS	= UI_MELEE_FRANCAIS		+ COLON_SPACE_ONE + SYMBOL_SWORD_FRANCAIS;
 const UI_LEGEND_MISSILE_FRANCAIS	= UI_MISSILE_FRANCAIS	+ COLON_SPACE_ONE + SYMBOL_MISSILE_FRANCAIS;
@@ -370,98 +380,98 @@ function stripStatsFromKeywordsFrancais() {
 	stripStatFromKeywords(STAT_DEX_FRANCAIS);
 }
 
-function translateToEnglishFromFrancais(nonEnglish){
+function translateToEnglishFromFrancais(nonFRANCAIS){
 	var result = '';
 	
-	if(nonEnglish == 'AUGMENT') {
+	if(nonFRANCAIS == 'AUGMENT') {
 		result = 'AUGMENT';
-	} else if(nonEnglish == 'BANE') {
+	} else if(nonFRANCAIS == 'BANE') {
 		result = 'BANE';
-	} else if(nonEnglish == 'HEX') {
+	} else if(nonFRANCAIS == 'HEX') {
 		result = 'HEX';
-	} else if(nonEnglish == 'FIRE') {
+	} else if(nonFRANCAIS == 'FIRE') {
 		result = 'FIRE';
-	} else if(nonEnglish == 'KNOCKDOWN') {
+	} else if(nonFRANCAIS == 'KNOCKDOWN') {
 		result = 'KNOCKDOWN';
-	} else if(nonEnglish == 'ICE') {
+	} else if(nonFRANCAIS == 'ICE') {
 		result = 'ICE';
-	} else if(nonEnglish == 'IMMOBILE') {
+	} else if(nonFRANCAIS == 'IMMOBILE') {
 		result = 'IMMOBILE';
-	} else if(nonEnglish == 'POISON') {
+	} else if(nonFRANCAIS == 'POISON') {
 		result = 'POISON';
-	} else if(nonEnglish == 'SLOW') {
+	} else if(nonFRANCAIS == 'SLOW') {
 		result = 'SLOW';
-	} else if(nonEnglish == 'DANGEROUS') {
+	} else if(nonFRANCAIS == 'DANGEROUS') {
 		result = 'DANGEROUS';
-	} else if(nonEnglish == 'IMMUNEBANE') {
+	} else if(nonFRANCAIS == 'IMMUNEBANE') {
 		result = 'IMMUNEBANE';
-	} else if(nonEnglish == 'IMMUNEHEX') {
+	} else if(nonFRANCAIS == 'IMMUNEHEX') {
 		result = 'IMMUNEHEX';
-	} else if(nonEnglish == 'IMMUNEFIRE') {
+	} else if(nonFRANCAIS == 'IMMUNEFIRE') {
 		result = 'IMMUNEFIRE';
-	} else if(nonEnglish == 'IMMUNEKNOCKDOWN') {
+	} else if(nonFRANCAIS == 'IMMUNEKNOCKDOWN') {
 		result = 'IMMUNEKNOCKDOWN';
-	} else if(nonEnglish == 'IMMUNEICE') {
+	} else if(nonFRANCAIS == 'IMMUNEICE') {
 		result = 'IMMUNEICE';
-	} else if(nonEnglish == 'IMMUNEIMMOBILE') {
+	} else if(nonFRANCAIS == 'IMMUNEIMMOBILE') {
 		result = 'IMMUNEIMMOBILE';
-	} else if(nonEnglish == 'IMMUNEPOISON') {
+	} else if(nonFRANCAIS == 'IMMUNEPOISON') {
 		result = 'IMMUNEPOISON';
-	} else if(nonEnglish == 'IMMUNESLOW') {
+	} else if(nonFRANCAIS == 'IMMUNESLOW') {
 		result = 'IMMUNESLOW';
-	} else if(nonEnglish == 'IMMUNEALL') {
+	} else if(nonFRANCAIS == 'IMMUNEALL') {
 		result = 'IMMUNEALL';
-	} else if(nonEnglish == 'ALLAFFINITY') {
+	} else if(nonFRANCAIS == 'ALLAFFINITY') {
 		result = 'ALLAFFINITY';
-	} else if(nonEnglish == 'AMETHYST') {
+	} else if(nonFRANCAIS == 'AMETHYST') {
 		result = 'AMETHYST';
-	} else if(nonEnglish == 'AMETHYSTCITRINE') {
+	} else if(nonFRANCAIS == 'AMETHYSTCITRINE') {
 		result = 'AMETHYSTCITRINE';
-	} else if(nonEnglish == 'AMETHYSTEMERALD') {
+	} else if(nonFRANCAIS == 'AMETHYSTEMERALD') {
 		result = 'AMETHYSTEMERALD';
-	} else if(nonEnglish == 'AMETHYSTRUBY') {
+	} else if(nonFRANCAIS == 'AMETHYSTRUBY') {
 		result = 'AMETHYSTRUBY';
-	} else if(nonEnglish == 'AMETHYSTSAPPHIRE') {
+	} else if(nonFRANCAIS == 'AMETHYSTSAPPHIRE') {
 		result = 'AMETHYSTSAPPHIRE';
-	} else if(nonEnglish == 'CITRINE') {
+	} else if(nonFRANCAIS == 'CITRINE') {
 		result = 'CITRINE';
-	} else if(nonEnglish == 'CITRINEAMETHYST') {
+	} else if(nonFRANCAIS == 'CITRINEAMETHYST') {
 		result = 'CITRINEAMETHYST';
-	} else if(nonEnglish == 'CITRINEEMERALD') {
+	} else if(nonFRANCAIS == 'CITRINEEMERALD') {
 		result = 'CITRINEEMERALD';
-	} else if(nonEnglish == 'CITRINERUBY') {
+	} else if(nonFRANCAIS == 'CITRINERUBY') {
 		result = 'CITRINERUBY';
-	} else if(nonEnglish == 'CITRINESAPPHIRE') {
+	} else if(nonFRANCAIS == 'CITRINESAPPHIRE') {
 		result = 'CITRINESAPPHIRE';
-	} else if(nonEnglish == 'EMERALD') {
+	} else if(nonFRANCAIS == 'EMERALD') {
 		result = 'EMERALD';
-	} else if(nonEnglish == 'EMERALDAMETHYST') {
+	} else if(nonFRANCAIS == 'EMERALDAMETHYST') {
 		result = 'EMERALDAMETHYST';
-	} else if(nonEnglish == 'EMERALDCITRINE') {
+	} else if(nonFRANCAIS == 'EMERALDCITRINE') {
 		result = 'EMERALDCITRINE';
-	} else if(nonEnglish == 'EMERALDRUBY') {
+	} else if(nonFRANCAIS == 'EMERALDRUBY') {
 		result = 'EMERALDRUBY';
-	} else if(nonEnglish == 'EMERALDSAPPHIRE') {
+	} else if(nonFRANCAIS == 'EMERALDSAPPHIRE') {
 		result = 'EMERALDSAPPHIRE';
-	} else if(nonEnglish == 'RUBY') {
+	} else if(nonFRANCAIS == 'RUBY') {
 		result = 'RUBY';
-	} else if(nonEnglish == 'RUBYAMETHYST') {
+	} else if(nonFRANCAIS == 'RUBYAMETHYST') {
 		result = 'RUBYAMETHYST';
-	} else if(nonEnglish == 'RUBYCITRINE') {
+	} else if(nonFRANCAIS == 'RUBYCITRINE') {
 		result = 'RUBYCITRINE';
-	} else if(nonEnglish == 'RUBYEMERALD') {
+	} else if(nonFRANCAIS == 'RUBYEMERALD') {
 		result = 'RUBYEMERALD';
-	} else if(nonEnglish == 'RUBYSAPPHIRE') {
+	} else if(nonFRANCAIS == 'RUBYSAPPHIRE') {
 		result = 'RUBYSAPPHIRE';
-	} else if(nonEnglish == 'SAPPHIRE') {
+	} else if(nonFRANCAIS == 'SAPPHIRE') {
 		result = 'SAPPHIRE';
-	} else if(nonEnglish == 'SAPPHIREAMETHYST') {
+	} else if(nonFRANCAIS == 'SAPPHIREAMETHYST') {
 		result = 'SAPPHIREAMETHYST';
-	} else if(nonEnglish == 'SAPPHIRECITRINE') {
+	} else if(nonFRANCAIS == 'SAPPHIRECITRINE') {
 		result = 'SAPPHIRECITRINE';
-	} else if(nonEnglish == 'SAPPHIREEMERALD') {
+	} else if(nonFRANCAIS == 'SAPPHIREEMERALD') {
 		result = 'SAPPHIREEMERALD';
-	} else if(nonEnglish == 'SAPPHIRERUBY') {
+	} else if(nonFRANCAIS == 'SAPPHIRERUBY') {
 		result = 'SAPPHIRERUBY';
 	}
 		
@@ -471,7 +481,7 @@ function translateToEnglishFromFrancais(nonEnglish){
 function replaceFrancaisSymbols(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToEnglishFromFrancais(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -481,7 +491,7 @@ function replaceFrancaisSymbols(secondaryRe, text) {
 function replaceFrancaisImmunities(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToEnglishFromFrancais(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -491,7 +501,7 @@ function replaceFrancaisImmunities(secondaryRe, text) {
 this.replaceFrancaisAffinities=function(re, description){
 	var translation = '';
 	return description.replace(re,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToEnglishFromFrancais(match);
 		
 		var result = '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
 		return result;

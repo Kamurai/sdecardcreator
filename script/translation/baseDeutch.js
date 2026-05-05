@@ -1,4 +1,4 @@
-const LANGUAGE_DEUTCH			= "de";
+const LANGUAGE_DEUTCH		= "de";
 const LANGUAGE_FILE_DEUTCH 	= "sde_keywords_deutch.json";
 
 const IMMUNE_DEUTCH		= "IMMUN";
@@ -12,31 +12,36 @@ const STAT_RNG_DEUTCH 	= "RNG";
 const DIE_STAR_DEUTCH		= "ST";
 const DIE_BLUE_DEUTCH		= "B";
 const DIE_RED_DEUTCH		= "R";
-const DIE_GREEN_DEUTCH	= "G";
-const DIE_ORANGE_DEUTCH	= "O";
-const DIE_PURPLE_DEUTCH	= "P";
+const DIE_GREEN_DEUTCH		= "G";
+const DIE_YELLOW_DEUTCH		= "E";
+const DIE_PURPLE_DEUTCH		= "V";
+const DIE_ORANGE_DEUTCH		= "O";
+const DIE_BLACK_DEUTCH		= "S";
+const DIE_BROWN_DEUTCH		= "N";
+const DIE_PINK_DEUTCH		= "A";
+const DIE_WHITE_DEUTCH		= "W";
 
 const SYMBOL_SWORD_DEUTCH		= "SW";
 const SYMBOL_ARMOR_DEUTCH		= "AC";
 const SYMBOL_MAGIC_DEUTCH		= "MA";
-const SYMBOL_MISSILE_DEUTCH	= "MI";
+const SYMBOL_MISSILE_DEUTCH		= "MI";
 const SYMBOL_RANGE_DEUTCH		= "RG";
 const SYMBOL_MOVEMENT_DEUTCH	= "MO";
-const SYMBOL_ACTION_DEUTCH	= "AC";
+const SYMBOL_ACTION_DEUTCH		= "AC";
 const SYMBOL_HEART_DEUTCH		= "HE";
-const SYMBOL_SHIELD_DEUTCH	= "SH";
-const SYMBOL_POTION_DEUTCH	= "PO";
+const SYMBOL_SHIELD_DEUTCH		= "SH";
+const SYMBOL_POTION_DEUTCH		= "PO";
 
 const SYMBOL_AUGMENT_DEUTCH		= "ERWEITERN";
-const SYMBOL_DANGEROUS_DEUTCH		= "GEFÄHRLICH";
-const SYMBOL_BANE_DEUTCH			= "FLUCH";
+const SYMBOL_DANGEROUS_DEUTCH	= "GEFÄHRLICH";
+const SYMBOL_BANE_DEUTCH		= "FLUCH";
 const SYMBOL_HEX_DEUTCH			= "VERHEXEN";
-const SYMBOL_FIRE_DEUTCH			= "FEUER";
-const SYMBOL_KNOCKDOWN_DEUTCH		= "KNOCKDOWN";
+const SYMBOL_FIRE_DEUTCH		= "FEUER";
+const SYMBOL_KNOCKDOWN_DEUTCH	= "KNOCKDOWN";
 const SYMBOL_ICE_DEUTCH			= "EIS";
-const SYMBOL_IMMOBILE_DEUTCH		= "UNBEWEGLICH";
+const SYMBOL_IMMOBILE_DEUTCH	= "UNBEWEGLICH";
 const SYMBOL_POISON_DEUTCH		= "GIFT";
-const SYMBOL_SLOW_DEUTCH			= "LANGSAMS";
+const SYMBOL_SLOW_DEUTCH		= "LANGSAMS";
 const SYMBOL_ALL_DEUTCH			= "ALLE";
 
 const SYMBOL_IMMUNE_ALL_DEUTCH			= IMMUNE_DEUTCH + SYMBOL_ALL_DEUTCH;
@@ -97,7 +102,7 @@ const REG_EX_SYMBOL_DEUTCH 	= /\b(AUGMENT|BANE|HEX|FIRE|KNOCKDOWN|ICE|IMMOBILE|P
 const REG_EX_IMMUNITY_DEUTCH 	= /\b(IMMUNEBANE|IMMUNEHEX|IMMUNEFIRE|IMMUNEKNOCKDOWN|IMMUNEICE|IMMUNEIMMOBILE|IMMUNEPOISON|IMMUNESLOW|IMMUNEALL)\b/g;
 const REG_EX_AFFINITY_DEUTCH 	= /\b(ALLAFFINITY|AMETHYST|AMETHYSTCITRINE|AMETHYSTEMERALD|AMETHYSTRUBY|AMETHYSTSAPPHIRE|CITRINE|CITRINEAMETHYST|CITRINEEMERALD|CITRINERUBY|CITRINESAPPHIRE|EMERALD|EMERALDAMETHYST|EMERALDCITRINE|EMERALDRUBY|EMERALDSAPPHIRE|RUBY|RUBYAMETHYST|RUBYCITRINE|RUBYEMERALD|RUBYSAPPHIRE|SAPPHIRE|SAPPHIREAMETHYST|SAPPHIRECITRINE|SAPPHIREEMERALD|SAPPHIRERUBY)\b/g;
 const REG_EX_STAT_DEUTCH 		= /\b(STR|RUS|WILL|DEX)\b/g;
-const REG_EX_DIE_DEUTCH 		= /(([+-]?[0-9]+)(RG|[RBGOP]|ST|SW|MI|MA|AC|MO|HE|SH|PO))\b/g;
+const REG_EX_DIE_DEUTCH 		= /(([+-]?[0-9]+)(RG|[BRGEVOSNAW]|ST|SW|MI|MA|AC|MO|HE|SH|PO))\b/g;
 
 const UI_SAVE_DEUTCH					= "Speichern";
 const UI_LOAD_DEUTCH					= "Belastung";
@@ -273,8 +278,13 @@ const UI_LEGEND_STAR_DEUTCH		= UI_STAR_DEUTCH	+ COLON_SPACE_ONE + DIE_STAR_DEUTC
 const UI_LEGEND_BLUE_DEUTCH		= UI_BLUE_DEUTCH	+ COLON_SPACE_ONE + DIE_BLUE_DEUTCH;
 const UI_LEGEND_RED_DEUTCH		= UI_RED_DEUTCH		+ COLON_SPACE_ONE + DIE_RED_DEUTCH;
 const UI_LEGEND_GREEN_DEUTCH		= UI_GREEN_DEUTCH	+ COLON_SPACE_ONE + DIE_GREEN_DEUTCH;
-const UI_LEGEND_ORANGE_DEUTCH		= UI_ORANGE_DEUTCH	+ COLON_SPACE_ONE + DIE_ORANGE_DEUTCH;
-const UI_LEGEND_PURPLE_DEUTCH		= UI_PURPLE_DEUTCH	+ COLON_SPACE_ONE + DIE_PURPLE_DEUTCH;
+const UI_LEGEND_YELLOW_DEUTCH	= UI_YELLOW_DEUTCH	+ COLON_SPACE_ONE + DIE_YELLOW_DEUTCH;
+const UI_LEGEND_PURPLE_DEUTCH	= UI_PURPLE_DEUTCH	+ COLON_SPACE_ONE + DIE_PURPLE_DEUTCH;
+const UI_LEGEND_ORANGE_DEUTCH	= UI_ORANGE_DEUTCH	+ COLON_SPACE_ONE + DIE_ORANGE_DEUTCH;
+const UI_LEGEND_BLACK_DEUTCH	= UI_BLACK_DEUTCH	+ COLON_SPACE_ONE + DIE_BLACK_DEUTCH;
+const UI_LEGEND_BROWN_DEUTCH	= UI_BROWN_DEUTCH	+ COLON_SPACE_ONE + DIE_BROWN_DEUTCH;
+const UI_LEGEND_PINK_DEUTCH	= UI_PINK_DEUTCH	+ COLON_SPACE_ONE + DIE_PINK_DEUTCH;
+const UI_LEGEND_WHITE_DEUTCH	= UI_WHITE_DEUTCH	+ COLON_SPACE_ONE + DIE_WHITE_DEUTCH;
 
 const UI_LEGEND_MELEE_DEUTCH		= UI_MELEE_DEUTCH		+ COLON_SPACE_ONE + SYMBOL_SWORD_DEUTCH;
 const UI_LEGEND_MISSILE_DEUTCH	= UI_MISSILE_DEUTCH		+ COLON_SPACE_ONE + SYMBOL_MISSILE_DEUTCH;
@@ -369,98 +379,98 @@ function stripStatsFromKeywordsDeutch() {
 	stripStatFromKeywords(STAT_DEX_DEUTCH);
 }
 
-function translateToEnglishFromDeutch(nonEnglish){
+function translateToEnglishFromDeutch(nonDEUTCH){
 	var result = '';
 	
-	if(nonEnglish == 'AUGMENT') {
+	if(nonDEUTCH == 'AUGMENT') {
 		result = 'AUGMENT';
-	} else if(nonEnglish == 'BANE') {
+	} else if(nonDEUTCH == 'BANE') {
 		result = 'BANE';
-	} else if(nonEnglish == 'HEX') {
+	} else if(nonDEUTCH == 'HEX') {
 		result = 'HEX';
-	} else if(nonEnglish == 'FIRE') {
+	} else if(nonDEUTCH == 'FIRE') {
 		result = 'FIRE';
-	} else if(nonEnglish == 'KNOCKDOWN') {
+	} else if(nonDEUTCH == 'KNOCKDOWN') {
 		result = 'KNOCKDOWN';
-	} else if(nonEnglish == 'ICE') {
+	} else if(nonDEUTCH == 'ICE') {
 		result = 'ICE';
-	} else if(nonEnglish == 'IMMOBILE') {
+	} else if(nonDEUTCH == 'IMMOBILE') {
 		result = 'IMMOBILE';
-	} else if(nonEnglish == 'POISON') {
+	} else if(nonDEUTCH == 'POISON') {
 		result = 'POISON';
-	} else if(nonEnglish == 'SLOW') {
+	} else if(nonDEUTCH == 'SLOW') {
 		result = 'SLOW';
-	} else if(nonEnglish == 'DANGEROUS') {
+	} else if(nonDEUTCH == 'DANGEROUS') {
 		result = 'DANGEROUS';
-	} else if(nonEnglish == 'IMMUNEBANE') {
+	} else if(nonDEUTCH == 'IMMUNEBANE') {
 		result = 'IMMUNEBANE';
-	} else if(nonEnglish == 'IMMUNEHEX') {
+	} else if(nonDEUTCH == 'IMMUNEHEX') {
 		result = 'IMMUNEHEX';
-	} else if(nonEnglish == 'IMMUNEFIRE') {
+	} else if(nonDEUTCH == 'IMMUNEFIRE') {
 		result = 'IMMUNEFIRE';
-	} else if(nonEnglish == 'IMMUNEKNOCKDOWN') {
+	} else if(nonDEUTCH == 'IMMUNEKNOCKDOWN') {
 		result = 'IMMUNEKNOCKDOWN';
-	} else if(nonEnglish == 'IMMUNEICE') {
+	} else if(nonDEUTCH == 'IMMUNEICE') {
 		result = 'IMMUNEICE';
-	} else if(nonEnglish == 'IMMUNEIMMOBILE') {
+	} else if(nonDEUTCH == 'IMMUNEIMMOBILE') {
 		result = 'IMMUNEIMMOBILE';
-	} else if(nonEnglish == 'IMMUNEPOISON') {
+	} else if(nonDEUTCH == 'IMMUNEPOISON') {
 		result = 'IMMUNEPOISON';
-	} else if(nonEnglish == 'IMMUNESLOW') {
+	} else if(nonDEUTCH == 'IMMUNESLOW') {
 		result = 'IMMUNESLOW';
-	} else if(nonEnglish == 'IMMUNEALL') {
+	} else if(nonDEUTCH == 'IMMUNEALL') {
 		result = 'IMMUNEALL';
-	} else if(nonEnglish == 'ALLAFFINITY') {
+	} else if(nonDEUTCH == 'ALLAFFINITY') {
 		result = 'ALLAFFINITY';
-	} else if(nonEnglish == 'AMETHYST') {
+	} else if(nonDEUTCH == 'AMETHYST') {
 		result = 'AMETHYST';
-	} else if(nonEnglish == 'AMETHYSTCITRINE') {
+	} else if(nonDEUTCH == 'AMETHYSTCITRINE') {
 		result = 'AMETHYSTCITRINE';
-	} else if(nonEnglish == 'AMETHYSTEMERALD') {
+	} else if(nonDEUTCH == 'AMETHYSTEMERALD') {
 		result = 'AMETHYSTEMERALD';
-	} else if(nonEnglish == 'AMETHYSTRUBY') {
+	} else if(nonDEUTCH == 'AMETHYSTRUBY') {
 		result = 'AMETHYSTRUBY';
-	} else if(nonEnglish == 'AMETHYSTSAPPHIRE') {
+	} else if(nonDEUTCH == 'AMETHYSTSAPPHIRE') {
 		result = 'AMETHYSTSAPPHIRE';
-	} else if(nonEnglish == 'CITRINE') {
+	} else if(nonDEUTCH == 'CITRINE') {
 		result = 'CITRINE';
-	} else if(nonEnglish == 'CITRINEAMETHYST') {
+	} else if(nonDEUTCH == 'CITRINEAMETHYST') {
 		result = 'CITRINEAMETHYST';
-	} else if(nonEnglish == 'CITRINEEMERALD') {
+	} else if(nonDEUTCH == 'CITRINEEMERALD') {
 		result = 'CITRINEEMERALD';
-	} else if(nonEnglish == 'CITRINERUBY') {
+	} else if(nonDEUTCH == 'CITRINERUBY') {
 		result = 'CITRINERUBY';
-	} else if(nonEnglish == 'CITRINESAPPHIRE') {
+	} else if(nonDEUTCH == 'CITRINESAPPHIRE') {
 		result = 'CITRINESAPPHIRE';
-	} else if(nonEnglish == 'EMERALD') {
+	} else if(nonDEUTCH == 'EMERALD') {
 		result = 'EMERALD';
-	} else if(nonEnglish == 'EMERALDAMETHYST') {
+	} else if(nonDEUTCH == 'EMERALDAMETHYST') {
 		result = 'EMERALDAMETHYST';
-	} else if(nonEnglish == 'EMERALDCITRINE') {
+	} else if(nonDEUTCH == 'EMERALDCITRINE') {
 		result = 'EMERALDCITRINE';
-	} else if(nonEnglish == 'EMERALDRUBY') {
+	} else if(nonDEUTCH == 'EMERALDRUBY') {
 		result = 'EMERALDRUBY';
-	} else if(nonEnglish == 'EMERALDSAPPHIRE') {
+	} else if(nonDEUTCH == 'EMERALDSAPPHIRE') {
 		result = 'EMERALDSAPPHIRE';
-	} else if(nonEnglish == 'RUBY') {
+	} else if(nonDEUTCH == 'RUBY') {
 		result = 'RUBY';
-	} else if(nonEnglish == 'RUBYAMETHYST') {
+	} else if(nonDEUTCH == 'RUBYAMETHYST') {
 		result = 'RUBYAMETHYST';
-	} else if(nonEnglish == 'RUBYCITRINE') {
+	} else if(nonDEUTCH == 'RUBYCITRINE') {
 		result = 'RUBYCITRINE';
-	} else if(nonEnglish == 'RUBYEMERALD') {
+	} else if(nonDEUTCH == 'RUBYEMERALD') {
 		result = 'RUBYEMERALD';
-	} else if(nonEnglish == 'RUBYSAPPHIRE') {
+	} else if(nonDEUTCH == 'RUBYSAPPHIRE') {
 		result = 'RUBYSAPPHIRE';
-	} else if(nonEnglish == 'SAPPHIRE') {
+	} else if(nonDEUTCH == 'SAPPHIRE') {
 		result = 'SAPPHIRE';
-	} else if(nonEnglish == 'SAPPHIREAMETHYST') {
+	} else if(nonDEUTCH == 'SAPPHIREAMETHYST') {
 		result = 'SAPPHIREAMETHYST';
-	} else if(nonEnglish == 'SAPPHIRECITRINE') {
+	} else if(nonDEUTCH == 'SAPPHIRECITRINE') {
 		result = 'SAPPHIRECITRINE';
-	} else if(nonEnglish == 'SAPPHIREEMERALD') {
+	} else if(nonDEUTCH == 'SAPPHIREEMERALD') {
 		result = 'SAPPHIREEMERALD';
-	} else if(nonEnglish == 'SAPPHIRERUBY') {
+	} else if(nonDEUTCH == 'SAPPHIRERUBY') {
 		result = 'SAPPHIRERUBY';
 	}
 		
@@ -470,7 +480,7 @@ function translateToEnglishFromDeutch(nonEnglish){
 function replaceDeutchSymbols(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToEnglishFromDeutch(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -480,7 +490,7 @@ function replaceDeutchSymbols(secondaryRe, text) {
 function replaceDeutchImmunities(secondaryRe, text) {
 	var translation = '';
 	return text.replace(secondaryRe,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToEnglishFromDeutch(match);
 		
 		var result = '<span class="keyword '+translation.toUpperCase()+'" data-key="'+toCamelCaseLoop(match)+'">'+toCamelCaseLoop(match)+'</span>';
 		return result;
@@ -490,7 +500,7 @@ function replaceDeutchImmunities(secondaryRe, text) {
 this.replaceDeutchAffinities=function(re, description){
 	var translation = '';
 	return description.replace(re,function(match){
-		translation = translateToEnglishFromEspanol(match);
+		translation = translateToEnglishFromDeutch(match);
 		
 		var result = '<div class="affinity '+translation.toUpperCase()+'" title="'+toCamelCaseLoop(match)+'"></div>';
 		return result;
@@ -508,10 +518,20 @@ function replaceDeutchStats(re, text) {
         c+="dice blue";
       }else if(p3===DIE_GREEN_DEUTCH){
         c+="dice green";
-      }else if(p3===DIE_ORANGE_DEUTCH){
-        c+="dice orange";
+      }else if(p3===DIE_YELLOW_DEUTCH){
+        c+="dice yellow";
       }else if(p3===DIE_PURPLE_DEUTCH){
         c+="dice purple";
+      }else if(p3===DIE_ORANGE_DEUTCH){
+        c+="dice orange";
+      }else if(p3===DIE_BLACK_DEUTCH){
+        c+="dice black";
+      }else if(p3===DIE_BROWN_DEUTCH){
+        c+="dice brown";
+      }else if(p3===DIE_PINK_DEUTCH){
+        c+="dice pink";
+      }else if(p3===DIE_WHITE_DEUTCH){
+        c+="dice white";
       }else if(p3===DIE_STAR_DEUTCH){
         c+="dice star";
       }else if(p3===SYMBOL_MAGIC_DEUTCH){

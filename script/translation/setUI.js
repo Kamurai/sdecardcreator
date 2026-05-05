@@ -1345,8 +1345,13 @@ function setUIDiceTypesGroup(){
 	setUILanguageLegendBlue();
 	setUILanguageLegendRed();
 	setUILanguageLegendGreen();
+	setUILanguageLegendYellow();	
+	setUILanguageLegendPurple();
 	setUILanguageLegendOrange();
-	setUILanguageLegendPurple();	
+	setUILanguageLegendBlack();
+	setUILanguageLegendBrown();
+	setUILanguageLegendPink();
+	setUILanguageLegendWhite();
 }
 
 function setUIDiceTypes() {
@@ -1394,13 +1399,13 @@ function setUILanguageLegendGreen() {
 	substituteLanguage("legendGreen", en, de, es, fr);
 }
 
-function setUILanguageLegendOrange() {
-	var en = UI_LEGEND_ORANGE_ENGLISH;
-	var de = UI_LEGEND_ORANGE_DEUTCH;
-	var es = UI_LEGEND_ORANGE_ESPANOL;
-	var fr = UI_LEGEND_ORANGE_FRANCAIS;
+function setUILanguageLegendYellow() {
+	var en = UI_LEGEND_YELLOW_ENGLISH;
+	var de = UI_LEGEND_YELLOW_DEUTCH;
+	var es = UI_LEGEND_YELLOW_ESPANOL;
+	var fr = UI_LEGEND_YELLOW_FRANCAIS;
 
-	substituteLanguage("legendOrange", en, de, es, fr);
+	substituteLanguage("legendYellow", en, de, es, fr);
 }
 
 function setUILanguageLegendPurple() {
@@ -1410,6 +1415,51 @@ function setUILanguageLegendPurple() {
 	var fr = UI_LEGEND_PURPLE_FRANCAIS;
 
 	substituteLanguage("legendPurple", en, de, es, fr);
+}
+
+function setUILanguageLegendOrange() {
+	var en = UI_LEGEND_ORANGE_ENGLISH;
+	var de = UI_LEGEND_ORANGE_DEUTCH;
+	var es = UI_LEGEND_ORANGE_ESPANOL;
+	var fr = UI_LEGEND_ORANGE_FRANCAIS;
+
+	substituteLanguage("legendOrange", en, de, es, fr);
+}
+
+function setUILanguageLegendBlack() {
+	var en = UI_LEGEND_BLACK_ENGLISH;
+	var de = UI_LEGEND_BLACK_DEUTCH;
+	var es = UI_LEGEND_BLACK_ESPANOL;
+	var fr = UI_LEGEND_BLACK_FRANCAIS;
+
+	substituteLanguage("legendBlack", en, de, es, fr);
+}
+
+function setUILanguageLegendBrown() {
+	var en = UI_LEGEND_BROWN_ENGLISH;
+	var de = UI_LEGEND_BROWN_DEUTCH;
+	var es = UI_LEGEND_BROWN_ESPANOL;
+	var fr = UI_LEGEND_BROWN_FRANCAIS;
+
+	substituteLanguage("legendBrown", en, de, es, fr);
+}
+
+function setUILanguageLegendPink() {
+	var en = UI_LEGEND_PINK_ENGLISH;
+	var de = UI_LEGEND_PINK_DEUTCH;
+	var es = UI_LEGEND_PINK_ESPANOL;
+	var fr = UI_LEGEND_PINK_FRANCAIS;
+
+	substituteLanguage("legendPink", en, de, es, fr);
+}
+
+function setUILanguageLegendWhite() {
+	var en = UI_LEGEND_WHITE_ENGLISH;
+	var de = UI_LEGEND_WHITE_DEUTCH;
+	var es = UI_LEGEND_WHITE_ESPANOL;
+	var fr = UI_LEGEND_WHITE_FRANCAIS;
+
+	substituteLanguage("legendWhite", en, de, es, fr);
 }
 
 function setUIModifiersGroup(){

@@ -80,8 +80,13 @@ function stripDiceFromKeywords() {
 	stripDiceFromKeywordsByColor('blue');
 	stripDiceFromKeywordsByColor('red');
 	stripDiceFromKeywordsByColor('green');
-	stripDiceFromKeywordsByColor('orange');
+	stripDiceFromKeywordsByColor('yellow');
 	stripDiceFromKeywordsByColor('purple');
+	stripDiceFromKeywordsByColor('orange');
+	stripDiceFromKeywordsByColor('black');
+	stripDiceFromKeywordsByColor('brown');
+	stripDiceFromKeywordsByColor('pink');
+	stripDiceFromKeywordsByColor('white');
 }
 
 function stripDiceFromKeywordsByColor(color) {
