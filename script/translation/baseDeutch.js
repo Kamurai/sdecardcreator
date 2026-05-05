@@ -379,7 +379,7 @@ function stripStatsFromKeywordsDeutch() {
 	stripStatFromKeywords(STAT_DEX_DEUTCH);
 }
 
-function translateToDEUTCHFromDeutch(nonDEUTCH){
+function translateToEnglishFromDeutch(nonDEUTCH){
 	var result = '';
 	
 	if(nonDEUTCH == 'AUGMENT') {

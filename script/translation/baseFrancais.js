@@ -380,7 +380,7 @@ function stripStatsFromKeywordsFrancais() {
 	stripStatFromKeywords(STAT_DEX_FRANCAIS);
 }
 
-function translateToFRANCAISFromFrancais(nonFRANCAIS){
+function translateToEnglishFromFrancais(nonFRANCAIS){
 	var result = '';
 	
 	if(nonFRANCAIS == 'AUGMENT') {

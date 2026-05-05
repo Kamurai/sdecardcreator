@@ -381,7 +381,7 @@ function stripStatsFromKeywordsEspanol() {
 	stripStatFromKeywords(STAT_DEX_ESPANOL);
 }
 
-function translateToESPANOLFromEspanol(nonESPANOL){
+function translateToEnglishFromEspanol(nonESPANOL){
 	var result = '';
 	
 	if(nonESPANOL == 'AUMENTO') {
