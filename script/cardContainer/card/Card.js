@@ -70,7 +70,7 @@ function Card(animate,appendAfter){
   					'<div class="background" style="background:url(\'image/background/fae_wood.jpg\') no-repeat;background-size:100% 100%"></div>'+
 
   					'<div class="keywordsSection">'+
-  						'<span class="clown hero monster arcadeSolo affinity CITRINE"></span>'+
+  						'<span class="cardAffinity hero monster arcadeSolo CITRINE"></span>'+
   						'<span class="keywordsList"></span>'+
 
   						'<div class="subStats">'+
