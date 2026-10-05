@@ -34,7 +34,7 @@ function HasItemStats(){
     //set parsed text
     var tItemStats = keywordStore.findKeywords(itemStats);
     tItemStats = keywordStore.findDice(tItemStats);
-    tItemStats = keywordStore.findAffinity(tItemStats);
+    tItemStats = keywordStore.findAffinities(tItemStats);
     tItemStats = keywordStore.findStats(tItemStats);
 
     this.node.find('.itemStats').html(tItemStats);
