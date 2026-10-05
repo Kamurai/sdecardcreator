@@ -136,13 +136,8 @@ display:inline-block;
 vertical-align:top;
 }
 
-
 .hero{
 display:block;
-}
-
-span.hero{
-display:inline;
 }
 
 .header a.shareButton{
